@@ -4,17 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecosistema de Recursos Digitales, Diseño y Marketing</title>
+    <title>Ecosistema Interactivo de Recursos, Diseño & Marketing</title>
     <style>
         :root {
             --bg: #f8fafc;
             --panel: #ffffff;
-            --ink: #334155;          /* Gris pizarra suave */
-            --title: #1e293b;        /* Título contrastado y suave */
-            --muted: #64748b;        /* Texto secundario claro */
-            --line: #e2e8f0;         /* Bordes sutiles */
-            --start-bg: #475569;
-            --start-text: #ffffff;
+            --panel-card: #ffffff;
+            --ink: #334155;
+            --title: #1e293b;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --active-tab-bg: #475569;
+            --active-tab-text: #ffffff;
             --p1: #0284c7;
             --p2: #db2777;
             --p3: #8b5cf6;
@@ -34,14 +35,15 @@
 
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
-                --bg: #151922;          /* Fondo oscuro aterciopelado */
-                --panel: #1e2430;       /* Superficie suave */
-                --ink: #cbd5e1;         /* Texto descansado */
+                --bg: #151922;
+                --panel: #1e2430;
+                --panel-card: #242c3b;
+                --ink: #cbd5e1;
                 --title: #f1f5f9;
                 --muted: #94a3b8;
                 --line: #2d3748;
-                --start-bg: #334155;
-                --start-text: #f8fafc;
+                --active-tab-bg: #334155;
+                --active-tab-text: #f8fafc;
                 --p1: #38bdf8;
                 --p2: #f472b6;
                 --p3: #a78bfa;
@@ -63,12 +65,13 @@
         :root[data-theme="dark"] {
             --bg: #151922;
             --panel: #1e2430;
+            --panel-card: #242c3b;
             --ink: #cbd5e1;
             --title: #f1f5f9;
             --muted: #94a3b8;
             --line: #2d3748;
-            --start-bg: #334155;
-            --start-text: #f8fafc;
+            --active-tab-bg: #334155;
+            --active-tab-text: #f8fafc;
             --p1: #38bdf8;
             --p2: #f472b6;
             --p3: #a78bfa;
@@ -99,7 +102,7 @@
         }
 
         header {
-            padding: 28px 24px 10px;
+            padding: 26px 24px 10px;
             max-width: 1440px;
             margin: 0 auto;
         }
@@ -125,7 +128,7 @@
             flex-wrap: wrap;
         }
 
-        .toolbar button {
+        .btn-ctrl {
             background: var(--panel);
             color: var(--ink);
             border: 1px solid var(--line);
@@ -137,9 +140,43 @@
             transition: all 0.2s ease;
         }
 
-        .toolbar button:hover {
+        .btn-ctrl:hover {
             border-color: var(--p1);
             color: var(--p1);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 240px;
+            max-width: 360px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--panel);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 6px 12px 6px 32px;
+            font: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--p1);
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 0.85rem;
+            pointer-events: none;
         }
 
         .filter-bar {
@@ -161,88 +198,124 @@
         }
 
         .filter-btn.active {
-            background: var(--start-bg);
-            color: var(--start-text);
-            border-color: var(--start-bg);
+            background: var(--active-tab-bg);
+            color: var(--active-tab-text);
+            border-color: var(--active-tab-bg);
             font-weight: 600;
         }
 
-        .legend {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            color: var(--muted);
-            font-size: 0.82rem;
-            margin-top: 8px;
+        /* NAVEGADOR DE CLUSTERS HORIZONTALES */
+        .stage-nav-wrapper {
+            max-width: 1440px;
+            margin: 16px auto 0;
+            padding: 0 24px;
         }
 
-        .legend span {
+        .stage-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stage-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--ink);
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.84rem;
+            font-weight: 500;
+            transition: all 0.15s ease;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
+        .stage-pill:hover {
+            border-color: var(--c);
+            transform: translateY(-1px);
+        }
+
+        .stage-pill.active {
+            background: var(--panel);
+            border-color: var(--c);
+            border-width: 2px;
+            color: var(--title);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .stage-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             display: inline-block;
         }
 
-        .container {
+        /* VISTAS DE DIAGRAMAS HORIZONTALES */
+        .view-container {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 16px 24px 40px;
+            padding: 20px 24px 40px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+        .section-header {
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            margin: 0 0 4px;
+            font-size: 1.25rem;
+            color: var(--title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .h-diagram-scroll {
+            overflow-x: auto;
+            padding: 10px 4px 20px;
+            margin-bottom: 30px;
+        }
+
+        .h-diagram-track {
+            display: flex;
             gap: 20px;
-            align-items: start;
+            align-items: stretch;
+            min-width: min-content;
         }
 
-        .cluster {
-            background: var(--panel);
+        /* TARJETA DE RECURSO */
+        .resource-card {
+            width: 320px;
+            flex-shrink: 0;
+            background: var(--panel-card);
             border: 1px solid var(--line);
             border-top: 4px solid var(--c);
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .cluster-header h2 {
-            margin: 0 0 4px;
-            font-size: 1.05rem;
-            color: var(--ink);
-        }
-
-        .cluster-header p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.78rem;
-        }
-
-        .cards-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .card {
-            background: var(--bg);
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            padding: 11px 12px;
-            transition: transform 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
+        .resource-card:hover {
+            transform: translateY(-3px);
             border-color: var(--c);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
         }
 
         .card-top {
@@ -250,20 +323,20 @@
             justify-content: space-between;
             align-items: baseline;
             gap: 8px;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
-        .card-top h3 {
+        .resource-card h3 {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            color: var(--ink);
+            color: var(--title);
         }
 
         .prio-badge {
             font-size: 0.65rem;
             font-weight: 700;
-            padding: 2px 5px;
+            padding: 2px 6px;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -288,50 +361,60 @@
             border: 1px solid var(--prio-spec-border);
         }
 
-        .card .role {
-            font-size: 0.7rem;
+        .resource-card .role {
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--c);
+            margin-bottom: 6px;
             text-transform: uppercase;
-            margin-bottom: 4px;
             letter-spacing: 0.03em;
         }
 
-        .card p {
-            margin: 0 0 6px;
+        .resource-card .desc {
+            margin: 0 0 10px;
             color: var(--muted);
-            font-size: 0.77rem;
-            line-height: 1.35;
+            font-size: 0.78rem;
+            line-height: 1.4;
+            flex-grow: 1;
         }
 
-        .card .impact {
+        .resource-card .impact {
             background: rgba(0, 0, 0, 0.025);
             border-left: 2px solid var(--c);
-            padding: 3px 6px;
+            padding: 6px 8px;
             border-radius: 0 4px 4px 0;
-            margin-bottom: 8px;
-            font-size: 0.72rem;
+            margin-bottom: 12px;
+            font-size: 0.73rem;
             color: var(--ink);
         }
 
-        :root[data-theme="dark"] .card .impact {
+        :root[data-theme="dark"] .resource-card .impact {
             background: rgba(255, 255, 255, 0.04);
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid var(--line);
         }
 
         .links-group {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             flex-wrap: wrap;
         }
 
         .links-group a {
             text-decoration: none;
-            font-size: 0.72rem;
+            font-size: 0.73rem;
+            font-weight: 600;
             padding: 2px 7px;
             border-radius: 5px;
-            border: 1px solid var(--line);
-            color: var(--ink);
-            background: var(--panel);
+            border: 1px solid var(--c);
+            color: var(--c);
+            background: transparent;
             transition: all 0.15s ease;
             display: inline-flex;
             align-items: center;
@@ -340,8 +423,127 @@
 
         .links-group a:hover {
             background: var(--c);
-            border-color: var(--c);
             color: #ffffff;
+        }
+
+        .step-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            color: var(--muted);
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* MODAL DE DETALLE INTERACTIVO */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-backdrop.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-top: 5px solid var(--c, var(--p1));
+            border-radius: 14px;
+            max-width: 580px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .modal-close:hover {
+            background: var(--line);
+            color: var(--title);
+        }
+
+        .modal-box h2 {
+            margin: 0 0 4px;
+            font-size: 1.3rem;
+            color: var(--title);
+        }
+
+        .modal-box .m-role {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--c, var(--p1));
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .modal-box .m-desc {
+            font-size: 0.88rem;
+            color: var(--ink);
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .modal-box .m-impact {
+            background: rgba(0, 0, 0, 0.03);
+            border-left: 3px solid var(--c, var(--p1));
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 18px;
+            font-size: 0.84rem;
+            color: var(--ink);
+        }
+
+        :root[data-theme="dark"] .modal-box .m-impact {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .modal-actions a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            background: var(--c, var(--p1));
+            color: #ffffff;
+        }
+
+        .modal-actions a:hover {
+            filter: brightness(1.15);
         }
 
         footer {
@@ -357,35 +559,54 @@
 
 <body>
     <header>
-        <h1>Ecosistema de Recursos Digitales, Diseño y Marketing</h1>
-        <p>Catálogo visual enriquecido con jerarquía por <strong>clusters temáticos</strong>, nivel de prioridad de uso y aporte operativo de cada herramienta.</p>
+        <h1>Ecosistema Interactivo de Recursos, Diseño & Marketing</h1>
+        <p>Catálogo visual con <strong>sub-diagramas horizontales interactivos</strong>. Haz clic en cualquier tarjeta para abrir su modal de inspección y accesos directos.</p>
         <div class="toolbar">
-            <button id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
+            <button class="btn-ctrl" id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar recurso, activo o formato...">
+            </div>
             <div class="filter-bar">
-                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Filtrar por Nivel:</span>
+                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Nivel:</span>
                 <button class="filter-btn active" data-prio="all">Todos</button>
-                <button class="filter-btn" data-prio="essential">⭐ Esencial / Diario</button>
+                <button class="filter-btn" data-prio="essential">⭐ Esencial</button>
                 <button class="filter-btn" data-prio="high">🔥 Alta Relevancia</button>
                 <button class="filter-btn" data-prio="spec">🎯 Especializado</button>
             </div>
-            <div class="legend" id="legend"></div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="grid" id="grid"></div>
+    <!-- NAVEGADOR DE SUB-DIAGRAMAS HORIZONTALES -->
+    <div class="stage-nav-wrapper">
+        <div class="stage-nav" id="stageNav"></div>
+    </div>
+
+    <!-- CONTENEDOR DE DIAGRAMAS HORIZONTALES -->
+    <div class="view-container" id="diagramsContainer"></div>
+
+    <!-- MODAL INTERACTIVO -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 id="mTitle">Nombre</h2>
+            <div class="m-role" id="mRole">Rol</div>
+            <div class="m-desc" id="mDesc">Descripción</div>
+            <div class="m-impact" id="mImpact">Aporte</div>
+            <div class="modal-actions" id="mActions"></div>
+        </div>
     </div>
 
     <footer>
-        Fuente: catálogo de recursos de «catalogo_herramientas.md». Diseñado para optimizar flujos de diseño, marketing y desarrollo web.
+        Ecosistema interactivo de recursos digitales y marketing. Catálogo modular desplegado en GitHub Pages.
     </footer>
 
     <script>
         const CLUSTERS = [
             {
                 id: "assets",
-                title: "1. Activos & Multimedia",
-                desc: "Fotografía HQ, texturas PBR 3D e iconografía vectorial",
+                title: "1. Activos Visuales & Multimedia",
+                desc: "Flujo horizontal de aprovisionamiento de fotos HQ, texturas PBR y componentes vectoriales",
                 color: "--p1",
                 items: [
                     { name: "Unsplash", prio: "essential", prioLabel: "Esencial", role: "Fotografía Editorial Libre", desc: "Banco de imágenes de alta resolución curadas y libres de regalías.", impact: "Aporte: Maquetación visual realista para landing pages y banners.", links: [["Web", "https://unsplash.com/"]] },
@@ -398,7 +619,7 @@
             {
                 id: "mockups",
                 title: "2. Laboratorio Gráfico & Mockups",
-                desc: "Composición rápida, mockups IA y optimización de medios",
+                desc: "Flujo de diseño de piezas, aislamiento de fondos y optimización de peso",
                 color: "--p2",
                 items: [
                     { name: "Canva & Gamma", prio: "essential", prioLabel: "Esencial", role: "Diseño Rápido & Diapositivas IA", desc: "Creación ágil de piezas de marca y generación automática de presentaciones.", impact: "Aporte: Pitch decks, creativos publicitarios y documentación visual veloz.", links: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]] },
@@ -412,7 +633,7 @@
             {
                 id: "inspiration",
                 title: "3. Inspiración UI/UX & Tipografía",
-                desc: "Patrones de producto, tendencias globales y fuentes variables",
+                desc: "Flujo de patrones de interacción de apps reales y tipografía variable",
                 color: "--p3",
                 items: [
                     { name: "Mobbin", prio: "essential", prioLabel: "Esencial", role: "Patrones de UX/UI en Producción", desc: "La mayor biblioteca de flujos reales de aplicaciones web y móviles líderes.", impact: "Aporte: Referencia exacta de onboarding, checkouts y paneles SaaS.", links: [["Explorar", "https://mobbin.com/browse/web/apps"]] },
@@ -425,7 +646,7 @@
             {
                 id: "marketing",
                 title: "4. Analítica, Tráfico & Ads",
-                desc: "Auditoría de audiencias, mapas de calor y bibliotecas de anuncios",
+                desc: "Flujo de inteligencia competitiva, medición conductual y campañas",
                 color: "--p4",
                 items: [
                     { name: "Google Analytics & Bitrix24", prio: "essential", prioLabel: "Esencial", role: "Métricas & Gestión Operativa", desc: "Seguimiento analítico de eventos web y panel colaborativo de tareas.", impact: "Aporte: Medición de conversión y control de entregables en equipo.", links: [["Analytics", "https://analytics.google.com/"], ["Bitrix24", "https://b24-ka7v0x.bitrix24.co/"]] },
@@ -438,8 +659,8 @@
             },
             {
                 id: "docs_learning",
-                title: "5. Documentación & PDFs",
-                desc: "Estándares web, referencias técnicas y utilidades de lectura",
+                title: "5. Documentación, PDFs & Estándares",
+                desc: "Flujo de referencia técnica, especificaciones web y análisis documental",
                 color: "--p5",
                 items: [
                     { name: "MDN Web Docs", prio: "essential", prioLabel: "Esencial", role: "Estándar Oficial Web (W3C)", desc: "Referencia autorizada para HTML semántico, especificaciones CSS y JS nativo.", impact: "Aporte: Consulta técnica definitiva con soporte cruzado entre navegadores.", links: [["Aprender", "https://developer.mozilla.org/en-US/docs/Learn_web_development"], ["Curriculum", "https://developer.mozilla.org/en-US/curriculum/"]] },
@@ -452,45 +673,119 @@
             }
         ];
 
-        const grid = document.getElementById("grid");
-        const legend = document.getElementById("legend");
+        let activePrio = "all";
+        let searchQuery = "";
+        let activeClusterId = "all";
 
-        function renderClusters(filterPrio = "all") {
-            grid.innerHTML = "";
-            legend.innerHTML = "";
+        const stageNav = document.getElementById("stageNav");
+        const diagramsContainer = document.getElementById("diagramsContainer");
 
-            CLUSTERS.forEach(cluster => {
-                const col = document.createElement("div");
-                col.className = "cluster";
-                col.style.setProperty("--c", "var(" + cluster.color + ")");
+        function buildStageNav() {
+            stageNav.innerHTML = "";
+
+            const allBtn = document.createElement("button");
+            allBtn.className = "stage-pill" + (activeClusterId === "all" ? " active" : "");
+            allBtn.style.setProperty("--c", "var(--ink)");
+            allBtn.textContent = "🌐 Ver Todos los Ecosistemas";
+            allBtn.addEventListener("click", () => {
+                activeClusterId = "all";
+                updateStageNav();
+                renderDiagrams();
+            });
+            stageNav.appendChild(allBtn);
+
+            CLUSTERS.forEach(c => {
+                const btn = document.createElement("button");
+                btn.className = "stage-pill" + (activeClusterId === c.id ? " active" : "");
+                btn.style.setProperty("--c", "var(" + c.color + ")");
+
+                const dot = document.createElement("span");
+                dot.className = "stage-dot";
+                dot.style.background = "var(" + c.color + ")";
+
+                btn.appendChild(dot);
+                btn.appendChild(document.createTextNode(c.title.split(". ")[1] || c.title));
+                btn.addEventListener("click", () => {
+                    activeClusterId = c.id;
+                    updateStageNav();
+                    renderDiagrams();
+                    const elTarget = document.getElementById("sec-" + c.id);
+                    if (elTarget) elTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+                stageNav.appendChild(btn);
+            });
+        }
+
+        function updateStageNav() {
+            document.querySelectorAll(".stage-pill").forEach((btn, idx) => {
+                if (idx === 0) {
+                    btn.classList.toggle("active", activeClusterId === "all");
+                } else {
+                    const c = CLUSTERS[idx - 1];
+                    btn.classList.toggle("active", activeClusterId === c.id);
+                }
+            });
+        }
+
+        function renderDiagrams() {
+            diagramsContainer.innerHTML = "";
+
+            const listToRender = activeClusterId === "all" 
+                ? CLUSTERS 
+                : CLUSTERS.filter(c => c.id === activeClusterId);
+
+            listToRender.forEach(cluster => {
+                const matchedItems = cluster.items.filter(item => {
+                    const matchPrio = activePrio === "all" || item.prio === activePrio;
+                    const q = searchQuery.toLowerCase().trim();
+                    const matchSearch = !q || 
+                        item.name.toLowerCase().includes(q) || 
+                        item.role.toLowerCase().includes(q) || 
+                        item.desc.toLowerCase().includes(q) ||
+                        item.impact.toLowerCase().includes(q);
+                    return matchPrio && matchSearch;
+                });
+
+                if (matchedItems.length === 0 && searchQuery) return;
+
+                const sec = document.createElement("section");
+                sec.id = "sec-" + cluster.id;
+                sec.style.setProperty("--c", "var(" + cluster.color + ")");
+                sec.style.marginBottom = "30px";
 
                 const header = document.createElement("div");
-                header.className = "cluster-header";
+                header.className = "section-header";
                 const h2 = document.createElement("h2");
-                h2.textContent = cluster.title;
+                const dot = document.createElement("span");
+                dot.className = "stage-dot";
+                dot.style.width = "10px";
+                dot.style.height = "10px";
+                dot.style.background = "var(" + cluster.color + ")";
+                h2.appendChild(dot);
+                h2.appendChild(document.createTextNode(cluster.title));
+
                 const p = document.createElement("p");
-                p.textContent = cluster.desc;
+                p.textContent = cluster.desc + " (" + matchedItems.length + " herramientas disponibles)";
                 header.appendChild(h2);
                 header.appendChild(p);
-                col.appendChild(header);
+                sec.appendChild(header);
 
-                const list = document.createElement("div");
-                list.className = "cards-list";
+                const scrollWrapper = document.createElement("div");
+                scrollWrapper.className = "h-diagram-scroll";
 
-                const filteredItems = cluster.items.filter(item => filterPrio === "all" || item.prio === filterPrio);
+                const track = document.createElement("div");
+                track.className = "h-diagram-track";
 
-                if (filteredItems.length === 0) {
-                    const empty = document.createElement("div");
-                    empty.className = "card";
-                    empty.style.opacity = "0.6";
-                    const pEmpty = document.createElement("p");
-                    pEmpty.textContent = "Sin herramientas en este nivel de prioridad.";
-                    empty.appendChild(pEmpty);
-                    list.appendChild(empty);
+                if (matchedItems.length === 0) {
+                    const emptyCard = document.createElement("div");
+                    emptyCard.className = "resource-card";
+                    emptyCard.style.opacity = "0.6";
+                    emptyCard.innerHTML = "<p class='desc'>Sin recursos que coincidan con los filtros actuales.</p>";
+                    track.appendChild(emptyCard);
                 } else {
-                    filteredItems.forEach(item => {
+                    matchedItems.forEach((item, index) => {
                         const card = document.createElement("div");
-                        card.className = "card";
+                        card.className = "resource-card";
                         card.style.setProperty("--c", "var(" + cluster.color + ")");
 
                         const top = document.createElement("div");
@@ -510,6 +805,7 @@
                         card.appendChild(role);
 
                         const desc = document.createElement("p");
+                        desc.className = "desc";
                         desc.textContent = item.desc;
                         card.appendChild(desc);
 
@@ -518,44 +814,98 @@
                         impact.textContent = item.impact;
                         card.appendChild(impact);
 
+                        const bottom = document.createElement("div");
+                        bottom.className = "card-bottom";
+
                         const links = document.createElement("div");
                         links.className = "links-group";
-                        item.links.forEach(([label, url]) => {
-                            const a = document.createElement("a");
-                            a.href = url;
-                            a.target = "_blank";
-                            a.rel = "noopener noreferrer";
-                            a.textContent = "↗ " + label;
-                            links.appendChild(a);
-                        });
-                        card.appendChild(links);
+                        if (item.links && item.links.length) {
+                            item.links.forEach(([label, url]) => {
+                                const a = document.createElement("a");
+                                a.href = url;
+                                a.target = "_blank";
+                                a.rel = "noopener noreferrer";
+                                a.textContent = "↗ " + label;
+                                a.addEventListener("click", (e) => e.stopPropagation());
+                                links.appendChild(a);
+                            });
+                        }
+                        bottom.appendChild(links);
+                        card.appendChild(bottom);
 
-                        list.appendChild(card);
+                        // Click interactivo para abrir Modal
+                        card.addEventListener("click", () => openModal(item, cluster.color));
+
+                        track.appendChild(card);
+
+                        if (index < matchedItems.length - 1) {
+                            const connector = document.createElement("div");
+                            connector.className = "step-connector";
+                            connector.textContent = "➔";
+                            track.appendChild(connector);
+                        }
                     });
                 }
 
-                col.appendChild(list);
-                grid.appendChild(col);
-
-                const legItem = document.createElement("span");
-                const dot = document.createElement("i");
-                dot.className = "dot";
-                dot.style.background = "var(" + cluster.color + ")";
-                legItem.appendChild(dot);
-                legItem.appendChild(document.createTextNode(cluster.title.split(". ")[1] || cluster.title));
-                legend.appendChild(legItem);
+                scrollWrapper.appendChild(track);
+                sec.appendChild(scrollWrapper);
+                diagramsContainer.appendChild(sec);
             });
         }
 
-        // Render inicial
-        renderClusters("all");
+        // Modal
+        const backdrop = document.getElementById("modalBackdrop");
+        const modalBox = document.getElementById("modalBox");
+        const mClose = document.getElementById("modalClose");
+        const mTitle = document.getElementById("mTitle");
+        const mRole = document.getElementById("mRole");
+        const mDesc = document.getElementById("mDesc");
+        const mImpact = document.getElementById("mImpact");
+        const mActions = document.getElementById("mActions");
+
+        function openModal(item, colorVar) {
+            modalBox.style.setProperty("--c", "var(" + colorVar + ")");
+            mTitle.textContent = item.name;
+            mRole.textContent = item.role + " — Prioridad: " + item.prioLabel;
+            mDesc.textContent = item.desc;
+            mImpact.textContent = item.impact;
+
+            mActions.innerHTML = "";
+            if (item.links && item.links.length) {
+                item.links.forEach(([label, url]) => {
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    a.textContent = "Abrir " + label + " ↗";
+                    mActions.appendChild(a);
+                });
+            }
+
+            backdrop.classList.add("open");
+        }
+
+        mClose.addEventListener("click", () => backdrop.classList.remove("open"));
+        backdrop.addEventListener("click", (e) => {
+            if (e.target === backdrop) backdrop.classList.remove("open");
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") backdrop.classList.remove("open");
+        });
+
+        // Búsqueda
+        document.getElementById("searchInput").addEventListener("input", (e) => {
+            searchQuery = e.target.value;
+            renderDiagrams();
+        });
 
         // Filtro por prioridad
         document.querySelectorAll(".filter-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
                 btn.classList.add("active");
-                renderClusters(btn.dataset.prio);
+                activePrio = btn.dataset.prio;
+                renderDiagrams();
             });
         });
 
@@ -566,6 +916,9 @@
             const current = root.getAttribute("data-theme") || (isDark ? "dark" : "light");
             root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
         });
+
+        buildStageNav();
+        renderDiagrams();
     </script>
 </body>
 
