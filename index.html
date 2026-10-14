@@ -376,9 +376,17 @@
         .card-top {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
             gap: 8px;
             margin-bottom: 4px;
+        }
+
+        .badges-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         .media-card h3 {
@@ -389,9 +397,9 @@
         }
 
         .rank-badge {
-            font-size: 0.64rem;
+            font-size: 0.62rem;
             font-weight: 700;
-            padding: 2px 6px;
+            padding: 2px 5px;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -414,6 +422,66 @@
             background: var(--prio-tier3-bg);
             color: var(--prio-tier3-text);
             border: 1px solid var(--prio-tier3-border);
+        }
+
+        .type-badge {
+            font-size: 0.60rem;
+            font-weight: 600;
+            padding: 2px 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--muted);
+        }
+
+        .type-badge.type-app {
+            border-color: rgba(37, 99, 235, 0.3);
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .type-badge.type-ext {
+            border-color: rgba(168, 85, 247, 0.3);
+            color: #9333ea;
+            background: rgba(168, 85, 247, 0.08);
+        }
+
+        .type-badge.type-lib {
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #059669;
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .type-badge.type-framework {
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #d97706;
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        :root[data-theme="dark"] .type-badge.type-app {
+            border-color: rgba(96, 165, 250, 0.4);
+            color: #93c5fd;
+            background: rgba(37, 99, 235, 0.15);
+        }
+
+        :root[data-theme="dark"] .type-badge.type-ext {
+            border-color: rgba(192, 132, 252, 0.4);
+            color: #d8b4fe;
+            background: rgba(168, 85, 247, 0.15);
+        }
+
+        :root[data-theme="dark"] .type-badge.type-lib {
+            border-color: rgba(52, 211, 153, 0.4);
+            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        :root[data-theme="dark"] .type-badge.type-framework {
+            border-color: rgba(251, 191, 36, 0.4);
+            color: #fcd34d;
+            background: rgba(245, 158, 11, 0.15);
         }
 
         .media-card .role {
@@ -648,9 +716,17 @@
             <div class="filter-bar">
                 <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Jerarquía:</span>
                 <button class="filter-btn active" data-prio="all">Todas</button>
-                <button class="filter-btn" data-prio="tier-1">👑 Top 1 / Estándar Oro</button>
-                <button class="filter-btn" data-prio="tier-2">🔥 Alta Relevancia</button>
+                <button class="filter-btn" data-prio="tier-1">👑 Top 1 Oro</button>
+                <button class="filter-btn" data-prio="tier-2">🔥 Alta</button>
                 <button class="filter-btn" data-prio="tier-3">🎯 Especializado</button>
+            </div>
+            <div class="filter-bar" style="margin-top:2px;">
+                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Tipo de Recurso:</span>
+                <button class="filter-btn type-filter-btn active" data-type="all">Todos</button>
+                <button class="filter-btn type-filter-btn" data-type="app">🌐 App / Plataforma Web</button>
+                <button class="filter-btn type-filter-btn" data-type="ext">🧩 Extensión / Desktop / UI</button>
+                <button class="filter-btn type-filter-btn" data-type="lib">📦 Librería / SDK</button>
+                <button class="filter-btn type-filter-btn" data-type="framework">⚡ Framework / Motor</button>
             </div>
         </div>
     </header>
@@ -690,6 +766,8 @@
                 tools: [
                     {
                         name: "Shadertoy",
+                        type: "app",
+                        typeLabel: "Plataforma Web / IDE Shaders",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Laboratorio Mundial de Shaders GLSL & Raymarching",
@@ -702,6 +780,8 @@
                     },
                     {
                         name: "WebGPU Samples (W3C)",
+                        type: "lib",
+                        typeLabel: "Repositorio / Demos Código",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Repositorio Oficial de Pruebas WebGPU & WGSL",
@@ -715,6 +795,8 @@
                     },
                     {
                         name: "The Book of Shaders",
+                        type: "app",
+                        typeLabel: "Libro Interactivo / Guía",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Biblia de Matemáticas Visuales & Fragment Shaders",
@@ -727,6 +809,8 @@
                     },
                     {
                         name: "Hugging Face Spaces (Visión & 3D)",
+                        type: "app",
+                        typeLabel: "Plataforma Web / Demos",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Laboratorio de Demos de IA de Imagen, Video & 3D",
@@ -739,6 +823,8 @@
                     },
                     {
                         name: "Desmos (Calculadora Gráfica de Curvas)",
+                        type: "app",
+                        typeLabel: "App Web / Calculadora",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Modelado Matemático de Curvas de Bézier & Interpolación",
@@ -751,6 +837,8 @@
                     },
                     {
                         name: "CodePen Spark & Creative Coding",
+                        type: "app",
+                        typeLabel: "Plataforma Web / Sandbox",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Showcase Comunitario de UI Experimental & Canvas",
@@ -764,6 +852,8 @@
                     },
                     {
                         name: "glTF Sample Viewer (Khronos Group)",
+                        type: "app",
+                        typeLabel: "Visor Web / Validador",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Visor & Validador de Renderizado PBR (Khronos)",
@@ -777,6 +867,8 @@
                     },
                     {
                         name: "Luma AI (Gaussian Splatting & 3D)",
+                        type: "app",
+                        typeLabel: "Plataforma Web / API",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Reconstrucción 3D Neuronal & Web Splat Viewer",
@@ -797,6 +889,8 @@
                 tools: [
                     {
                         name: "Three.js",
+                        type: "framework",
+                        typeLabel: "Motor / Framework 3D",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Motor 3D Estándar de la Web",
@@ -807,6 +901,8 @@
                     },
                     {
                         name: "PixiJS",
+                        type: "framework",
+                        typeLabel: "Motor 2D WebGL",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Motor 2D WebGL de Ultra Velocidad",
@@ -817,6 +913,8 @@
                     },
                     {
                         name: "Blender 3D",
+                        type: "app",
+                        typeLabel: "Software Desktop (Suite 3D)",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Suite de Creación & Optimización 3D",
@@ -827,6 +925,8 @@
                     },
                     {
                         name: "PlayCanvas",
+                        type: "framework",
+                        typeLabel: "Motor WebGPU & Editor",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Motor WebGPU Colaborativo",
@@ -837,6 +937,8 @@
                     },
                     {
                         name: "p5.js",
+                        type: "lib",
+                        typeLabel: "Librería Creative Coding",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Creative Coding & Arte Generativo",
@@ -855,6 +957,8 @@
                 tools: [
                     {
                         name: "GSAP (GreenSock)",
+                        type: "framework",
+                        typeLabel: "Motor / Plataforma Animación",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Plataforma Definitiva de Animación",
@@ -865,6 +969,8 @@
                     },
                     {
                         name: "Motion (Framer Motion)",
+                        type: "lib",
+                        typeLabel: "Librería React / Vanilla",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Animación React & Vanilla Declarativa",
@@ -875,6 +981,8 @@
                     },
                     {
                         name: "Theatre.js",
+                        type: "lib",
+                        typeLabel: "Librería & Editor Visual",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Editor Visual de Timelines en Navegador",
@@ -885,6 +993,8 @@
                     },
                     {
                         name: "Anime.js",
+                        type: "lib",
+                        typeLabel: "Librería Animación JS",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Animación Ligera de Propiedades & SVG",
@@ -903,6 +1013,8 @@
                 tools: [
                     {
                         name: "FFmpeg.wasm",
+                        type: "lib",
+                        typeLabel: "Librería WebAssembly",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Transcodificación de Video en el Cliente",
@@ -913,6 +1025,8 @@
                     },
                     {
                         name: "Kokoro TTS",
+                        type: "lib",
+                        typeLabel: "Modelo Open Weights / SDK",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Síntesis de Voz Neuronal Ultra Ligera",
@@ -923,6 +1037,8 @@
                     },
                     {
                         name: "Tone.js",
+                        type: "framework",
+                        typeLabel: "Framework Web Audio",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Framework de Audio Interactivo & Sintetizadores",
@@ -933,6 +1049,8 @@
                     },
                     {
                         name: "Wan 2.2 / HunyuanVideo",
+                        type: "lib",
+                        typeLabel: "Modelo Pesos Abiertos / CLI",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Modelos Open Weights de Video Generativo",
@@ -943,6 +1061,8 @@
                     },
                     {
                         name: "ComfyUI & n8n",
+                        type: "app",
+                        typeLabel: "Software Autoalojado / Web UI",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Orquestadores de Pipelines Multimedia",
@@ -953,6 +1073,8 @@
                     },
                     {
                         name: "Video.js",
+                        type: "lib",
+                        typeLabel: "Librería / Reproductor JS",
                         tier: "tier-3",
                         tierLabel: "Especializado",
                         role: "Reproductor Universal HTML5 / HLS",
@@ -971,6 +1093,8 @@
                 tools: [
                     {
                         name: "Poly Haven",
+                        type: "app",
+                        typeLabel: "Repositorio de Activos CC0",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Librería Pública CC0 de Texturas & HDRIs",
@@ -981,6 +1105,8 @@
                     },
                     {
                         name: "Unsplash & Pexels",
+                        type: "app",
+                        typeLabel: "Banco de Recursos Web",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Bancos de Fotografía & Video 4K Libres",
@@ -991,6 +1117,8 @@
                     },
                     {
                         name: "Remove.bg & iLoveIMG",
+                        type: "app",
+                        typeLabel: "App Web / Servicio",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Recorte IA & Compresión de Medios",
@@ -1001,6 +1129,8 @@
                     },
                     {
                         name: "Mockey.ai & SedShop",
+                        type: "app",
+                        typeLabel: "App Web de Mockups",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Generadores de Mockups con IA",
@@ -1011,6 +1141,8 @@
                     },
                     {
                         name: "Unicorn Icons",
+                        type: "lib",
+                        typeLabel: "Biblioteca Iconos SVG",
                         tier: "tier-3",
                         tierLabel: "Especializado",
                         role: "Iconos Vectoriales Microanimados",
@@ -1029,6 +1161,8 @@
                 tools: [
                     {
                         name: "Mobbin",
+                        type: "app",
+                        typeLabel: "Plataforma Web / Catálogo UI",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Biblioteca de Patrones UI/UX de Élite",
@@ -1039,6 +1173,8 @@
                     },
                     {
                         name: "Gamma App",
+                        type: "app",
+                        typeLabel: "Plataforma Web con IA",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Generación de Presentaciones con IA & Diseño Visual de Vanguardia",
@@ -1049,6 +1185,8 @@
                     },
                     {
                         name: "Pitch",
+                        type: "app",
+                        typeLabel: "App Web / Desktop de Presentaciones",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
                         role: "Plataforma de Presentaciones de Élite para Startups & Equipos Creativos",
@@ -1059,6 +1197,8 @@
                     },
                     {
                         name: "Canva",
+                        type: "app",
+                        typeLabel: "Suite de Diseño Web",
                         tier: "tier-2",
                         tierLabel: "Alta",
                         role: "Suite de Diseño Gráfico, Infografías & Presentaciones Visuales",
@@ -1072,6 +1212,7 @@
         ];
 
         let activeTier = "all";
+        let activeType = "all";
         let searchQuery = "";
         let activeClusterId = "all";
         let isGridMode = false;
@@ -1136,17 +1277,19 @@
             listToRender.forEach(cluster => {
                 const matchedTools = cluster.tools.filter(tool => {
                     const matchTier = activeTier === "all" || tool.tier === activeTier;
+                    const matchType = activeType === "all" || tool.type === activeType;
                     const q = searchQuery.toLowerCase().trim();
                     const matchSearch = !q || 
                         tool.name.toLowerCase().includes(q) || 
                         tool.role.toLowerCase().includes(q) || 
+                        (tool.typeLabel && tool.typeLabel.toLowerCase().includes(q)) ||
                         tool.what.toLowerCase().includes(q) ||
                         tool.impact.toLowerCase().includes(q) ||
                         tool.lic.toLowerCase().includes(q);
-                    return matchTier && matchSearch;
+                    return matchTier && matchType && matchSearch;
                 });
 
-                if (matchedTools.length === 0 && searchQuery) return;
+                if (matchedTools.length === 0 && (searchQuery || activeTier !== "all" || activeType !== "all")) return;
 
                 const sec = document.createElement("section");
                 sec.id = "sec-" + cluster.id;
@@ -1208,7 +1351,7 @@
                     const emptyCard = document.createElement("div");
                     emptyCard.className = "media-card";
                     emptyCard.style.opacity = "0.6";
-                    emptyCard.innerHTML = "<p class='what'>Sin herramientas que coincidan con la búsqueda o filtro de jerarquía.</p>";
+                    emptyCard.innerHTML = "<p class='what'>Sin herramientas que coincidan con los filtros seleccionados.</p>";
                     flow.appendChild(emptyCard);
                 } else {
                     matchedTools.forEach((tool, index) => {
@@ -1220,11 +1363,24 @@
                         top.className = "card-top";
                         const h3 = document.createElement("h3");
                         h3.textContent = tool.name;
+
+                        const badgesRow = document.createElement("div");
+                        badgesRow.className = "badges-row";
+
+                        if (tool.typeLabel) {
+                            const typeBadge = document.createElement("span");
+                            typeBadge.className = "type-badge type-" + (tool.type || "app");
+                            typeBadge.textContent = tool.typeLabel;
+                            badgesRow.appendChild(typeBadge);
+                        }
+
                         const badge = document.createElement("span");
                         badge.className = "rank-badge " + tool.tier;
                         badge.textContent = tool.tierLabel;
+                        badgesRow.appendChild(badge);
+
                         top.appendChild(h3);
-                        top.appendChild(badge);
+                        top.appendChild(badgesRow);
                         card.appendChild(top);
 
                         const role = document.createElement("div");
@@ -1301,7 +1457,8 @@
         function openModal(tool, colorVar) {
             modalBox.style.setProperty("--c", "var(" + colorVar + ")");
             mTitle.textContent = tool.name;
-            mRole.textContent = tool.role + " — Jerarquía: " + tool.tierLabel;
+            const typeInfo = tool.typeLabel ? " [" + tool.typeLabel + "]" : "";
+            mRole.textContent = tool.role + typeInfo + " — Jerarquía: " + tool.tierLabel;
             mDesc.textContent = tool.what;
             mImpact.textContent = tool.impact;
             mLic.textContent = "Licencia / Modelo: " + tool.lic;
@@ -1336,11 +1493,21 @@
         });
 
         // Filtro por jerarquía
-        document.querySelectorAll(".filter-btn").forEach(btn => {
+        document.querySelectorAll(".filter-bar:not([style*='margin-top']) .filter-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                document.querySelectorAll(".filter-bar:not([style*='margin-top']) .filter-btn").forEach(b => b.classList.remove("active"));
                 btn.classList.add("active");
                 activeTier = btn.dataset.prio;
+                renderDiagrams();
+            });
+        });
+
+        // Filtro por tipo de recurso
+        document.querySelectorAll(".type-filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".type-filter-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                activeType = btn.dataset.type;
                 renderDiagrams();
             });
         });
