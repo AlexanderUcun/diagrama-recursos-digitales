@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecosistema de Recursos Digitales, Diseño y Marketing</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --panel: #ffffff;
+            --ink: #0f172a;
+            --muted: #64748b;
+            --line: #cbd5e1;
+            --p1: #0284c7; /* Recursos Gráficos */
+            --p2: #ec4899; /* Mockups y Edición */
+            --p3: #8b5cf6; /* Inspiración y Branding */
+            --p4: #f59e0b; /* Analítica y Marketing */
+            --p5: #10b981; /* Documentación y Cursos */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #090d16;
+                --panel: #131b2e;
+                --ink: #f1f5f9;
+                --muted: #94a3b8;
+                --line: #26334d;
+                --p1: #38bdf8;
+                --p2: #f472b6;
+                --p3: #a78bfa;
+                --p4: #fbbf24;
+                --p5: #34d399;
+                --shadow: none;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #090d16;
+            --panel: #131b2e;
+            --ink: #f1f5f9;
+            --muted: #94a3b8;
+            --line: #26334d;
+            --p1: #38bdf8;
+            --p2: #f472b6;
+            --p3: #a78bfa;
+            --p4: #fbbf24;
+            --p5: #34d399;
+            --shadow: none;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        header {
+            padding: 30px 24px 12px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.7rem;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 80ch;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar button {
+            background: var(--panel);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 7px 14px;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .toolbar button:hover {
+            border-color: var(--p1);
+            color: var(--p1);
+        }
+
+        .legend {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 24px 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            align-items: start;
+        }
+
+        .cluster {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--c);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cluster-header h2 {
+            margin: 0 0 4px;
+            font-size: 1.05rem;
+            color: var(--ink);
+        }
+
+        .cluster-header p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 10px 12px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--c);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .card-top h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .badge {
+            font-size: 0.68rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        :root[data-theme="dark"] .badge {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card p {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 0.77rem;
+            line-height: 1.35;
+        }
+
+        .links-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .links-group a {
+            text-decoration: none;
+            font-size: 0.72rem;
+            padding: 2px 7px;
+            border-radius: 5px;
+            border: 1px solid var(--line);
+            color: var(--ink);
+            background: var(--panel);
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .links-group a:hover {
+            background: var(--c);
+            border-color: var(--c);
+            color: #ffffff;
+        }
+
+        footer {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 24px 40px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--line);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ecosistema de Recursos, Multimedia y Marketing Digital</h1>
+        <p>Catálogo visual complementario con clasificación orientada a librerías de activos, laboratorio de mockups, referencias de producto y analítica.</p>
+        <div class="toolbar">
+            <button id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
+            <div class="legend" id="legend"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <footer>
+        Fuente: catálogo de recursos complementarios de «herramientas_clasificadas.md» (Fases 7 y 8). Diseñado para liberar espacio en la barra de marcadores del navegador.
+    </footer>
+
+    <script>
+        const CLUSTERS = [
+            {
+                id: "assets",
+                title: "1. Activos & Multimedia",
+                desc: "Fotografía HQ, texturas PBR 3D e iconografía vectorial",
+                color: "--p1",
+                items: [
+                    { name: "Unsplash", cat: "Fotos HQ", desc: "Banco de imágenes de alta resolución sin derechos de autor", links: [["Web", "https://unsplash.com/"]] },
+                    { name: "Pexels", cat: "Video & Foto", desc: "Colección curada de videos en 4K e imágenes gratuitas", links: [["Web", "https://www.pexels.com/"]] },
+                    { name: "Pixabay", cat: "Vectores", desc: "Ilustraciones, vectores y clips libres para maquetación", links: [["Web", "https://pixabay.com/es/"]] },
+                    { name: "Poly Haven", cat: "3D & HDRIs", desc: "Texturas PBR, fondos HDRI y modelos con licencia CC0", links: [["Texturas", "https://polyhaven.com/textures"]] },
+                    { name: "Unicorn Icons", cat: "Iconos", desc: "Iconos vectoriales interactivos con microanimaciones CSS", links: [["Catálogo", "https://unicornicons.com/icons"]] },
+                    { name: "Picjumbo & Barnimages", cat: "Fondos", desc: "Recursos visuales temáticos y fotografía alternativa", links: [["Picjumbo", "https://picjumbo.com/"], ["Barnimages", "https://barnimages.com/"]] }
+                ]
+            },
+            {
+                id: "mockups",
+                title: "2. Laboratorio Gráfico & Mockups",
+                desc: "Generadores visuales, recorte IA y optimización de medios",
+                color: "--p2",
+                items: [
+                    { name: "Mockey.ai", cat: "Mockups IA", desc: "Generación automática de maquetas de productos y prendas con IA", links: [["Web", "https://mockey.ai/"]] },
+                    { name: "SedShop", cat: "Branding", desc: "Mockups realistas de pósters y elementos editoriales", links: [["Web", "https://www.sedshop.co/"]] },
+                    { name: "Remove.bg", cat: "Recorte", desc: "Eliminación instantánea de fondos en retratos y objetos", links: [["Web", "https://www.remove.bg/es/upload"]] },
+                    { name: "SeaArt AI", cat: "Editor IA", desc: "Suite de utilidades gráficas generativas y recorte fino", links: [["Herramientas", "https://www.seaart.ai/ai-tools/remove-background"]] },
+                    { name: "iLoveIMG", cat: "Compresión", desc: "Compresión masiva de peso, recorte y conversión web", links: [["Editor", "https://www.iloveimg.com/es"]] },
+                    { name: "Base64 Encoder", cat: "Optimización", desc: "Conversión de imágenes a cadenas URI para estilos embebidos", links: [["Conversor", "https://www.base64-image.de/"]] }
+                ]
+            },
+            {
+                id: "inspiration",
+                title: "3. Inspiración UI/UX & Fuentes",
+                desc: "Flujos de aplicaciones reales, tendencias y tipografía variable",
+                color: "--p3",
+                items: [
+                    { name: "Mobbin", cat: "UI/UX Flows", desc: "La mayor biblioteca de flujos y patrones de apps móviles y web", links: [["Explorar", "https://mobbin.com/browse/web/apps"]] },
+                    { name: "Layers.to", cat: "Comunidad UI", desc: "Muestra de proyectos y diseño contemporáneo de interfaces", links: [["Web", "https://layers.to/"]] },
+                    { name: "Rebrand Gallery", cat: "Identidad", desc: "Directorio de rediseños y sistemas visuales de marcas globales", links: [["Galería", "https://www.rebrand.gallery/"]] },
+                    { name: "LogoLounge & Logobook", cat: "Logotipos", desc: "Reportes de tendencias, isotipos y archivos históricos de marcas", links: [["LogoLounge", "https://www.logolounge.com/trend/2024-logo-trend-report"], ["Logobook", "http://logobook.com/business/publishing/"]] },
+                    { name: "VarType", cat: "Tipografía", desc: "Colección interactiva para probar fuentes variables dinámicas", links: [["Catálogo", "https://www.vartype.com/"]] },
+                    { name: "No Design Foundry", cat: "Rasterizer", desc: "Generador tipográfico experimental y rasterizado", links: [["Herramienta", "https://nodesignfoundry.com/rasterizer"]] }
+                ]
+            },
+            {
+                id: "marketing",
+                title: "4. Analítica, Tráfico & Ads",
+                desc: "Auditoría de audiencias, mapas de calor y bibliotecas de anuncios",
+                color: "--p4",
+                items: [
+                    { name: "Similarweb", cat: "Inteligencia", desc: "Métricas de tráfico, canales y estimaciones de competidores", links: [["Web", "https://www.similarweb.com/es/"]] },
+                    { name: "Microsoft Clarity", cat: "Heatmaps", desc: "Grabación gratuita de sesiones y mapas de clics sin límites", links: [["Portal", "https://clarity.microsoft.com/"]] },
+                    { name: "AnswerThePublic", cat: "Contenido", desc: "Mapeo de intenciones de búsqueda y preguntas que hace la gente", links: [["Explorar", "https://answerthepublic.com/"]] },
+                    { name: "Meta Ads Library", cat: "Espionaje Ads", desc: "Transparencia de anuncios activos en Facebook e Instagram", links: [["Biblioteca", "https://www.facebook.com/ads/library/?country=CO"]] },
+                    { name: "AdCreative.ai", cat: "Ads IA", desc: "Generación de creativos de conversión mediante modelos entrenados", links: [["Web", "https://www.adcreative.ai/"]] },
+                    { name: "Rows Spreadsheet", cat: "Data IA", desc: "Hojas de cálculo con integraciones automáticas de IA y APIs", links: [["Rows", "https://rows.com/"]] }
+                ]
+            },
+            {
+                id: "docs_learning",
+                title: "5. Documentación & PDFs",
+                desc: "Estándares web, referencias técnicas y utilidades de lectura",
+                color: "--p5",
+                items: [
+                    { name: "MDN Web Docs", cat: "Estándar Web", desc: "Referencia oficial de HTML, CSS, JavaScript y currículum frontend", links: [["Aprender", "https://developer.mozilla.org/en-US/docs/Learn_web_development"], ["Curriculum", "https://developer.mozilla.org/en-US/curriculum/"]] },
+                    { name: "Web.dev (Google)", cat: "Rendimiento", desc: "Mejores prácticas para Core Web Vitals y Codelabs prácticos", links: [["Guías", "https://web.dev/learn/?hl=es-419"], ["Codelabs", "https://codelabs.developers.google.com/?hl=es-419&category=web"]] },
+                    { name: "Brad Woods CSS Grid", cat: "Diagramación", desc: "Generador interactivo de CSS Layouts y estructuras modulares", links: [["Layout", "https://layout.bradwoods.io/"]] },
+                    { name: "iLovePDF & SmallPDF", cat: "Gestor PDF", desc: "Unión, compresión, firmas y traducción de documentos PDF", links: [["iLovePDF", "https://www.ilovepdf.com/es"], ["SmallPDF", "https://smallpdf.com/es/traducir-pdf"]] },
+                    { name: "ChatPDF & DeepL", cat: "Traducción & IA", desc: "Lectura inteligente de documentos con IA y traductor neuronal", links: [["ChatPDF", "https://www.chatpdf.com/"], ["DeepL", "https://www.deepl.com/es/translator"]] },
+                    { name: "Google Skills & Cursos", cat: "Certificación", desc: "Catálogos formativos en Cloud, Machine Learning y Data Science", links: [["Google Skills", "https://www.skills.google/catalog"], ["SCRUMstudy", "https://www.scrumstudy.com/certification/scrum-fundamentals-certified"]] }
+                ]
+            }
+        ];
+
+        const grid = document.getElementById("grid");
+        const legend = document.getElementById("legend");
+
+        CLUSTERS.forEach(cluster => {
+            const col = document.createElement("div");
+            col.className = "cluster";
+            col.style.setProperty("--c", "var(" + cluster.color + ")");
+
+            const header = document.createElement("div");
+            header.className = "cluster-header";
+            const h2 = document.createElement("h2");
+            h2.textContent = cluster.title;
+            const p = document.createElement("p");
+            p.textContent = cluster.desc;
+            header.appendChild(h2);
+            header.appendChild(p);
+            col.appendChild(header);
+
+            const list = document.createElement("div");
+            list.className = "cards-list";
+
+            cluster.items.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.style.setProperty("--c", "var(" + cluster.color + ")");
+
+                const top = document.createElement("div");
+                top.className = "card-top";
+                const h3 = document.createElement("h3");
+                h3.textContent = item.name;
+                const badge = document.createElement("span");
+                badge.className = "badge";
+                badge.textContent = item.cat;
+                top.appendChild(h3);
+                top.appendChild(badge);
+                card.appendChild(top);
+
+                const desc = document.createElement("p");
+                desc.textContent = item.desc;
+                card.appendChild(desc);
+
+                const links = document.createElement("div");
+                links.className = "links-group";
+                item.links.forEach(([label, url]) => {
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    a.textContent = "↗ " + label;
+                    links.appendChild(a);
+                });
+                card.appendChild(links);
+
+                list.appendChild(card);
+            });
+
+            col.appendChild(list);
+            grid.appendChild(col);
+
+            const legItem = document.createElement("span");
+            const dot = document.createElement("i");
+            dot.className = "dot";
+            dot.style.background = "var(" + cluster.color + ")";
+            legItem.appendChild(dot);
+            legItem.appendChild(document.createTextNode(cluster.title.split(". ")[1] || cluster.title));
+            legend.appendChild(legItem);
+        });
+
+        document.getElementById("theme").addEventListener("click", () => {
+            const root = document.documentElement;
+            const isDark = matchMedia("(prefers-color-scheme: dark)").matches;
+            const current = root.getAttribute("data-theme") || (isDark ? "dark" : "light");
+            root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+
+</html>
