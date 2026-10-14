@@ -638,12 +638,12 @@
 <body>
     <header>
         <h1>Ecosistema Multimedia &amp; Recursos Digitales</h1>
-        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio, activos visuales y ecosistema académico</strong>, clasificadas por prioridad y rol técnico.</p>
+        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio, activos visuales e investigación científica</strong>, clasificadas por prioridad y rol técnico.</p>
         <div class="toolbar">
             <button class="btn-ctrl" id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, 3D, animación, audio, universidad, papers...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, 3D, animación, papers, grafos, LaTeX, consenso...">
             </div>
             <div class="filter-bar">
                 <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Jerarquía:</span>
@@ -974,113 +974,119 @@
             },
             {
                 id: "academic_campus",
-                title: "6. Ecosistema Académico, Campus & Investigación",
-                desc: "Plataformas universitarias, aulas virtuales, herramientas de investigación científica y gestión de aprendizaje",
+                title: "6. Investigación Científica, Literatura & Análisis Académico",
+                desc: "Grafos de conocimiento científico, motores de literatura indexada, síntesis con IA y redacción técnica rigurosa",
                 color: "--c-acad",
                 tools: [
                     {
-                        name: "Universidad de Cundinamarca (CMAD)",
+                        name: "Semantic Scholar",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Campus Virtual & Plataforma Institucional",
-                        what: "Entorno virtual de aprendizaje institucional (Moodle/CMAD Pregrado) para gestión académica, entrega de proyectos, calificaciones y correo institucional.",
-                        impact: "Aporte: Centro neurálgico para el seguimiento del currículum universitario, entrega de trabajos de ingeniería y comunicación docente.",
-                        lic: "Acceso Institucional",
+                        role: "Motor de Búsqueda Científica con IA (Allen AI)",
+                        what: "Motor de búsqueda académico desarrollado por el Allen Institute for AI que indexa más de 200 millones de publicaciones científicas. Extrae automáticamente citas influyentes, resultados clave y resúmenes de una oración (TLDRs).",
+                        impact: "Aporte: Filtra el ruido bibliográfico identificando cuáles papers realmente impactaron la metodología del estudio frente a citas incidentales.",
+                        lic: "100% Gratuito / Open Science",
                         official: [
-                            ["CMAD Pregrado", "https://pregrado.ucundinamarca.edu.co/login/index.php"],
-                            ["Portal UDec", "https://www.ucundinamarca.edu.co/"],
-                            ["Correo UDec", "https://outlook.cloud.microsoft/mail/"]
+                            ["Portal Oficial", "https://www.semanticscholar.org/"]
                         ]
                     },
                     {
-                        name: "SENA (Zajuna & APE)",
+                        name: "Connected Papers",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Formación Técnica & Empleabilidad",
-                        what: "Plataforma de formación virtual Zajuna y Agencia Pública de Empleo para capacitación tecnológica práctica, certificación de competencias y vinculación laboral.",
-                        impact: "Aporte: Adquisición de competencias laborales técnicas aplicadas y acceso a convenios de prácticas y empleo con empresas de tecnología.",
-                        lic: "Público Oficial (Colombia)",
+                        role: "Grafos Visuales de Literatura & Linaje Científico",
+                        what: "Herramienta que analiza la similitud semántica y de co-citación entre artículos para construir grafos interactivos bidimensionales de todo el campo de investigación.",
+                        impact: "Aporte: Revela en segundos los papers fundacionales (origin paper), trabajos derivados y conexiones entre autores que no aparecen en búsquedas por palabras clave.",
+                        lic: "Freemium",
                         official: [
-                            ["Zajuna Campus", "https://zajuna.sena.edu.co/"],
-                            ["SENA Correo", "https://outlook.office.com/mail/"],
-                            ["APE Empleo", "https://agenciapublicadeempleo.sena.edu.co/"]
+                            ["Portal Oficial", "https://www.connectedpapers.com/"]
                         ]
                     },
                     {
-                        name: "Universidad EAN (Canvas Virtual)",
+                        name: "Consensus AI",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Campus Empresarial & Gestión Académica",
-                        what: "LMS Canvas interactivo, portal de servicios empresariales SAP y entorno de gestión para programas de educación superior y posgrados.",
-                        impact: "Aporte: Metodologías de proyectos ágiles, foros de discusión y formación con enfoque emprendedor e innovador.",
-                        lic: "Acceso Institucional",
+                        role: "Motor de Respuestas Científicas Basado en Evidencia",
+                        what: "Buscador de IA que extrae respuestas directamente de papers científicos revisados por pares (peer-reviewed) y genera un 'Consensus Meter' (% de estudios a favor, en contra o no concluyentes).",
+                        impact: "Aporte: Evita alucinaciones al validar afirmaciones técnicas con citas bibliográficas directas y rigurosas.",
+                        lic: "Freemium",
                         official: [
-                            ["Canvas EAN", "https://virtual.universidadean.edu.co/"],
-                            ["SAP EAN", "https://sap.universidadean.edu.co:8450/apps"],
-                            ["Correo EAN", "https://login.microsoftonline.com/"]
-                        ]
-                    },
-                    {
-                        name: "Google Scholar & ResearchGate",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Búsqueda Científica & Papers Indexados",
-                        what: "Motores globales de literatura académica, tesis de grado, artículos de conferencias IEEE/ACM y redes de colaboración científica entre investigadores.",
-                        impact: "Aporte: Respaldo bibliográfico con rigor científico para proyectos de grado, estado del arte e investigación de algoritmos.",
-                        lic: "100% Gratuito / Abierto",
-                        official: [
-                            ["Google Académico", "https://scholar.google.es/"],
-                            ["ResearchGate", "https://www.researchgate.net/"]
-                        ]
-                    },
-                    {
-                        name: "Zotero & Mendeley",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Gestión Bibliográfica & Citas APA/IEEE",
-                        what: "Software open-source y de escritorio para recopilar, organizar, anotar y citar automáticamente fuentes bibliográficas en documentos técnicos y tesis.",
-                        impact: "Aporte: Ahorra decenas de horas formateando referencias bibliográficas en formato APA 7 o IEEE con sincronización en la nube.",
-                        lic: "Open Source (AGPL) / Gratuito",
-                        official: [
-                            ["Zotero", "https://www.zotero.org/"],
-                            ["Mendeley", "https://www.mendeley.com/"]
+                            ["Portal Oficial", "https://consensus.app/"]
                         ]
                     },
                     {
                         name: "SciSpace (Typeset.io)",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Copiloto IA para Lectura de Papers",
-                        what: "Plataforma de IA diseñada específicamente para la comprensión de literatura científica. Permite hacer preguntas a PDFs, resumir metodología y explicar fórmulas matemáticas complejas.",
-                        impact: "Aporte: Acelera drásticamente la revisión del estado del arte permitiendo entender papers densos en minutos.",
+                        role: "Copiloto IA para Lectura & Desglose de Papers",
+                        what: "Plataforma de lectura interactiva de papers científicos. Permite resaltar fragmentos, tablas o fórmulas matemáticas complejas y pedir explicaciones paso a paso o resúmenes metodológicos.",
+                        impact: "Aporte: Reduce de horas a minutos la comprensión de papers densos o ramas matemáticas avanzadas.",
                         lic: "Freemium",
                         official: [
-                            ["SciSpace", "https://typeset.io/"]
+                            ["Portal Oficial", "https://typeset.io/"]
+                        ]
+                    },
+                    {
+                        name: "Zotero",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Gestor Bibliográfico & Citación Automática",
+                        what: "Software libre de referencia para recopilar, indexar, anotar PDFs y generar citas automáticas en formatos APA 7, IEEE, Chicago o Harvard con integración en procesadores de texto.",
+                        impact: "Aporte: Control absoluto y local de tu biblioteca de investigación sin depender de formatos cerrados ni pagos de suscripción.",
+                        lic: "Open Source (AGPL)",
+                        official: [
+                            ["Web Oficial", "https://www.zotero.org/"],
+                            ["GitHub", "https://github.com/zotero/zotero"]
+                        ]
+                    },
+                    {
+                        name: "Google Scholar & ResearchGate",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Literatura Global, Índices h & Red de Autores",
+                        what: "El mayor repositorio abierto de citas y métricas de impacto de autores (índice h, i10) junto con la red social de investigadores para solicitar preprints y comunicarse directamente con autores.",
+                        impact: "Aporte: Acceso a preprints, tesis doctorales y versiones en acceso abierto (Green Open Access) de papers con muro de pago.",
+                        lic: "100% Gratuito",
+                        official: [
+                            ["Google Académico", "https://scholar.google.es/"],
+                            ["ResearchGate", "https://www.researchgate.net/"]
+                        ]
+                    },
+                    {
+                        name: "Elicit",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Asistente de Investigación para Revisiones Sistemáticas",
+                        what: "Herramienta que automatiza la revisión sistemática de literatura: extrae variables, tamaños de muestra, metodologías y efectos de cientos de papers en una matriz comparativa editable.",
+                        impact: "Aporte: Ahorra semanas de trabajo tabular manual al construir el marco teórico o estado del arte de una tesis.",
+                        lic: "Freemium",
+                        official: [
+                            ["Portal Oficial", "https://elicit.com/"]
                         ]
                     },
                     {
                         name: "Overleaf (LaTeX)",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Editor Colaborativo de LaTeX en la Nube",
-                        what: "Entorno estándar para redacción de informes técnicos, publicaciones científicas y proyectos de ingeniería con fórmulas y formatos de conferencias.",
-                        impact: "Aporte: Permite escribir documentos científicos con maquetación tipográfica perfecta sin lidiar con configuraciones locales de TeX.",
+                        role: "Redacción Científica Colaborativa & Tipografía TeX",
+                        what: "Editor en la nube estándar para redacción de informes técnicos, papers de conferencias (IEEE, ACM, Springer) y fórmulas matemáticas complejas con compilación instantánea a PDF.",
+                        impact: "Aporte: Garantiza formato editorial profesional idéntico al exigido por las revistas científicas internacionales.",
                         lic: "Freemium",
                         official: [
-                            ["Overleaf", "https://www.overleaf.com/"]
+                            ["Portal Oficial", "https://www.overleaf.com/"]
                         ]
                     },
                     {
-                        name: "Draw.io & Balsamiq Cloud",
+                        name: "Draw.io (Diagramación Científica)",
                         tier: "tier-3",
                         tierLabel: "Especializado",
-                        role: "Diagramación Arquitectónica & Wireframing",
-                        what: "Herramientas especializadas para diseño de diagramas de flujo, diagramas UML, esquemas de bases de datos E-R y maquetación preliminar de software.",
-                        impact: "Aporte: Documentación visual clara y estructurada requerida en entregas metodológicas de proyectos universitarios.",
-                        lic: "Open Source / Freemium",
+                        role: "Diagramas de Arquitectura, UML & Flujos Metodológicos",
+                        what: "Herramienta de diagramación vectorial de código abierto para modelar algoritmos, pipelines de procesamiento de datos y esquemas de investigación exportables en SVG/PDF.",
+                        impact: "Aporte: Ilustraciones técnicas nítidas en alta resolución para incluir en papers sin pixelado.",
+                        lic: "Open Source (Apache 2.0)",
                         official: [
-                            ["Draw.io", "https://app.diagrams.net/"],
-                            ["Balsamiq Cloud", "https://balsamiq.cloud/"]
+                            ["Aplicación Web", "https://app.diagrams.net/"],
+                            ["GitHub", "https://github.com/jgraph/drawio"]
                         ]
                     }
                 ]

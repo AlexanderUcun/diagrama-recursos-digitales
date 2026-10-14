@@ -20,5 +20,5 @@ Catálogo visual interactivo y ecosistema de herramientas para desarrollo multim
 4. **Bancos de Recursos y Texturas PBR:** Poly Haven (Top 1 CC0), Unsplash, Pexels, Pixabay, Unicorn Icons.
 5. **Mockups, Edición y Utilidades Gráficas:** Mockey.ai, SedShop, Remove.bg, iLoveIMG, Base64 Encoder.
 6. **Inspiración UI/UX, Tipografía y Branding:** Mobbin (Top 1 flujos UX), Layers.to, Rebrand Gallery, LogoLounge, VarType.
-7. **Ecosistema Académico, Campus & Investigación:** Universidad de Cundinamarca (CMAD Pregrado), SENA (Zajuna & APE), Universidad EAN (Canvas Virtual), Google Scholar, ResearchGate, Zotero, SciSpace AI, Overleaf LaTeX, Draw.io.
+7. **Investigación Científica, Literatura & Análisis Académico:** Semantic Scholar (Top 1 grafos Allen AI), Connected Papers (Top 1 linaje y grafos), Consensus AI (Top 1 evidencia científica), SciSpace AI, Zotero, Google Scholar, Elicit, Overleaf LaTeX, Draw.io.
 8. **Documentación, Analítica y Consulta:** MDN Web Docs, Web.dev, Brad Woods Layout, Similarweb, Microsoft Clarity, iLovePDF.
