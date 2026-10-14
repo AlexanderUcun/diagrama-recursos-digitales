@@ -638,12 +638,12 @@
 <body>
     <header>
         <h1>Ecosistema Multimedia &amp; Recursos Digitales</h1>
-        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio, activos visuales e investigación científica</strong>, clasificadas por prioridad y rol técnico.</p>
+        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>laboratorio de shaders, WebGPU, 3D, animación, video generativo, audio y activos visuales</strong>, clasificadas por prioridad y rol técnico.</p>
         <div class="toolbar">
             <button class="btn-ctrl" id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, 3D, animación, papers, grafos, LaTeX, consenso...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar shaders, GLSL, WebGPU, 3D, animación, Bézier, splatting...">
             </div>
             <div class="filter-bar">
                 <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Jerarquía:</span>
@@ -683,120 +683,108 @@
     <script>
         const MULTIMEDIA_ECOSYSTEM = [
             {
-                id: "academic_campus",
-                title: "1. Investigación Científica, Literatura & Análisis Académico",
-                desc: "Grafos de conocimiento científico, motores de literatura indexada, síntesis con IA y redacción técnica rigurosa",
+                id: "graphics_lab",
+                title: "1. Laboratorio de Gráficos, Shaders & I+D Visual",
+                desc: "Playgrounds de shaders matemáticos (GLSL/WGSL), algoritmos de curvas, experimentos WebGPU y demos de visión por IA",
                 color: "--c-acad",
                 tools: [
                     {
-                        name: "Semantic Scholar",
+                        name: "Shadertoy",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Motor de Búsqueda Científica con IA (Allen AI)",
-                        what: "Motor de búsqueda académico desarrollado por el Allen Institute for AI que indexa más de 200 millones de publicaciones científicas. Extrae automáticamente citas influyentes, resultados clave y resúmenes de una oración (TLDRs).",
-                        impact: "Aporte: Filtra el ruido bibliográfico identificando cuáles papers realmente impactaron la metodología del estudio frente a citas incidentales.",
-                        lic: "100% Gratuito / Open Science",
+                        role: "Laboratorio Mundial de Shaders GLSL & Raymarching",
+                        what: "La plataforma de referencia global de computación gráfica donde desarrolladores e investigadores crean y comparten shaders procedimentales, efectos volumétricos y simulaciones de iluminación en tiempo real sin texturas.",
+                        impact: "Aporte: El mayor repositorio vivo de algoritmos visuales, ruido Perlin/Simplex y técnicas de renderizado por GPU en la web.",
+                        lic: "100% Gratuito / Comunidad",
                         official: [
-                            ["Portal Oficial", "https://www.semanticscholar.org/"]
+                            ["Portal Oficial", "https://www.shadertoy.com/"]
                         ]
                     },
                     {
-                        name: "Connected Papers",
+                        name: "WebGPU Samples (W3C)",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Grafos Visuales de Literatura & Linaje Científico",
-                        what: "Herramienta que analiza la similitud semántica y de co-citación entre artículos para construir grafos interactivos bidimensionales de todo el campo de investigación.",
-                        impact: "Aporte: Revela en segundos los papers fundacionales (origin paper), trabajos derivados y conexiones entre autores que no aparecen en búsquedas por palabras clave.",
-                        lic: "Freemium",
+                        role: "Repositorio Oficial de Pruebas WebGPU & WGSL",
+                        what: "Colección de demostraciones técnicas de vanguardia mantenida por el grupo de trabajo de WebGPU del W3C que enseña cómo aprovechar cómputo general en GPU (compute shaders), sombras en tiempo real y renderizado masivo.",
+                        impact: "Aporte: La guía práctica canónica para migrar de WebGL a la nueva generación de gráficos acelerados por hardware en navegadores.",
+                        lic: "Open Source (BSD-3-Clause)",
                         official: [
-                            ["Portal Oficial", "https://www.connectedpapers.com/"]
+                            ["Demos WebGPU", "https://webgpu.github.io/webgpu-samples/"],
+                            ["GitHub", "https://github.com/webgpu/webgpu-samples"]
                         ]
                     },
                     {
-                        name: "Consensus AI",
+                        name: "The Book of Shaders",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Motor de Respuestas Científicas Basado en Evidencia",
-                        what: "Buscador de IA que extrae respuestas directamente de papers científicos revisados por pares (peer-reviewed) y genera un 'Consensus Meter' (% de estudios a favor, en contra o no concluyentes).",
-                        impact: "Aporte: Evita alucinaciones al validar afirmaciones técnicas con citas bibliográficas directas y rigurosas.",
-                        lic: "Freemium",
+                        role: "Biblia de Matemáticas Visuales & Fragment Shaders",
+                        what: "Guía interactiva paso a paso escrita por Patricio Gonzalez Vivo que enseña la matemática detrás de los shaders de fragmentos: funciones trigonométricas, matrices de transformación, patrones de celdas Voronoi y física de la luz.",
+                        impact: "Aporte: Transforma las matemáticas abstractas en intuición gráfica y efectos visuales generativos de alta gama.",
+                        lic: "Open Educational (CC BY-NC-SA 3.0)",
                         official: [
-                            ["Portal Oficial", "https://consensus.app/"]
+                            ["Libro Interactivo", "https://thebookofshaders.com/?lan=es"]
                         ]
                     },
                     {
-                        name: "SciSpace (Typeset.io)",
+                        name: "Hugging Face Spaces (Visión & 3D)",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Copiloto IA para Lectura & Desglose de Papers",
-                        what: "Plataforma de lectura interactiva de papers científicos. Permite resaltar fragmentos, tablas o fórmulas matemáticas complejas y pedir explicaciones paso a paso o resúmenes metodológicos.",
-                        impact: "Aporte: Reduce de horas a minutos la comprensión de papers densos o ramas matemáticas avanzadas.",
-                        lic: "Freemium",
+                        role: "Laboratorio de Demos de IA de Imagen, Video & 3D",
+                        what: "Plataforma de experimentación con miles de aplicaciones interactivas en vivo (Gradio/Streamlit) para probar los últimos modelos de eliminación de fondo, Gaussian Splatting, NeRFs, super-resolución y video generativo.",
+                        impact: "Aporte: Permite validar la calidad de modelos de visión artificial antes de descargarlos o integrarlos vía API.",
+                        lic: "Acceso Gratuito / Demos Abiertas",
                         official: [
-                            ["Portal Oficial", "https://typeset.io/"]
+                            ["Spaces Visión & 3D", "https://huggingface.co/spaces?sort=trending"]
                         ]
                     },
                     {
-                        name: "Zotero",
+                        name: "Desmos (Calculadora Gráfica de Curvas)",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Gestor Bibliográfico & Citación Automática",
-                        what: "Software libre de referencia para recopilar, indexar, anotar PDFs y generar citas automáticas en formatos APA 7, IEEE, Chicago o Harvard con integración en procesadores de texto.",
-                        impact: "Aporte: Control absoluto y local de tu biblioteca de investigación sin depender de formatos cerrados ni pagos de suscripción.",
-                        lic: "Open Source (AGPL)",
-                        official: [
-                            ["Web Oficial", "https://www.zotero.org/"],
-                            ["GitHub", "https://github.com/zotero/zotero"]
-                        ]
-                    },
-                    {
-                        name: "Google Scholar & ResearchGate",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Literatura Global, Índices h & Red de Autores",
-                        what: "El mayor repositorio abierto de citas y métricas de impacto de autores (índice h, i10) junto con la red social de investigadores para solicitar preprints y comunicarse directamente con autores.",
-                        impact: "Aporte: Acceso a preprints, tesis doctorales y versiones en acceso abierto (Green Open Access) de papers con muro de pago.",
+                        role: "Modelado Matemático de Curvas de Bézier & Interpolación",
+                        what: "Calculadora gráfica interactiva utilizada por programadores gráficos y animadores para calibrar funciones de aceleración (*easing curves*), polinomios de Bézier y trayectorias espaciales complejas.",
+                        impact: "Aporte: Prototipado y previsualización de ecuaciones matemáticas antes de implementarlas en código JavaScript, GLSL o CSS.",
                         lic: "100% Gratuito",
                         official: [
-                            ["Google Académico", "https://scholar.google.es/"],
-                            ["ResearchGate", "https://www.researchgate.net/"]
+                            ["Calculadora", "https://www.desmos.com/calculator?lang=es"]
                         ]
                     },
                     {
-                        name: "Elicit",
+                        name: "CodePen Spark & Creative Coding",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Asistente de Investigación para Revisiones Sistemáticas",
-                        what: "Herramienta que automatiza la revisión sistemática de literatura: extrae variables, tamaños de muestra, metodologías y efectos de cientos de papers en una matriz comparativa editable.",
-                        impact: "Aporte: Ahorra semanas de trabajo tabular manual al construir el marco teórico o estado del arte de una tesis.",
-                        lic: "Freemium",
+                        role: "Showcase Comunitario de UI Experimental & Canvas",
+                        what: "El sandbox por excelencia donde la comunidad de desarrolladores frontend publica experimentos de tipografía cinética, shaders WebGL, partículas y microinteracciones de CSS avanzadas.",
+                        impact: "Aporte: Fuente inagotable de código fuente editable de trucos visuales e ingeniería de interacción.",
+                        lic: "Comunidad / Código Abierto",
                         official: [
-                            ["Portal Oficial", "https://elicit.com/"]
+                            ["CodePen Spark", "https://codepen.io/spark"],
+                            ["Explorar Pens", "https://codepen.io/trending"]
                         ]
                     },
                     {
-                        name: "Overleaf (LaTeX)",
+                        name: "glTF Sample Viewer (Khronos Group)",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Redacción Científica Colaborativa & Tipografía TeX",
-                        what: "Editor en la nube estándar para redacción de informes técnicos, papers de conferencias (IEEE, ACM, Springer) y fórmulas matemáticas complejas con compilación instantánea a PDF.",
-                        impact: "Aporte: Garantiza formato editorial profesional idéntico al exigido por las revistas científicas internacionales.",
-                        lic: "Freemium",
-                        official: [
-                            ["Portal Oficial", "https://www.overleaf.com/"]
-                        ]
-                    },
-                    {
-                        name: "Draw.io (Diagramación Científica)",
-                        tier: "tier-3",
-                        tierLabel: "Especializado",
-                        role: "Diagramas de Arquitectura, UML & Flujos Metodológicos",
-                        what: "Herramienta de diagramación vectorial de código abierto para modelar algoritmos, pipelines de procesamiento de datos y esquemas de investigación exportables en SVG/PDF.",
-                        impact: "Aporte: Ilustraciones técnicas nítidas en alta resolución para incluir en papers sin pixelado.",
+                        role: "Visor & Validador de Renderizado PBR (Khronos)",
+                        what: "Visor oficial del consorcio Khronos Group para auditar materiales PBR (*Physically Based Rendering*), mapas de normales, rugosidad y animaciones en archivos `.gltf`/`.glb`.",
+                        impact: "Aporte: Estándar de oro para verificar que los modelos 3D exportados desde Blender se verán exactamente iguales en Three.js o Babylon.js.",
                         lic: "Open Source (Apache 2.0)",
                         official: [
-                            ["Aplicación Web", "https://app.diagrams.net/"],
-                            ["GitHub", "https://github.com/jgraph/drawio"]
+                            ["Visor Web", "https://github.khronos.org/glTF-Sample-Viewer-Release/"],
+                            ["GitHub", "https://github.com/KhronosGroup/glTF-Sample-Viewer"]
+                        ]
+                    },
+                    {
+                        name: "Luma AI (Gaussian Splatting & 3D)",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Reconstrucción 3D Neuronal & Web Splat Viewer",
+                        what: "Tecnología de captura fotorrealista de escenas del mundo real mediante Gaussian Splatting en 3D ejecutable en tiempo real en navegadores con aceleración WebGL/WebGPU.",
+                        impact: "Aporte: Permite incorporar entornos 3D fotorrealistas de locaciones reales en experiencias web con tasa de refresco a 60 FPS.",
+                        lic: "Freemium",
+                        official: [
+                            ["Portal Oficial", "https://lumalabs.ai/"]
                         ]
                     }
                 ]

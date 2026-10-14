@@ -14,7 +14,7 @@ Catálogo visual interactivo y ecosistema de herramientas para desarrollo multim
 * **Paleta visual suave:** Modo oscuro y claro en gamas slate, armónicos y amables a la vista.
 
 ## Ecosistema de Clusters
-1. **Investigación Científica, Literatura & Análisis Académico:** Semantic Scholar (Top 1 grafos Allen AI), Connected Papers (Top 1 linaje y grafos), Consensus AI (Top 1 evidencia científica), SciSpace AI, Zotero, Google Scholar, Elicit, Overleaf LaTeX, Draw.io.
+1. **Laboratorio de Gráficos, Shaders & I+D Visual:** Shadertoy (Top 1 shaders GLSL), WebGPU Samples W3C (Top 1 estándar computación GPU), The Book of Shaders (Top 1 matemáticas visuales), Hugging Face Spaces (Visión/3D), Desmos (curvas Bézier), CodePen Creative, glTF Sample Viewer Khronos, Luma AI (Gaussian Splatting).
 2. **Motores 3D, Canvas y WebGPU:** Three.js (Top 1), PixiJS 2D, Blender 3D, PlayCanvas, p5.js.
 3. **Librerías de Animación e Interacción:** GSAP GreenSock (Top 1), Motion (Framer Motion), Theatre.js, Anime.js.
 4. **Audio, Procesamiento y Video IA:** FFmpeg.wasm (Top 1 en navegador), Kokoro TTS (voz neural ligera), Tone.js (Web Audio), Wan 2.2 / HunyuanVideo, ComfyUI, n8n, Video.js.
