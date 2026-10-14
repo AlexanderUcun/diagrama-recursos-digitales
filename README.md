@@ -16,7 +16,12 @@ Catálogo visual interactivo y ecosistema de herramientas para desarrollo multim
   * `🖼️ Texturas & PBR` (Poly Haven, Unsplash, Pexels, Mockey.ai, Unicorn Icons)
   * `🔬 Papers & I+D` (3DGS, Disney Principled BRDF, Wan 2.1 Video DiT, Shadertoy, WebGPU Samples)
 * **Divulgación Progresiva:** Tarjetas ligeras con rol técnico, frase directa de valor y chips compactos de conexión interactiva (`🔗 Conecta: [Blender] [Poly Haven]`). Al hacer clic se despliega el modal con la arquitectura, relaciones completas y enlaces oficiales.
-* **Filtros Técnicos Plegables:** Control desplegable `[⚙️ Filtros Técnicos ▾]` para filtrar por jerarquía (Top 1 Oro, Alta, Especializado) o tipo de artefacto (App, Extensión/CLI, Librería, Motor/Framework).
+* **Filtros Técnicos Plegables:** Control desplegable `[⚙️ Filtros Técnicos ▾]` para filtrar por mérito (*Top 1 Oro*, *Alta*, *Especializado*) o por la **Jerarquía de Identificación de Recursos**:
+  1. `📄 Paper / I+D` *(Fundamentos matemáticos y preprints seminales: 3DGS, Disney BRDF, Wan 2.1)*
+  2. `⚡ Motor / Framework` *(Columna vertebral arquitectónica: Three.js, PixiJS, GSAP)*
+  3. `📦 Librería / SDK` *(Componentes modulares importables: FFmpeg.wasm, Motion, Tone.js)*
+  4. `🧩 Extensión / Tool` *(Herramientas de entorno, validadores y plugins)*
+  5. `🌐 App / Web` *(Plataformas SaaS, suites de diseño y navegadores interactivos)*
 * **Vistas duales:** Alternador rápido entre vista de **Clusters de flujo horizontal (⇄)** y **Cuadrícula completa (☷)**.
 * **Buscador interactivo en tiempo real:** Búsqueda ágil por nombre de recurso, tipo de activo, formato o motor.
 * **Paleta visual suave:** Modo oscuro y claro en gamas slate, armónicos y amables a la vista.
