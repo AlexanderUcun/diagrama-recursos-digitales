@@ -683,298 +683,8 @@
     <script>
         const MULTIMEDIA_ECOSYSTEM = [
             {
-                id: "3d_webgpu",
-                title: "1. 3D, WebGL & Motores de Canvas",
-                desc: "Renderizado computacional 3D, mundos interactivos en el navegador y gráficos a 60+ FPS",
-                color: "--c-3d",
-                tools: [
-                    {
-                        name: "Three.js",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Motor 3D Estándar de la Web",
-                        what: "Librería líder mundial para renderizar gráficos 3D en navegadores mediante WebGL y WebGPU. Soporta shaders, físicas y modelos glTF/GLB.",
-                        impact: "Aporte: El 90% de la web interactiva 3D moderna corre sobre Three.js. Cero costes de licencias con rendimiento nativo de tarjeta gráfica.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://threejs.org/"], ["GitHub", "https://github.com/mrdoob/three.js/"]]
-                    },
-                    {
-                        name: "PixiJS",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Motor 2D WebGL de Ultra Velocidad",
-                        what: "Motor de renderizado 2D que aprovecha aceleración por hardware WebGL. Capaz de mover decenas de miles de sprites y efectos sin caídas de frames.",
-                        impact: "Aporte: Ideal para visualizaciones interactivas complejas, microjuegos y efectos visuales imposibles con el canvas DOM estándar.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://pixijs.com/"], ["GitHub", "https://github.com/pixijs/pixijs"]]
-                    },
-                    {
-                        name: "Blender 3D",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Suite de Creación & Optimización 3D",
-                        what: "Software open source de modelado, rigging y texturizado profesional. Estándar para exportar modelos ligeros en formato glTF/GLB para la web.",
-                        impact: "Aporte: Reemplaza suites costosas como Maya o 3ds Max. Crea modelos 3D optimizados para cargar en milisegundos en la web.",
-                        lic: "Open Source (GPL)",
-                        official: [["Web", "https://www.blender.org/"], ["Descargas", "https://www.blender.org/download/"]]
-                    },
-                    {
-                        name: "PlayCanvas",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Motor WebGPU Colaborativo",
-                        what: "Motor 3D ligero de alta fidelidad basado en WebGL/WebGPU con runtime 100% de código abierto.",
-                        impact: "Aporte: Perfecto para configuradores de producto en 3D interactivo en e-commerce y visualización arquitectónica en tiempo real.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://playcanvas.com/"], ["GitHub", "https://github.com/playcanvas/engine"]]
-                    },
-                    {
-                        name: "p5.js",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Creative Coding & Arte Generativo",
-                        what: "Librería de codificación creativa que simplifica el dibujo procedural, shaders matemáticos y gráficos reactivos a la interacción humana.",
-                        impact: "Aporte: Excelente para prototipar simulaciones físicas, data art interactivo y fondos cinemáticos interactivos.",
-                        lic: "Open Source (LGPL)",
-                        official: [["Web", "https://p5js.org/"], ["Editor", "https://editor.p5js.org/"]]
-                    }
-                ]
-            },
-            {
-                id: "anim_interactivity",
-                title: "2. Animación, Timelines & Movimiento",
-                desc: "Coreografías de fotogramas clave, animaciones de scroll y deformación vectorial fluida",
-                color: "--c-anim",
-                tools: [
-                    {
-                        name: "GSAP (GreenSock)",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Plataforma Definitiva de Animación",
-                        what: "Motor de animación JavaScript de alto rendimiento con ScrollTrigger, timelines secuenciales y deformación SVG sin tirones.",
-                        impact: "Aporte: La librería de animación más robusta del mundo para interfaces interactivas y experiencias visuales de alta gama.",
-                        lic: "Gratis en Web (GreenSock)",
-                        official: [["Web", "https://gsap.com/"], ["Docs", "https://gsap.com/docs/v3/"]]
-                    },
-                    {
-                        name: "Motion (Framer Motion)",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Animación React & Vanilla Declarativa",
-                        what: "Librería de animación declarativa basada en resortes físicos (springs), layout transitions y detección táctil precisa.",
-                        impact: "Aporte: Reduce drásticamente las líneas de código para transiciones suaves de interfaz y modales orgánicos.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://motion.dev/"], ["GitHub", "https://github.com/motiondivision/motion"]]
-                    },
-                    {
-                        name: "Theatre.js",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Editor Visual de Timelines en Navegador",
-                        what: "Librería de animación JavaScript que inyecta una interfaz gráfica de edición de fotogramas clave directamente en tu aplicación web.",
-                        impact: "Aporte: Coreografía escenas de Three.js y elementos web sin adivinar tiempos numéricos a ciegas en código.",
-                        lic: "Open Source (Apache 2.0)",
-                        official: [["Web", "https://www.theatrejs.com/"], ["GitHub", "https://github.com/theatre-js/theatre"]]
-                    },
-                    {
-                        name: "Anime.js",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Animación Ligera de Propiedades & SVG",
-                        what: "Motor ligero sin dependencias para animar propiedades CSS, atributos SVG, transformaciones y objetos JavaScript puros.",
-                        impact: "Aporte: Pesa menos de 15KB y permite crear microinteracciones atractivas sin sobrecargar el bundle del proyecto.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://animejs.com/"], ["GitHub", "https://github.com/juliangarnier/anime"]]
-                    }
-                ]
-            },
-            {
-                id: "audio_video_ai",
-                title: "3. Video, Audio & Generación con IA",
-                desc: "Síntesis de voz neural, modelos de video abiertos y procesamiento WebAssembly sin backend",
-                color: "--c-av",
-                tools: [
-                    {
-                        name: "FFmpeg.wasm",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Transcodificación de Video en el Cliente",
-                        what: "Port de FFmpeg compilado a WebAssembly para cortar, comprimir, convertir formatos y extraer audio directo en el navegador.",
-                        impact: "Aporte: Cero costes de procesamiento en servidor. Los usuarios procesan videos de forma instantánea y privada en su propia CPU.",
-                        lic: "Open Source (LGPL/GPL)",
-                        official: [["Web", "https://ffmpegwasm.netlify.app/"], ["GitHub", "https://github.com/ffmpegwasm/ffmpeg.wasm"]]
-                    },
-                    {
-                        name: "Kokoro TTS",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Síntesis de Voz Neuronal Ultra Ligera",
-                        what: "Modelo open-source de Text-to-Speech de 82M de parámetros con entonación hiperrealista y latencia casi nula.",
-                        impact: "Aporte: Alternativa gratuita y autoalojable a ElevenLabs. Permite narración de voz ilimitada sin pagar cuotas por caracter.",
-                        lic: "Open Source (Apache 2.0)",
-                        official: [["HuggingFace", "https://huggingface.co/hexgrad/Kokoro-82M"], ["GitHub", "https://github.com/hexgrad/kokoro"]]
-                    },
-                    {
-                        name: "Tone.js",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Framework de Audio Interactivo & Sintetizadores",
-                        what: "Capa de abstracción sobre la Web Audio API que incluye sintetizadores, efectos (reverb, chorus), secuenciador y reloj musical.",
-                        impact: "Aporte: Genera audio reactivo a clics, efectos de sonido procedurales y música interactiva sin cargar pesados archivos MP3.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web", "https://tonejs.github.io/"], ["GitHub", "https://github.com/Tonejs/Tone.js"]]
-                    },
-                    {
-                        name: "Wan 2.2 / HunyuanVideo",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Modelos Open Weights de Video Generativo",
-                        what: "Los modelos de generación de video de pesos abiertos más potentes de la industria (720p/1080p con física cinemática).",
-                        impact: "Aporte: Permite desplegar pipelines propios de Text-to-Video en GPUs locales o en nube sin depender de APIs privativas de pago.",
-                        lic: "Open Weights (Apache 2.0)",
-                        official: [["Wan 2.2 GitHub", "https://github.com/Wan-Video/Wan2.1"], ["HuggingFace", "https://huggingface.co/Wan-AI"]]
-                    },
-                    {
-                        name: "ComfyUI & n8n",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Orquestadores de Pipelines Multimedia",
-                        what: "ComfyUI para encadenar modelos de difusión de imagen/video mediante WebSocket, y n8n para flujos de automatización de medios.",
-                        impact: "Aporte: Conecta entrada de usuario con sintetizadores de audio y generadores visuales de forma 100% automatizada.",
-                        lic: "Open Source (GPL / Fair-code)",
-                        official: [["ComfyUI", "https://github.com/comfyanonymous/ComfyUI"], ["n8n", "https://n8n.io/"]]
-                    },
-                    {
-                        name: "Video.js",
-                        tier: "tier-3",
-                        tierLabel: "Especializado",
-                        role: "Reproductor Universal HTML5 / HLS",
-                        what: "Reproductor open-source de video y streaming adaptativo (HLS, DASH) con soporte integral de plugins y accesibilidad.",
-                        impact: "Aporte: Interfaz homogénea y personalizable en todos los dispositivos con buffering ultra optimizado.",
-                        lic: "Open Source (Apache 2.0)",
-                        official: [["Web", "https://videojs.com/"], ["GitHub", "https://github.com/videojs/video.js"]]
-                    }
-                ]
-            },
-            {
-                id: "assets_libraries",
-                title: "4. Bancos de Activos, Texturas CC0 & Mockups",
-                desc: "Archivos fotorrealistas de alta resolución, texturas PBR y generadores visuales",
-                color: "--c-assets",
-                tools: [
-                    {
-                        name: "Poly Haven",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Librería Pública CC0 de Texturas & HDRIs",
-                        what: "El mayor repositorio gratuito de texturas PBR de hasta 8K, fondos de iluminación HDRI y modelos 3D con licencia de dominio público.",
-                        impact: "Aporte: Activos de calidad cinematográfica directa para Three.js y Blender sin atribución obligatoria.",
-                        lic: "Dominio Público (CC0)",
-                        official: [["Web", "https://polyhaven.com/textures"], ["HDRIs", "https://polyhaven.com/hdris"]]
-                    },
-                    {
-                        name: "Unsplash & Pexels",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Bancos de Fotografía & Video 4K Libres",
-                        what: "Millones de fotografías de alta resolución y metrajes de video en 4K curados por fotógrafos globales.",
-                        impact: "Aporte: Fondos de video dinámicos y composiciones visuales sin pagar suscripciones a bancos comerciales.",
-                        lic: "Gratis / Libre",
-                        official: [["Unsplash", "https://unsplash.com/"], ["Pexels", "https://www.pexels.com/"]]
-                    },
-                    {
-                        name: "Remove.bg & iLoveIMG",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Recorte IA & Compresión de Medios",
-                        what: "Aislamiento inmediato de fondos con IA y compresión masiva por lotes para optimizar tiempos de carga web.",
-                        impact: "Aporte: Reducción drástica del peso de assets visuales para lograr 100/100 en Google Lighthouse.",
-                        lic: "Freemium",
-                        official: [["Remove.bg", "https://www.remove.bg/es/upload"], ["iLoveIMG", "https://www.iloveimg.com/es"]]
-                    },
-                    {
-                        name: "Mockey.ai & SedShop",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Generadores de Mockups con IA",
-                        what: "Creación automática de maquetas fotorrealistas sobre ropa, dispositivos tecnológicos y afiches editoriales.",
-                        impact: "Aporte: Visualización comercial instantánea de prototipos gráficos sin sesiones fotográficas.",
-                        lic: "Freemium",
-                        official: [["Mockey.ai", "https://mockey.ai/"], ["SedShop", "https://www.sedshop.co/"]]
-                    },
-                    {
-                        name: "Unicorn Icons",
-                        tier: "tier-3",
-                        tierLabel: "Especializado",
-                        role: "Iconos Vectoriales Microanimados",
-                        what: "Catálogo de iconos interactivos con animaciones CSS ligeras embebidas en el propio código SVG.",
-                        impact: "Aporte: Microinteracciones que cobran vida al pasar el cursor sin añadir librerías JS externas.",
-                        lic: "Freemium / Open Assets",
-                        official: [["Catálogo", "https://unicornicons.com/icons"]]
-                    }
-                ]
-            },
-            {
-                id: "inspiration_analytics",
-                title: "5. Inspiración UI/UX, Analítica & Docs",
-                desc: "Patrones de producto de referencia, mapas de calor y documentación oficial",
-                color: "--c-mkt",
-                tools: [
-                    {
-                        name: "Mobbin",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Biblioteca de Patrones UI/UX de Élite",
-                        what: "Catálogo con más de 300,000 pantallas reales de flujos de onboarding, checkouts y dashboards de las mejores apps del mundo.",
-                        impact: "Aporte: Resuelve dudas de arquitectura de información estudiando cómo lo solucionan empresas unicornio.",
-                        lic: "Freemium",
-                        official: [["Explorar", "https://mobbin.com/browse/web/apps"]]
-                    },
-                    {
-                        name: "Microsoft Clarity",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Mapas de Calor & Grabación de Sesiones",
-                        what: "Herramienta gratuita de analítica conductual sin límites de tráfico que graba cómo navegan tus usuarios.",
-                        impact: "Aporte: Revela exactamente dónde se pierden los usuarios o qué elementos visuales reciben más atención.",
-                        lic: "100% Gratuito (Microsoft)",
-                        official: [["Portal", "https://clarity.microsoft.com/"]]
-                    },
-                    {
-                        name: "MDN Web Docs & Web.dev",
-                        tier: "tier-1",
-                        tierLabel: "Top 1 Oro",
-                        role: "Estándares Oficiales & Core Web Vitals",
-                        what: "La documentación oficial de tecnologías web (W3C) y las guías de Google para optimización de métricas de rendimiento.",
-                        impact: "Aporte: Certeza absoluta de soporte entre navegadores y mejores prácticas de accesibilidad nativa.",
-                        lic: "Open Documentation",
-                        official: [["MDN", "https://developer.mozilla.org/en-US/"], ["Web.dev", "https://web.dev/"]]
-                    },
-                    {
-                        name: "Similarweb & Meta Ads Library",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Inteligencia Competitiva & Creativos",
-                        what: "Estimación de tráfico de competidores y repositorio público de anuncios activos en Facebook e Instagram.",
-                        impact: "Aporte: Identifica qué campañas de medios tienen éxito para validar ofertas y creativos de conversión.",
-                        lic: "Freemium / Público",
-                        official: [["Similarweb", "https://www.similarweb.com/es/"], ["Meta Ads Library", "https://www.facebook.com/ads/library/?country=CO"]]
-                    },
-                    {
-                        name: "Canva & Gamma",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Composición Gráfica & Pitch Decks IA",
-                        what: "Diseño visual ágil de marcas, infografías y diapositivas completas estructuradas mediante inteligencia artificial.",
-                        impact: "Aporte: Permite maquetar entregables y material corporativo en una fracción del tiempo habitual.",
-                        lic: "Freemium",
-                        official: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]]
-                    }
-                ]
-            },
-            {
                 id: "academic_campus",
-                title: "6. Investigación Científica, Literatura & Análisis Académico",
+                title: "1. Investigación Científica, Literatura & Análisis Académico",
                 desc: "Grafos de conocimiento científico, motores de literatura indexada, síntesis con IA y redacción técnica rigurosa",
                 color: "--c-acad",
                 tools: [
@@ -1088,6 +798,296 @@
                             ["Aplicación Web", "https://app.diagrams.net/"],
                             ["GitHub", "https://github.com/jgraph/drawio"]
                         ]
+                    }
+                ]
+            },
+            {
+                id: "3d_webgpu",
+                title: "2. 3D, WebGL & Motores de Canvas",
+                desc: "Renderizado computacional 3D, mundos interactivos en el navegador y gráficos a 60+ FPS",
+                color: "--c-3d",
+                tools: [
+                    {
+                        name: "Three.js",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Motor 3D Estándar de la Web",
+                        what: "Librería líder mundial para renderizar gráficos 3D en navegadores mediante WebGL y WebGPU. Soporta shaders, físicas y modelos glTF/GLB.",
+                        impact: "Aporte: El 90% de la web interactiva 3D moderna corre sobre Three.js. Cero costes de licencias con rendimiento nativo de tarjeta gráfica.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://threejs.org/"], ["GitHub", "https://github.com/mrdoob/three.js/"]]
+                    },
+                    {
+                        name: "PixiJS",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Motor 2D WebGL de Ultra Velocidad",
+                        what: "Motor de renderizado 2D que aprovecha aceleración por hardware WebGL. Capaz de mover decenas de miles de sprites y efectos sin caídas de frames.",
+                        impact: "Aporte: Ideal para visualizaciones interactivas complejas, microjuegos y efectos visuales imposibles con el canvas DOM estándar.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://pixijs.com/"], ["GitHub", "https://github.com/pixijs/pixijs"]]
+                    },
+                    {
+                        name: "Blender 3D",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Suite de Creación & Optimización 3D",
+                        what: "Software open source de modelado, rigging y texturizado profesional. Estándar para exportar modelos ligeros en formato glTF/GLB para la web.",
+                        impact: "Aporte: Reemplaza suites costosas como Maya o 3ds Max. Crea modelos 3D optimizados para cargar en milisegundos en la web.",
+                        lic: "Open Source (GPL)",
+                        official: [["Web", "https://www.blender.org/"], ["Descargas", "https://www.blender.org/download/"]]
+                    },
+                    {
+                        name: "PlayCanvas",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Motor WebGPU Colaborativo",
+                        what: "Motor 3D ligero de alta fidelidad basado en WebGL/WebGPU con runtime 100% de código abierto.",
+                        impact: "Aporte: Perfecto para configuradores de producto en 3D interactivo en e-commerce y visualización arquitectónica en tiempo real.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://playcanvas.com/"], ["GitHub", "https://github.com/playcanvas/engine"]]
+                    },
+                    {
+                        name: "p5.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Creative Coding & Arte Generativo",
+                        what: "Librería de codificación creativa que simplifica el dibujo procedural, shaders matemáticos y gráficos reactivos a la interacción humana.",
+                        impact: "Aporte: Excelente para prototipar simulaciones físicas, data art interactivo y fondos cinemáticos interactivos.",
+                        lic: "Open Source (LGPL)",
+                        official: [["Web", "https://p5js.org/"], ["Editor", "https://editor.p5js.org/"]]
+                    }
+                ]
+            },
+            {
+                id: "anim_interactivity",
+                title: "3. Animación, Timelines & Movimiento",
+                desc: "Coreografías de fotogramas clave, animaciones de scroll y deformación vectorial fluida",
+                color: "--c-anim",
+                tools: [
+                    {
+                        name: "GSAP (GreenSock)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Plataforma Definitiva de Animación",
+                        what: "Motor de animación JavaScript de alto rendimiento con ScrollTrigger, timelines secuenciales y deformación SVG sin tirones.",
+                        impact: "Aporte: La librería de animación más robusta del mundo para interfaces interactivas y experiencias visuales de alta gama.",
+                        lic: "Gratis en Web (GreenSock)",
+                        official: [["Web", "https://gsap.com/"], ["Docs", "https://gsap.com/docs/v3/"]]
+                    },
+                    {
+                        name: "Motion (Framer Motion)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Animación React & Vanilla Declarativa",
+                        what: "Librería de animación declarativa basada en resortes físicos (springs), layout transitions y detección táctil precisa.",
+                        impact: "Aporte: Reduce drásticamente las líneas de código para transiciones suaves de interfaz y modales orgánicos.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://motion.dev/"], ["GitHub", "https://github.com/motiondivision/motion"]]
+                    },
+                    {
+                        name: "Theatre.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Editor Visual de Timelines en Navegador",
+                        what: "Librería de animación JavaScript que inyecta una interfaz gráfica de edición de fotogramas clave directamente en tu aplicación web.",
+                        impact: "Aporte: Coreografía escenas de Three.js y elementos web sin adivinar tiempos numéricos a ciegas en código.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["Web", "https://www.theatrejs.com/"], ["GitHub", "https://github.com/theatre-js/theatre"]]
+                    },
+                    {
+                        name: "Anime.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Animación Ligera de Propiedades & SVG",
+                        what: "Motor ligero sin dependencias para animar propiedades CSS, atributos SVG, transformaciones y objetos JavaScript puros.",
+                        impact: "Aporte: Pesa menos de 15KB y permite crear microinteracciones atractivas sin sobrecargar el bundle del proyecto.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://animejs.com/"], ["GitHub", "https://github.com/juliangarnier/anime"]]
+                    }
+                ]
+            },
+            {
+                id: "audio_video_ai",
+                title: "4. Video, Audio & Generación con IA",
+                desc: "Síntesis de voz neural, modelos de video abiertos y procesamiento WebAssembly sin backend",
+                color: "--c-av",
+                tools: [
+                    {
+                        name: "FFmpeg.wasm",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Transcodificación de Video en el Cliente",
+                        what: "Port de FFmpeg compilado a WebAssembly para cortar, comprimir, convertir formatos y extraer audio directo en el navegador.",
+                        impact: "Aporte: Cero costes de procesamiento en servidor. Los usuarios procesan videos de forma instantánea y privada en su propia CPU.",
+                        lic: "Open Source (LGPL/GPL)",
+                        official: [["Web", "https://ffmpegwasm.netlify.app/"], ["GitHub", "https://github.com/ffmpegwasm/ffmpeg.wasm"]]
+                    },
+                    {
+                        name: "Kokoro TTS",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Síntesis de Voz Neuronal Ultra Ligera",
+                        what: "Modelo open-source de Text-to-Speech de 82M de parámetros con entonación hiperrealista y latencia casi nula.",
+                        impact: "Aporte: Alternativa gratuita y autoalojable a ElevenLabs. Permite narración de voz ilimitada sin pagar cuotas por caracter.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["HuggingFace", "https://huggingface.co/hexgrad/Kokoro-82M"], ["GitHub", "https://github.com/hexgrad/kokoro"]]
+                    },
+                    {
+                        name: "Tone.js",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Framework de Audio Interactivo & Sintetizadores",
+                        what: "Capa de abstracción sobre la Web Audio API que incluye sintetizadores, efectos (reverb, chorus), secuenciador y reloj musical.",
+                        impact: "Aporte: Genera audio reactivo a clics, efectos de sonido procedurales y música interactiva sin cargar pesados archivos MP3.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://tonejs.github.io/"], ["GitHub", "https://github.com/Tonejs/Tone.js"]]
+                    },
+                    {
+                        name: "Wan 2.2 / HunyuanVideo",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Modelos Open Weights de Video Generativo",
+                        what: "Los modelos de generación de video de pesos abiertos más potentes de la industria (720p/1080p con física cinemática).",
+                        impact: "Aporte: Permite desplegar pipelines propios de Text-to-Video en GPUs locales o en nube sin depender de APIs privativas de pago.",
+                        lic: "Open Weights (Apache 2.0)",
+                        official: [["Wan 2.2 GitHub", "https://github.com/Wan-Video/Wan2.1"], ["HuggingFace", "https://huggingface.co/Wan-AI"]]
+                    },
+                    {
+                        name: "ComfyUI & n8n",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Orquestadores de Pipelines Multimedia",
+                        what: "ComfyUI para encadenar modelos de difusión de imagen/video mediante WebSocket, y n8n para flujos de automatización de medios.",
+                        impact: "Aporte: Conecta entrada de usuario con sintetizadores de audio y generadores visuales de forma 100% automatizada.",
+                        lic: "Open Source (GPL / Fair-code)",
+                        official: [["ComfyUI", "https://github.com/comfyanonymous/ComfyUI"], ["n8n", "https://n8n.io/"]]
+                    },
+                    {
+                        name: "Video.js",
+                        tier: "tier-3",
+                        tierLabel: "Especializado",
+                        role: "Reproductor Universal HTML5 / HLS",
+                        what: "Reproductor open-source de video y streaming adaptativo (HLS, DASH) con soporte integral de plugins y accesibilidad.",
+                        impact: "Aporte: Interfaz homogénea y personalizable en todos los dispositivos con buffering ultra optimizado.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["Web", "https://videojs.com/"], ["GitHub", "https://github.com/videojs/video.js"]]
+                    }
+                ]
+            },
+            {
+                id: "assets_libraries",
+                title: "5. Bancos de Activos, Texturas CC0 & Mockups",
+                desc: "Archivos fotorrealistas de alta resolución, texturas PBR y generadores visuales",
+                color: "--c-assets",
+                tools: [
+                    {
+                        name: "Poly Haven",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Librería Pública CC0 de Texturas & HDRIs",
+                        what: "El mayor repositorio gratuito de texturas PBR de hasta 8K, fondos de iluminación HDRI y modelos 3D con licencia de dominio público.",
+                        impact: "Aporte: Activos de calidad cinematográfica directa para Three.js y Blender sin atribución obligatoria.",
+                        lic: "Dominio Público (CC0)",
+                        official: [["Web", "https://polyhaven.com/textures"], ["HDRIs", "https://polyhaven.com/hdris"]]
+                    },
+                    {
+                        name: "Unsplash & Pexels",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Bancos de Fotografía & Video 4K Libres",
+                        what: "Millones de fotografías de alta resolución y metrajes de video en 4K curados por fotógrafos globales.",
+                        impact: "Aporte: Fondos de video dinámicos y composiciones visuales sin pagar suscripciones a bancos comerciales.",
+                        lic: "Gratis / Libre",
+                        official: [["Unsplash", "https://unsplash.com/"], ["Pexels", "https://www.pexels.com/"]]
+                    },
+                    {
+                        name: "Remove.bg & iLoveIMG",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Recorte IA & Compresión de Medios",
+                        what: "Aislamiento inmediato de fondos con IA y compresión masiva por lotes para optimizar tiempos de carga web.",
+                        impact: "Aporte: Reducción drástica del peso de assets visuales para lograr 100/100 en Google Lighthouse.",
+                        lic: "Freemium",
+                        official: [["Remove.bg", "https://www.remove.bg/es/upload"], ["iLoveIMG", "https://www.iloveimg.com/es"]]
+                    },
+                    {
+                        name: "Mockey.ai & SedShop",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Generadores de Mockups con IA",
+                        what: "Creación automática de maquetas fotorrealistas sobre ropa, dispositivos tecnológicos y afiches editoriales.",
+                        impact: "Aporte: Visualización comercial instantánea de prototipos gráficos sin sesiones fotográficas.",
+                        lic: "Freemium",
+                        official: [["Mockey.ai", "https://mockey.ai/"], ["SedShop", "https://www.sedshop.co/"]]
+                    },
+                    {
+                        name: "Unicorn Icons",
+                        tier: "tier-3",
+                        tierLabel: "Especializado",
+                        role: "Iconos Vectoriales Microanimados",
+                        what: "Catálogo de iconos interactivos con animaciones CSS ligeras embebidas en el propio código SVG.",
+                        impact: "Aporte: Microinteracciones que cobran vida al pasar el cursor sin añadir librerías JS externas.",
+                        lic: "Freemium / Open Assets",
+                        official: [["Catálogo", "https://unicornicons.com/icons"]]
+                    }
+                ]
+            },
+            {
+                id: "inspiration_analytics",
+                title: "6. Inspiración UI/UX, Analítica & Docs",
+                desc: "Patrones de producto de referencia, mapas de calor y documentación oficial",
+                color: "--c-mkt",
+                tools: [
+                    {
+                        name: "Mobbin",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Biblioteca de Patrones UI/UX de Élite",
+                        what: "Catálogo con más de 300,000 pantallas reales de flujos de onboarding, checkouts y dashboards de las mejores apps del mundo.",
+                        impact: "Aporte: Resuelve dudas de arquitectura de información estudiando cómo lo solucionan empresas unicornio.",
+                        lic: "Freemium",
+                        official: [["Explorar", "https://mobbin.com/browse/web/apps"]]
+                    },
+                    {
+                        name: "Microsoft Clarity",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Mapas de Calor & Grabación de Sesiones",
+                        what: "Herramienta gratuita de analítica conductual sin límites de tráfico que graba cómo navegan tus usuarios.",
+                        impact: "Aporte: Revela exactamente dónde se pierden los usuarios o qué elementos visuales reciben más atención.",
+                        lic: "100% Gratuito (Microsoft)",
+                        official: [["Portal", "https://clarity.microsoft.com/"]]
+                    },
+                    {
+                        name: "MDN Web Docs & Web.dev",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Estándares Oficiales & Core Web Vitals",
+                        what: "La documentación oficial de tecnologías web (W3C) y las guías de Google para optimización de métricas de rendimiento.",
+                        impact: "Aporte: Certeza absoluta de soporte entre navegadores y mejores prácticas de accesibilidad nativa.",
+                        lic: "Open Documentation",
+                        official: [["MDN", "https://developer.mozilla.org/en-US/"], ["Web.dev", "https://web.dev/"]]
+                    },
+                    {
+                        name: "Similarweb & Meta Ads Library",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Inteligencia Competitiva & Creativos",
+                        what: "Estimación de tráfico de competidores y repositorio público de anuncios activos en Facebook e Instagram.",
+                        impact: "Aporte: Identifica qué campañas de medios tienen éxito para validar ofertas y creativos de conversión.",
+                        lic: "Freemium / Público",
+                        official: [["Similarweb", "https://www.similarweb.com/es/"], ["Meta Ads Library", "https://www.facebook.com/ads/library/?country=CO"]]
+                    },
+                    {
+                        name: "Canva & Gamma",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Composición Gráfica & Pitch Decks IA",
+                        what: "Diseño visual ágil de marcas, infografías y diapositivas completas estructuradas mediante inteligencia artificial.",
+                        impact: "Aporte: Permite maquetar entregables y material corporativo en una fracción del tiempo habitual.",
+                        lic: "Freemium",
+                        official: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]]
                     }
                 ]
             }
