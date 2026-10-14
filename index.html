@@ -661,16 +661,70 @@
             color: var(--ink);
         }
 
-        :root[data-theme="dark"] .modal-box .m-impact {
-            background: rgba(255, 255, 255, 0.05);
+        .modal-conns {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--line);
+        }
+
+        .modal-conns h4 {
+            margin: 0 0 8px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .conns-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .conn-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 0.78rem;
+            line-height: 1.4;
+            background: rgba(0, 0, 0, 0.02);
+            padding: 6px 10px;
+            border-radius: 6px;
+            border-left: 2px solid var(--c, var(--c-3d));
+        }
+
+        :root[data-theme="dark"] .conn-item {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .conn-target {
+            font-weight: 700;
+            color: var(--title);
+            white-space: nowrap;
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
+        }
+
+        .conn-target:hover {
+            color: var(--c, var(--c-3d));
+        }
+
+        .conn-rel {
+            color: var(--muted);
+            font-size: 0.75rem;
         }
 
         .modal-actions {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 20px;
-            padding-top: 16px;
+            margin-top: 18px;
+            padding-top: 14px;
             border-top: 1px solid var(--line);
         }
 
@@ -748,6 +802,7 @@
             <div class="m-desc" id="mDesc">Descripción</div>
             <div class="m-impact" id="mImpact">Aporte</div>
             <div class="tag-lic" id="mLic">Licencia</div>
+            <div class="modal-conns" id="mConns"></div>
             <div class="modal-actions" id="mActions"></div>
         </div>
     </div>
@@ -766,6 +821,7 @@
                 tools: [
                     {
                         name: "Shadertoy",
+                        conns: [{"target":"The Book of Shaders","rel":"Laboratorio en vivo para probar las fórmulas y patrones del libro"},{"target":"Three.js","rel":"Los shaders GLSL creados pueden importarse como ShaderMaterial en Three.js"}],
                         type: "app",
                         typeLabel: "Plataforma Web / IDE Shaders",
                         tier: "tier-1",
@@ -780,6 +836,7 @@
                     },
                     {
                         name: "WebGPU Samples (W3C)",
+                        conns: [{"target":"Three.js","rel":"Código canónico para implementar compute shaders y WebGPURenderer"},{"target":"PlayCanvas","rel":"Referencia oficial del consorcio W3C para gráficos WebGPU acelerados"}],
                         type: "lib",
                         typeLabel: "Repositorio / Demos Código",
                         tier: "tier-1",
@@ -795,6 +852,7 @@
                     },
                     {
                         name: "The Book of Shaders",
+                        conns: [{"target":"Shadertoy","rel":"Plataforma para experimentar las funciones de luz, fractales y ruido perlin"}],
                         type: "app",
                         typeLabel: "Libro Interactivo / Guía",
                         tier: "tier-1",
@@ -809,6 +867,7 @@
                     },
                     {
                         name: "Hugging Face Spaces (Visión & 3D)",
+                        conns: [{"target":"Luma AI (Gaussian Splatting & 3D)","rel":"Validación de modelos de visión por computador y reconstrucción 3D"},{"target":"Wan 2.2 / HunyuanVideo","rel":"Entorno para probar modelos generativos de video de pesos abiertos"}],
                         type: "app",
                         typeLabel: "Plataforma Web / Demos",
                         tier: "tier-2",
@@ -823,6 +882,7 @@
                     },
                     {
                         name: "Desmos (Calculadora Gráfica de Curvas)",
+                        conns: [{"target":"GSAP (GreenSock)","rel":"Calibración matemática de curvas Bézier y funciones de aceleración (*easing*)"},{"target":"Motion (Framer Motion)","rel":"Ajuste visual de resortes físicos (*spring physics*) antes del código"}],
                         type: "app",
                         typeLabel: "App Web / Calculadora",
                         tier: "tier-2",
@@ -837,6 +897,7 @@
                     },
                     {
                         name: "CodePen Spark & Creative Coding",
+                        conns: [{"target":"p5.js","rel":"Sandbox interactivo para compartir experimentos de arte generativo y canvas"},{"target":"GSAP (GreenSock)","rel":"Prototipado rápido de microinteracciones CSS y timelines"}],
                         type: "app",
                         typeLabel: "Plataforma Web / Sandbox",
                         tier: "tier-2",
@@ -852,6 +913,7 @@
                     },
                     {
                         name: "glTF Sample Viewer (Khronos Group)",
+                        conns: [{"target":"Blender 3D","rel":"Validador oficial para auditar materiales PBR exportados en .glb/.gltf"},{"target":"Three.js","rel":"Garantiza que la iluminación y rugosidad se vean idénticas en el navegador"}],
                         type: "app",
                         typeLabel: "Visor Web / Validador",
                         tier: "tier-2",
@@ -867,6 +929,7 @@
                     },
                     {
                         name: "Luma AI (Gaussian Splatting & 3D)",
+                        conns: [{"target":"Three.js","rel":"Visualización fotorrealista de nubes de puntos y splats en escenas web 3D"}],
                         type: "app",
                         typeLabel: "Plataforma Web / API",
                         tier: "tier-2",
@@ -889,6 +952,7 @@
                 tools: [
                     {
                         name: "Three.js",
+                        conns: [{"target":"Blender 3D","rel":"Carga modelos 3D y animaciones mediante GLTFLoader"},{"target":"Poly Haven","rel":"Aplica texturas PBR y fondos HDRI para iluminación global fotorrealista"},{"target":"Theatre.js","rel":"Control visual de cámaras y coreografía de fotogramas clave en 3D"}],
                         type: "framework",
                         typeLabel: "Motor / Framework 3D",
                         tier: "tier-1",
@@ -901,6 +965,7 @@
                     },
                     {
                         name: "PixiJS",
+                        conns: [{"target":"GSAP (GreenSock)","rel":"Animación a 60 FPS de miles de sprites acelerados por WebGL"}],
                         type: "framework",
                         typeLabel: "Motor 2D WebGL",
                         tier: "tier-1",
@@ -913,6 +978,7 @@
                     },
                     {
                         name: "Blender 3D",
+                        conns: [{"target":"Three.js","rel":"Exportación optimizada de geometría, texturas y esqueletos para la web"},{"target":"Poly Haven","rel":"Importación de materiales CC0 para modelado y texturizado profesional"}],
                         type: "app",
                         typeLabel: "Software Desktop (Suite 3D)",
                         tier: "tier-1",
@@ -925,6 +991,7 @@
                     },
                     {
                         name: "PlayCanvas",
+                        conns: [{"target":"Three.js","rel":"Alternativa con editor gráfico en la nube para escenas 3D WebGPU interactivas"}],
                         type: "framework",
                         typeLabel: "Motor WebGPU & Editor",
                         tier: "tier-2",
@@ -937,6 +1004,7 @@
                     },
                     {
                         name: "p5.js",
+                        conns: [{"target":"CodePen Spark & Creative Coding","rel":"Publicación de bocetos de arte generativo y visualizaciones de datos"}],
                         type: "lib",
                         typeLabel: "Librería Creative Coding",
                         tier: "tier-2",
@@ -957,6 +1025,7 @@
                 tools: [
                     {
                         name: "GSAP (GreenSock)",
+                        conns: [{"target":"Three.js","rel":"Animación fluida de coordenadas, rotaciones y opacidades de objetos 3D"},{"target":"Desmos (Calculadora Gráfica de Curvas)","rel":"Uso de ecuaciones matemáticas en curvas de movimiento personalizadas"}],
                         type: "framework",
                         typeLabel: "Motor / Plataforma Animación",
                         tier: "tier-1",
@@ -969,6 +1038,7 @@
                     },
                     {
                         name: "Motion (Framer Motion)",
+                        conns: [{"target":"Desmos (Calculadora Gráfica de Curvas)","rel":"Calibración de amortiguación y rigidez en transiciones de interfaz"}],
                         type: "lib",
                         typeLabel: "Librería React / Vanilla",
                         tier: "tier-1",
@@ -981,6 +1051,7 @@
                     },
                     {
                         name: "Theatre.js",
+                        conns: [{"target":"Three.js","rel":"Línea de tiempo visual embebida para animar escenas tridimensionales"}],
                         type: "lib",
                         typeLabel: "Librería & Editor Visual",
                         tier: "tier-2",
@@ -993,6 +1064,7 @@
                     },
                     {
                         name: "Anime.js",
+                        conns: [{"target":"Unicorn Icons","rel":"Animación ligera de trazos y propiedades de iconos SVG"}],
                         type: "lib",
                         typeLabel: "Librería Animación JS",
                         tier: "tier-2",
@@ -1013,6 +1085,7 @@
                 tools: [
                     {
                         name: "FFmpeg.wasm",
+                        conns: [{"target":"Video.js","rel":"Transcodificación y compresión directa en el cliente antes de la reproducción"},{"target":"Kokoro TTS","rel":"Mezcla y sincronización de pistas de voz sintética con video"}],
                         type: "lib",
                         typeLabel: "Librería WebAssembly",
                         tier: "tier-1",
@@ -1025,6 +1098,7 @@
                     },
                     {
                         name: "Kokoro TTS",
+                        conns: [{"target":"FFmpeg.wasm","rel":"Generación de audio neural que luego puede ensamblarse con video en WebAssembly"}],
                         type: "lib",
                         typeLabel: "Modelo Open Weights / SDK",
                         tier: "tier-1",
@@ -1037,6 +1111,7 @@
                     },
                     {
                         name: "Tone.js",
+                        conns: [{"target":"Three.js","rel":"Generación de audio espacial reactivo a la posición de la cámara 3D"}],
                         type: "framework",
                         typeLabel: "Framework Web Audio",
                         tier: "tier-1",
@@ -1049,6 +1124,7 @@
                     },
                     {
                         name: "Wan 2.2 / HunyuanVideo",
+                        conns: [{"target":"ComfyUI & n8n","rel":"Orquestación de pipelines de inferencia de video generativo con nodos visuales"}],
                         type: "lib",
                         typeLabel: "Modelo Pesos Abiertos / CLI",
                         tier: "tier-2",
@@ -1061,6 +1137,7 @@
                     },
                     {
                         name: "ComfyUI & n8n",
+                        conns: [{"target":"FFmpeg.wasm","rel":"Automatización de flujos de creación visual y post-procesamiento"}],
                         type: "app",
                         typeLabel: "Software Autoalojado / Web UI",
                         tier: "tier-2",
@@ -1073,6 +1150,7 @@
                     },
                     {
                         name: "Video.js",
+                        conns: [{"target":"FFmpeg.wasm","rel":"Reproductor universal optimizado para archivos procesados en el navegador"}],
                         type: "lib",
                         typeLabel: "Librería / Reproductor JS",
                         tier: "tier-3",
@@ -1093,6 +1171,7 @@
                 tools: [
                     {
                         name: "Poly Haven",
+                        conns: [{"target":"Blender 3D","rel":"Descarga directa de texturas PBR y cielos HDRI para modelado"},{"target":"Three.js","rel":"Mapeo de texturas físicas en tiempo real en la web"}],
                         type: "app",
                         typeLabel: "Repositorio de Activos CC0",
                         tier: "tier-1",
@@ -1105,6 +1184,7 @@
                     },
                     {
                         name: "Unsplash & Pexels",
+                        conns: [{"target":"Canva","rel":"Recursos fotográficos de alta resolución para composiciones visuales"},{"target":"Mockey.ai & SedShop","rel":"Fondos y texturas para presentación de mockups comerciales"}],
                         type: "app",
                         typeLabel: "Banco de Recursos Web",
                         tier: "tier-1",
@@ -1117,6 +1197,7 @@
                     },
                     {
                         name: "Remove.bg & iLoveIMG",
+                        conns: [{"target":"Canva","rel":"Aislamiento de siluetas y compresión de activos antes de diagramar"},{"target":"Mockey.ai & SedShop","rel":"Preparación de logos transparentes para montar sobre productos"}],
                         type: "app",
                         typeLabel: "App Web / Servicio",
                         tier: "tier-1",
@@ -1129,6 +1210,7 @@
                     },
                     {
                         name: "Mockey.ai & SedShop",
+                        conns: [{"target":"Pitch","rel":"Incrustación de mockups fotorrealistas en diapositivas para inversores"}],
                         type: "app",
                         typeLabel: "App Web de Mockups",
                         tier: "tier-2",
@@ -1141,6 +1223,7 @@
                     },
                     {
                         name: "Unicorn Icons",
+                        conns: [{"target":"Anime.js","rel":"Microanimaciones interactivas sobre iconos vectoriales SVG"}],
                         type: "lib",
                         typeLabel: "Biblioteca Iconos SVG",
                         tier: "tier-3",
@@ -1161,6 +1244,7 @@
                 tools: [
                     {
                         name: "Mobbin",
+                        conns: [{"target":"Pitch","rel":"Inspiración en patrones de onboarding y checkout para pitch decks de producto"},{"target":"Gamma App","rel":"Estructuración de flujos visuales para presentaciones de producto"}],
                         type: "app",
                         typeLabel: "Plataforma Web / Catálogo UI",
                         tier: "tier-1",
@@ -1173,6 +1257,7 @@
                     },
                     {
                         name: "Gamma App",
+                        conns: [{"target":"Pitch","rel":"Exportación a PowerPoint (.pptx) para seguir refinando el diseño corporativo"}],
                         type: "app",
                         typeLabel: "Plataforma Web con IA",
                         tier: "tier-1",
@@ -1185,6 +1270,7 @@
                     },
                     {
                         name: "Pitch",
+                        conns: [{"target":"Mockey.ai & SedShop","rel":"Integración de maquetas de producto dentro de presentaciones ejecutivas"},{"target":"Gamma App","rel":"Ambas ofrecen exportación de alta fidelidad a formato Microsoft PowerPoint (.pptx)"}],
                         type: "app",
                         typeLabel: "App Web / Desktop de Presentaciones",
                         tier: "tier-1",
@@ -1197,6 +1283,7 @@
                     },
                     {
                         name: "Canva",
+                        conns: [{"target":"Unsplash & Pexels","rel":"Biblioteca gráfica enriquecida con bancos de fotos libres"},{"target":"Remove.bg & iLoveIMG","rel":"Edición rápida de activos para diapositivas exportables a .pptx"}],
                         type: "app",
                         typeLabel: "Suite de Diseño Web",
                         tier: "tier-2",
@@ -1452,6 +1539,7 @@
         const mDesc = document.getElementById("mDesc");
         const mImpact = document.getElementById("mImpact");
         const mLic = document.getElementById("mLic");
+        const mConns = document.getElementById("mConns");
         const mActions = document.getElementById("mActions");
 
         function openModal(tool, colorVar) {
@@ -1462,6 +1550,47 @@
             mDesc.textContent = tool.what;
             mImpact.textContent = tool.impact;
             mLic.textContent = "Licencia / Modelo: " + tool.lic;
+
+            // Renderizar conexiones con otras herramientas
+            mConns.innerHTML = "";
+            if (tool.conns && tool.conns.length) {
+                const title = document.createElement("h4");
+                title.innerHTML = "🔗 Conexión &amp; Integración con otras herramientas:";
+                mConns.appendChild(title);
+
+                const list = document.createElement("div");
+                list.className = "conns-list";
+
+                tool.conns.forEach(c => {
+                    const item = document.createElement("div");
+                    item.className = "conn-item";
+
+                    const targetSpan = document.createElement("span");
+                    targetSpan.className = "conn-target";
+                    targetSpan.textContent = "➔ " + c.target;
+                    targetSpan.title = "Buscar y ver en el ecosistema";
+                    targetSpan.addEventListener("click", () => {
+                        backdrop.classList.remove("open");
+                        searchQuery = c.target;
+                        document.getElementById("searchInput").value = c.target;
+                        renderDiagrams();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
+
+                    const relSpan = document.createElement("span");
+                    relSpan.className = "conn-rel";
+                    relSpan.textContent = c.rel;
+
+                    item.appendChild(targetSpan);
+                    item.appendChild(relSpan);
+                    list.appendChild(item);
+                });
+
+                mConns.appendChild(list);
+                mConns.style.display = "block";
+            } else {
+                mConns.style.display = "none";
+            }
 
             mActions.innerHTML = "";
             if (tool.official && tool.official.length) {
