@@ -9,72 +9,81 @@
         :root {
             --bg: #f8fafc;
             --panel: #ffffff;
-            --ink: #0f172a;
-            --muted: #64748b;
-            --line: #cbd5e1;
+            --ink: #334155;          /* Gris pizarra suave */
+            --title: #1e293b;        /* Título contrastado y suave */
+            --muted: #64748b;        /* Texto secundario claro */
+            --line: #e2e8f0;         /* Bordes sutiles */
+            --start-bg: #475569;
+            --start-text: #ffffff;
             --p1: #0284c7;
-            --p2: #ec4899;
+            --p2: #db2777;
             --p3: #8b5cf6;
-            --p4: #f59e0b;
-            --p5: #10b981;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --p4: #d97706;
+            --p5: #059669;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
             --prio-essential-bg: #eff6ff;
-            --prio-essential-border: #3b82f6;
-            --prio-essential-text: #1d4ed8;
+            --prio-essential-border: #93c5fd;
+            --prio-essential-text: #2563eb;
             --prio-high-bg: #ecfdf5;
-            --prio-high-border: #10b981;
-            --prio-high-text: #047857;
+            --prio-high-border: #a7f3d0;
+            --prio-high-text: #059669;
             --prio-spec-bg: #f8fafc;
-            --prio-spec-border: #94a3b8;
+            --prio-spec-border: #cbd5e1;
             --prio-spec-text: #64748b;
         }
 
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
-                --bg: #090d16;
-                --panel: #131b2e;
-                --ink: #f1f5f9;
+                --bg: #151922;          /* Fondo oscuro aterciopelado */
+                --panel: #1e2430;       /* Superficie suave */
+                --ink: #cbd5e1;         /* Texto descansado */
+                --title: #f1f5f9;
                 --muted: #94a3b8;
-                --line: #26334d;
+                --line: #2d3748;
+                --start-bg: #334155;
+                --start-text: #f8fafc;
                 --p1: #38bdf8;
                 --p2: #f472b6;
                 --p3: #a78bfa;
                 --p4: #fbbf24;
                 --p5: #34d399;
-                --shadow: none;
-                --prio-essential-bg: rgba(59, 130, 246, 0.15);
-                --prio-essential-border: #60a5fa;
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+                --prio-essential-bg: rgba(59, 130, 246, 0.12);
+                --prio-essential-border: rgba(96, 165, 250, 0.4);
                 --prio-essential-text: #93c5fd;
-                --prio-high-bg: rgba(16, 185, 129, 0.15);
-                --prio-high-border: #34d399;
+                --prio-high-bg: rgba(16, 185, 129, 0.12);
+                --prio-high-border: rgba(52, 211, 153, 0.4);
                 --prio-high-text: #6ee7b7;
-                --prio-spec-bg: rgba(148, 163, 184, 0.1);
-                --prio-spec-border: #64748b;
-                --prio-spec-text: #cbd5e1;
+                --prio-spec-bg: rgba(148, 163, 184, 0.08);
+                --prio-spec-border: rgba(148, 163, 184, 0.25);
+                --prio-spec-text: #94a3b8;
             }
         }
 
         :root[data-theme="dark"] {
-            --bg: #090d16;
-            --panel: #131b2e;
-            --ink: #f1f5f9;
+            --bg: #151922;
+            --panel: #1e2430;
+            --ink: #cbd5e1;
+            --title: #f1f5f9;
             --muted: #94a3b8;
-            --line: #26334d;
+            --line: #2d3748;
+            --start-bg: #334155;
+            --start-text: #f8fafc;
             --p1: #38bdf8;
             --p2: #f472b6;
             --p3: #a78bfa;
             --p4: #fbbf24;
             --p5: #34d399;
-            --shadow: none;
-            --prio-essential-bg: rgba(59, 130, 246, 0.15);
-            --prio-essential-border: #60a5fa;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --prio-essential-bg: rgba(59, 130, 246, 0.12);
+            --prio-essential-border: rgba(96, 165, 250, 0.4);
             --prio-essential-text: #93c5fd;
-            --prio-high-bg: rgba(16, 185, 129, 0.15);
-            --prio-high-border: #34d399;
+            --prio-high-bg: rgba(16, 185, 129, 0.12);
+            --prio-high-border: rgba(52, 211, 153, 0.4);
             --prio-high-text: #6ee7b7;
-            --prio-spec-bg: rgba(148, 163, 184, 0.1);
-            --prio-spec-border: #64748b;
-            --prio-spec-text: #cbd5e1;
+            --prio-spec-bg: rgba(148, 163, 184, 0.08);
+            --prio-spec-border: rgba(148, 163, 184, 0.25);
+            --prio-spec-text: #94a3b8;
         }
 
         * {
@@ -85,19 +94,21 @@
             margin: 0;
             background: var(--bg);
             color: var(--ink);
-            font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            font: 14px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
         header {
-            padding: 30px 24px 10px;
+            padding: 28px 24px 10px;
             max-width: 1440px;
             margin: 0 auto;
         }
 
         h1 {
             margin: 0 0 6px;
-            font-size: 1.7rem;
+            font-size: 1.65rem;
             letter-spacing: -0.02em;
+            color: var(--title);
         }
 
         header p {
@@ -119,7 +130,7 @@
             color: var(--ink);
             border: 1px solid var(--line);
             border-radius: 8px;
-            padding: 7px 14px;
+            padding: 6px 13px;
             cursor: pointer;
             font: inherit;
             font-weight: 500;
@@ -150,9 +161,9 @@
         }
 
         .filter-btn.active {
-            background: var(--ink);
-            color: var(--bg);
-            border-color: var(--ink);
+            background: var(--start-bg);
+            color: var(--start-text);
+            border-color: var(--start-bg);
             font-weight: 600;
         }
 
