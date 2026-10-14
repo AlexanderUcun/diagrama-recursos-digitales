@@ -23,6 +23,7 @@
             --c-av: #8b5cf6;       /* Audio, Voz & Video Generativo */
             --c-assets: #0d9488;   /* Bancos de Activos & Texturas */
             --c-mkt: #d97706;      /* Analítica & Branding */
+            --c-acad: #4f46e5;     /* Campus, Investigación & Estudio */
             
             --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
             
@@ -55,6 +56,7 @@
                 --c-av: #a78bfa;
                 --c-assets: #2dd4bf;
                 --c-mkt: #fbbf24;
+                --c-acad: #818cf8;
                 
                 --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
                 --prio-tier1-bg: rgba(59, 130, 246, 0.12);
@@ -85,6 +87,7 @@
             --c-av: #a78bfa;
             --c-assets: #2dd4bf;
             --c-mkt: #fbbf24;
+            --c-acad: #818cf8;
             
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
             --prio-tier1-bg: rgba(59, 130, 246, 0.12);
@@ -635,12 +638,12 @@
 <body>
     <header>
         <h1>Ecosistema Multimedia &amp; Recursos Digitales</h1>
-        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio y activos visuales</strong>, clasificadas por prioridad y rol técnico.</p>
+        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio, activos visuales y ecosistema académico</strong>, clasificadas por prioridad y rol técnico.</p>
         <div class="toolbar">
             <button class="btn-ctrl" id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, WebGL, TTS, audio, 3D...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, 3D, animación, audio, universidad, papers...">
             </div>
             <div class="filter-bar">
                 <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Jerarquía:</span>
@@ -966,6 +969,119 @@
                         impact: "Aporte: Permite maquetar entregables y material corporativo en una fracción del tiempo habitual.",
                         lic: "Freemium",
                         official: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]]
+                    }
+                ]
+            },
+            {
+                id: "academic_campus",
+                title: "6. Ecosistema Académico, Campus & Investigación",
+                desc: "Plataformas universitarias, aulas virtuales, herramientas de investigación científica y gestión de aprendizaje",
+                color: "--c-acad",
+                tools: [
+                    {
+                        name: "Universidad de Cundinamarca (CMAD)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Campus Virtual & Plataforma Institucional",
+                        what: "Entorno virtual de aprendizaje institucional (Moodle/CMAD Pregrado) para gestión académica, entrega de proyectos, calificaciones y correo institucional.",
+                        impact: "Aporte: Centro neurálgico para el seguimiento del currículum universitario, entrega de trabajos de ingeniería y comunicación docente.",
+                        lic: "Acceso Institucional",
+                        official: [
+                            ["CMAD Pregrado", "https://pregrado.ucundinamarca.edu.co/login/index.php"],
+                            ["Portal UDec", "https://www.ucundinamarca.edu.co/"],
+                            ["Correo UDec", "https://outlook.cloud.microsoft/mail/"]
+                        ]
+                    },
+                    {
+                        name: "SENA (Zajuna & APE)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Formación Técnica & Empleabilidad",
+                        what: "Plataforma de formación virtual Zajuna y Agencia Pública de Empleo para capacitación tecnológica práctica, certificación de competencias y vinculación laboral.",
+                        impact: "Aporte: Adquisición de competencias laborales técnicas aplicadas y acceso a convenios de prácticas y empleo con empresas de tecnología.",
+                        lic: "Público Oficial (Colombia)",
+                        official: [
+                            ["Zajuna Campus", "https://zajuna.sena.edu.co/"],
+                            ["SENA Correo", "https://outlook.office.com/mail/"],
+                            ["APE Empleo", "https://agenciapublicadeempleo.sena.edu.co/"]
+                        ]
+                    },
+                    {
+                        name: "Universidad EAN (Canvas Virtual)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Campus Empresarial & Gestión Académica",
+                        what: "LMS Canvas interactivo, portal de servicios empresariales SAP y entorno de gestión para programas de educación superior y posgrados.",
+                        impact: "Aporte: Metodologías de proyectos ágiles, foros de discusión y formación con enfoque emprendedor e innovador.",
+                        lic: "Acceso Institucional",
+                        official: [
+                            ["Canvas EAN", "https://virtual.universidadean.edu.co/"],
+                            ["SAP EAN", "https://sap.universidadean.edu.co:8450/apps"],
+                            ["Correo EAN", "https://login.microsoftonline.com/"]
+                        ]
+                    },
+                    {
+                        name: "Google Scholar & ResearchGate",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Búsqueda Científica & Papers Indexados",
+                        what: "Motores globales de literatura académica, tesis de grado, artículos de conferencias IEEE/ACM y redes de colaboración científica entre investigadores.",
+                        impact: "Aporte: Respaldo bibliográfico con rigor científico para proyectos de grado, estado del arte e investigación de algoritmos.",
+                        lic: "100% Gratuito / Abierto",
+                        official: [
+                            ["Google Académico", "https://scholar.google.es/"],
+                            ["ResearchGate", "https://www.researchgate.net/"]
+                        ]
+                    },
+                    {
+                        name: "Zotero & Mendeley",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Gestión Bibliográfica & Citas APA/IEEE",
+                        what: "Software open-source y de escritorio para recopilar, organizar, anotar y citar automáticamente fuentes bibliográficas en documentos técnicos y tesis.",
+                        impact: "Aporte: Ahorra decenas de horas formateando referencias bibliográficas en formato APA 7 o IEEE con sincronización en la nube.",
+                        lic: "Open Source (AGPL) / Gratuito",
+                        official: [
+                            ["Zotero", "https://www.zotero.org/"],
+                            ["Mendeley", "https://www.mendeley.com/"]
+                        ]
+                    },
+                    {
+                        name: "SciSpace (Typeset.io)",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Copiloto IA para Lectura de Papers",
+                        what: "Plataforma de IA diseñada específicamente para la comprensión de literatura científica. Permite hacer preguntas a PDFs, resumir metodología y explicar fórmulas matemáticas complejas.",
+                        impact: "Aporte: Acelera drásticamente la revisión del estado del arte permitiendo entender papers densos en minutos.",
+                        lic: "Freemium",
+                        official: [
+                            ["SciSpace", "https://typeset.io/"]
+                        ]
+                    },
+                    {
+                        name: "Overleaf (LaTeX)",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Editor Colaborativo de LaTeX en la Nube",
+                        what: "Entorno estándar para redacción de informes técnicos, publicaciones científicas y proyectos de ingeniería con fórmulas y formatos de conferencias.",
+                        impact: "Aporte: Permite escribir documentos científicos con maquetación tipográfica perfecta sin lidiar con configuraciones locales de TeX.",
+                        lic: "Freemium",
+                        official: [
+                            ["Overleaf", "https://www.overleaf.com/"]
+                        ]
+                    },
+                    {
+                        name: "Draw.io & Balsamiq Cloud",
+                        tier: "tier-3",
+                        tierLabel: "Especializado",
+                        role: "Diagramación Arquitectónica & Wireframing",
+                        what: "Herramientas especializadas para diseño de diagramas de flujo, diagramas UML, esquemas de bases de datos E-R y maquetación preliminar de software.",
+                        impact: "Aporte: Documentación visual clara y estructurada requerida en entregas metodológicas de proyectos universitarios.",
+                        lic: "Open Source / Freemium",
+                        official: [
+                            ["Draw.io", "https://app.diagrams.net/"],
+                            ["Balsamiq Cloud", "https://balsamiq.cloud/"]
+                        ]
                     }
                 ]
             }
