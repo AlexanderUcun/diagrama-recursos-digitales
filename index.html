@@ -12,12 +12,21 @@
             --ink: #0f172a;
             --muted: #64748b;
             --line: #cbd5e1;
-            --p1: #0284c7; /* Recursos Gráficos */
-            --p2: #ec4899; /* Mockups y Edición */
-            --p3: #8b5cf6; /* Inspiración y Branding */
-            --p4: #f59e0b; /* Analítica y Marketing */
-            --p5: #10b981; /* Documentación y Cursos */
+            --p1: #0284c7;
+            --p2: #ec4899;
+            --p3: #8b5cf6;
+            --p4: #f59e0b;
+            --p5: #10b981;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --prio-essential-bg: #eff6ff;
+            --prio-essential-border: #3b82f6;
+            --prio-essential-text: #1d4ed8;
+            --prio-high-bg: #ecfdf5;
+            --prio-high-border: #10b981;
+            --prio-high-text: #047857;
+            --prio-spec-bg: #f8fafc;
+            --prio-spec-border: #94a3b8;
+            --prio-spec-text: #64748b;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -33,6 +42,15 @@
                 --p4: #fbbf24;
                 --p5: #34d399;
                 --shadow: none;
+                --prio-essential-bg: rgba(59, 130, 246, 0.15);
+                --prio-essential-border: #60a5fa;
+                --prio-essential-text: #93c5fd;
+                --prio-high-bg: rgba(16, 185, 129, 0.15);
+                --prio-high-border: #34d399;
+                --prio-high-text: #6ee7b7;
+                --prio-spec-bg: rgba(148, 163, 184, 0.1);
+                --prio-spec-border: #64748b;
+                --prio-spec-text: #cbd5e1;
             }
         }
 
@@ -48,6 +66,15 @@
             --p4: #fbbf24;
             --p5: #34d399;
             --shadow: none;
+            --prio-essential-bg: rgba(59, 130, 246, 0.15);
+            --prio-essential-border: #60a5fa;
+            --prio-essential-text: #93c5fd;
+            --prio-high-bg: rgba(16, 185, 129, 0.15);
+            --prio-high-border: #34d399;
+            --prio-high-text: #6ee7b7;
+            --prio-spec-bg: rgba(148, 163, 184, 0.1);
+            --prio-spec-border: #64748b;
+            --prio-spec-text: #cbd5e1;
         }
 
         * {
@@ -62,8 +89,8 @@
         }
 
         header {
-            padding: 30px 24px 12px;
-            max-width: 1400px;
+            padding: 30px 24px 10px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
@@ -104,12 +131,38 @@
             color: var(--p1);
         }
 
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--ink);
+            color: var(--bg);
+            border-color: var(--ink);
+            font-weight: 600;
+        }
+
         .legend {
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
             color: var(--muted);
             font-size: 0.82rem;
+            margin-top: 8px;
         }
 
         .legend span {
@@ -126,14 +179,14 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 16px 24px 40px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
             gap: 20px;
             align-items: start;
         }
@@ -165,14 +218,14 @@
         .cards-list {
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
         }
 
         .card {
             background: var(--bg);
             border: 1px solid var(--line);
             border-radius: 8px;
-            padding: 10px 12px;
+            padding: 11px 12px;
             transition: transform 0.15s ease, border-color 0.15s ease;
         }
 
@@ -186,7 +239,7 @@
             justify-content: space-between;
             align-items: baseline;
             gap: 8px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .card-top h3 {
@@ -196,24 +249,62 @@
             color: var(--ink);
         }
 
-        .badge {
-            font-size: 0.68rem;
-            padding: 2px 6px;
+        .prio-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 5px;
             border-radius: 4px;
-            background: rgba(0, 0, 0, 0.05);
-            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
             white-space: nowrap;
         }
 
-        :root[data-theme="dark"] .badge {
-            background: rgba(255, 255, 255, 0.08);
+        .prio-badge.essential {
+            background: var(--prio-essential-bg);
+            color: var(--prio-essential-text);
+            border: 1px solid var(--prio-essential-border);
+        }
+
+        .prio-badge.high {
+            background: var(--prio-high-bg);
+            color: var(--prio-high-text);
+            border: 1px solid var(--prio-high-border);
+        }
+
+        .prio-badge.spec {
+            background: var(--prio-spec-bg);
+            color: var(--prio-spec-text);
+            border: 1px solid var(--prio-spec-border);
+        }
+
+        .card .role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--c);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
         }
 
         .card p {
-            margin: 0 0 8px;
+            margin: 0 0 6px;
             color: var(--muted);
             font-size: 0.77rem;
             line-height: 1.35;
+        }
+
+        .card .impact {
+            background: rgba(0, 0, 0, 0.025);
+            border-left: 2px solid var(--c);
+            padding: 3px 6px;
+            border-radius: 0 4px 4px 0;
+            margin-bottom: 8px;
+            font-size: 0.72rem;
+            color: var(--ink);
+        }
+
+        :root[data-theme="dark"] .card .impact {
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .links-group {
@@ -243,7 +334,7 @@
         }
 
         footer {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 20px 24px 40px;
             color: var(--muted);
@@ -255,10 +346,17 @@
 
 <body>
     <header>
-        <h1>Ecosistema de Recursos, Multimedia y Marketing Digital</h1>
-        <p>Catálogo visual complementario con clasificación orientada a librerías de activos, laboratorio de mockups, referencias de producto y analítica.</p>
+        <h1>Ecosistema de Recursos Digitales, Diseño y Marketing</h1>
+        <p>Catálogo visual enriquecido con jerarquía por <strong>clusters temáticos</strong>, nivel de prioridad de uso y aporte operativo de cada herramienta.</p>
         <div class="toolbar">
             <button id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
+            <div class="filter-bar">
+                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Filtrar por Nivel:</span>
+                <button class="filter-btn active" data-prio="all">Todos</button>
+                <button class="filter-btn" data-prio="essential">⭐ Esencial / Diario</button>
+                <button class="filter-btn" data-prio="high">🔥 Alta Relevancia</button>
+                <button class="filter-btn" data-prio="spec">🎯 Especializado</button>
+            </div>
             <div class="legend" id="legend"></div>
         </div>
     </header>
@@ -268,7 +366,7 @@
     </div>
 
     <footer>
-        Fuente: catálogo de recursos complementarios de «herramientas_clasificadas.md» (Fases 7 y 8). Diseñado para liberar espacio en la barra de marcadores del navegador.
+        Fuente: catálogo de recursos de «catalogo_herramientas.md». Diseñado para optimizar flujos de diseño, marketing y desarrollo web.
     </footer>
 
     <script>
@@ -279,41 +377,38 @@
                 desc: "Fotografía HQ, texturas PBR 3D e iconografía vectorial",
                 color: "--p1",
                 items: [
-                    { name: "Unsplash", cat: "Fotos HQ", desc: "Banco de imágenes de alta resolución sin derechos de autor", links: [["Web", "https://unsplash.com/"]] },
-                    { name: "Pexels", cat: "Video & Foto", desc: "Colección curada de videos en 4K e imágenes gratuitas", links: [["Web", "https://www.pexels.com/"]] },
-                    { name: "Pixabay", cat: "Vectores", desc: "Ilustraciones, vectores y clips libres para maquetación", links: [["Web", "https://pixabay.com/es/"]] },
-                    { name: "Poly Haven", cat: "3D & HDRIs", desc: "Texturas PBR, fondos HDRI y modelos con licencia CC0", links: [["Texturas", "https://polyhaven.com/textures"]] },
-                    { name: "Unicorn Icons", cat: "Iconos", desc: "Iconos vectoriales interactivos con microanimaciones CSS", links: [["Catálogo", "https://unicornicons.com/icons"]] },
-                    { name: "Picjumbo & Barnimages", cat: "Fondos", desc: "Recursos visuales temáticos y fotografía alternativa", links: [["Picjumbo", "https://picjumbo.com/"], ["Barnimages", "https://barnimages.com/"]] }
+                    { name: "Unsplash", prio: "essential", prioLabel: "Esencial", role: "Fotografía Editorial Libre", desc: "Banco de imágenes de alta resolución curadas y libres de regalías.", impact: "Aporte: Maquetación visual realista para landing pages y banners.", links: [["Web", "https://unsplash.com/"]] },
+                    { name: "Pexels", prio: "high", prioLabel: "Alta", role: "Video de Stock & Gráficos", desc: "Colección curada de videos en 4K e imágenes gratuitas de alta calidad.", impact: "Aporte: Fondos de video dinámicos e inserts para contenido web.", links: [["Web", "https://www.pexels.com/"]] },
+                    { name: "Poly Haven", prio: "high", prioLabel: "Alta", role: "Librería 3D & Texturas PBR", desc: "Texturas PBR, fondos HDRI fotorealistas y modelos con licencia CC0.", impact: "Aporte: Iluminación y materiales físicos para entornos Three.js y 3D.", links: [["Texturas", "https://polyhaven.com/textures"]] },
+                    { name: "Unicorn Icons", prio: "spec", prioLabel: "Especializado", role: "Iconografía Microanimada", desc: "Iconos vectoriales interactivos con animaciones CSS ligeras.", impact: "Aporte: Microinteracciones en botones y navegación sin código pesado.", links: [["Catálogo", "https://unicornicons.com/icons"]] },
+                    { name: "Pixabay & Picjumbo", prio: "spec", prioLabel: "Especializado", role: "Ilustración & Fondos Alternativos", desc: "Clips, vectores y fotografía alternativa sin derechos de autor.", impact: "Aporte: Variedad de recursos para presentaciones y piezas de apoyo.", links: [["Pixabay", "https://pixabay.com/es/"], ["Picjumbo", "https://picjumbo.com/"]] }
                 ]
             },
             {
                 id: "mockups",
                 title: "2. Laboratorio Gráfico & Mockups",
-                desc: "Generadores visuales, recorte IA y optimización de medios",
+                desc: "Composición rápida, mockups IA y optimización de medios",
                 color: "--p2",
                 items: [
-                    { name: "Canva & Gamma", cat: "Gráficos & Diapos", desc: "Composición gráfica rápida, branding y generación de presentaciones con IA", links: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]] },
-                    { name: "Mockey.ai", cat: "Mockups IA", desc: "Generación automática de maquetas de productos y prendas con IA", links: [["Web", "https://mockey.ai/"]] },
-                    { name: "SedShop", cat: "Branding", desc: "Mockups realistas de pósters y elementos editoriales", links: [["Web", "https://www.sedshop.co/"]] },
-                    { name: "Remove.bg", cat: "Recorte", desc: "Eliminación instantánea de fondos en retratos y objetos", links: [["Web", "https://www.remove.bg/es/upload"]] },
-                    { name: "SeaArt AI", cat: "Editor IA", desc: "Suite de utilidades gráficas generativas y recorte fino", links: [["Herramientas", "https://www.seaart.ai/ai-tools/remove-background"]] },
-                    { name: "iLoveIMG", cat: "Compresión", desc: "Compresión masiva de peso, recorte y conversión web", links: [["Editor", "https://www.iloveimg.com/es"]] },
-                    { name: "Base64 Encoder", cat: "Optimización", desc: "Conversión de imágenes a cadenas URI para estilos embebidos", links: [["Conversor", "https://www.base64-image.de/"]] }
+                    { name: "Canva & Gamma", prio: "essential", prioLabel: "Esencial", role: "Diseño Rápido & Diapositivas IA", desc: "Creación ágil de piezas de marca y generación automática de presentaciones.", impact: "Aporte: Pitch decks, creativos publicitarios y documentación visual veloz.", links: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]] },
+                    { name: "Remove.bg", prio: "essential", prioLabel: "Esencial", role: "Aislamiento de Fondos Instantáneo", desc: "Eliminación automática de fondos en retratos y objetos con un solo clic.", impact: "Aporte: Recortes limpios de fotos de producto para e-commerce.", links: [["Web", "https://www.remove.bg/es/upload"]] },
+                    { name: "Mockey.ai & SedShop", prio: "high", prioLabel: "Alta", role: "Generadores de Mockups con IA", desc: "Maquetas realistas en prendas, dispositivos digitales y pósters de branding.", impact: "Aporte: Exhibición fotorrealista de diseños sin modelar en 3D.", links: [["Mockey", "https://mockey.ai/"], ["SedShop", "https://www.sedshop.co/"]] },
+                    { name: "iLoveIMG", prio: "high", prioLabel: "Alta", role: "Compresión & Conversión Masiva", desc: "Optimización por lotes de tamaño, conversión de formatos y recorte.", impact: "Aporte: Reduce peso de imágenes para elevar el puntaje en Core Web Vitals.", links: [["Editor", "https://www.iloveimg.com/es"]] },
+                    { name: "SeaArt AI", prio: "spec", prioLabel: "Especializado", role: "Suite Generativa Visual", desc: "Herramientas de edición fina asistida por difusión e inteligencia artificial.", impact: "Aporte: Generación de texturas y fondos conceptuales para proyectos.", links: [["Herramientas", "https://www.seaart.ai/ai-tools/remove-background"]] },
+                    { name: "Base64 Encoder", prio: "spec", prioLabel: "Especializado", role: "Optimización de Estilos Embebidos", desc: "Conversión de imágenes a URIs de datos en base64 para hojas CSS.", impact: "Aporte: Elimina peticiones HTTP adicionales en iconos críticos.", links: [["Conversor", "https://www.base64-image.de/"]] }
                 ]
             },
             {
                 id: "inspiration",
-                title: "3. Inspiración UI/UX & Fuentes",
-                desc: "Flujos de aplicaciones reales, tendencias y tipografía variable",
+                title: "3. Inspiración UI/UX & Tipografía",
+                desc: "Patrones de producto, tendencias globales y fuentes variables",
                 color: "--p3",
                 items: [
-                    { name: "Mobbin", cat: "UI/UX Flows", desc: "La mayor biblioteca de flujos y patrones de apps móviles y web", links: [["Explorar", "https://mobbin.com/browse/web/apps"]] },
-                    { name: "Layers.to", cat: "Comunidad UI", desc: "Muestra de proyectos y diseño contemporáneo de interfaces", links: [["Web", "https://layers.to/"]] },
-                    { name: "Rebrand Gallery", cat: "Identidad", desc: "Directorio de rediseños y sistemas visuales de marcas globales", links: [["Galería", "https://www.rebrand.gallery/"]] },
-                    { name: "LogoLounge & Logobook", cat: "Logotipos", desc: "Reportes de tendencias, isotipos y archivos históricos de marcas", links: [["LogoLounge", "https://www.logolounge.com/trend/2024-logo-trend-report"], ["Logobook", "http://logobook.com/business/publishing/"]] },
-                    { name: "VarType", cat: "Tipografía", desc: "Colección interactiva para probar fuentes variables dinámicas", links: [["Catálogo", "https://www.vartype.com/"]] },
-                    { name: "No Design Foundry", cat: "Rasterizer", desc: "Generador tipográfico experimental y rasterizado", links: [["Herramienta", "https://nodesignfoundry.com/rasterizer"]] }
+                    { name: "Mobbin", prio: "essential", prioLabel: "Esencial", role: "Patrones de UX/UI en Producción", desc: "La mayor biblioteca de flujos reales de aplicaciones web y móviles líderes.", impact: "Aporte: Referencia exacta de onboarding, checkouts y paneles SaaS.", links: [["Explorar", "https://mobbin.com/browse/web/apps"]] },
+                    { name: "Layers.to & Rebrand", prio: "high", prioLabel: "Alta", role: "Diseño Contemporáneo & Marcas", desc: "Comunidad de diseñadores de interfaz y directorio de rediseños globales.", impact: "Aporte: Tendencias de paletas de color, glassmorphism y microestilos.", links: [["Layers.to", "https://layers.to/"], ["Rebrand", "https://www.rebrand.gallery/"]] },
+                    { name: "VarType", prio: "high", prioLabel: "Alta", role: "Tipografías Variables Dinámicas", desc: "Catálogo interactivo para experimentar con fuentes variables y pesos fluidos.", impact: "Aporte: Tipografía adaptable a tamaños de pantalla sin cargar múltiples archivos.", links: [["Catálogo", "https://www.vartype.com/"]] },
+                    { name: "LogoLounge & Logobook", prio: "spec", prioLabel: "Especializado", role: "Archivo Histórico de Identidad", desc: "Reportes anuales de tendencias de logos y biblioteca histórica de marcas.", impact: "Aporte: Inspiración conceptual para diseño de logotipos e isotipos.", links: [["LogoLounge", "https://www.logolounge.com/trend/2024-logo-trend-report"], ["Logobook", "http://logobook.com/business/publishing/"]] },
+                    { name: "No Design Foundry", prio: "spec", prioLabel: "Especializado", role: "Rasterizador Tipográfico", desc: "Herramienta experimental para rasterizado e intervención de glifos.", impact: "Aporte: Efectos visuales de texto para identidades no convencionales.", links: [["Herramienta", "https://nodesignfoundry.com/rasterizer"]] }
                 ]
             },
             {
@@ -322,13 +417,12 @@
                 desc: "Auditoría de audiencias, mapas de calor y bibliotecas de anuncios",
                 color: "--p4",
                 items: [
-                    { name: "Google Analytics & Bitrix24", cat: "Métricas & CRM", desc: "Monitoreo de tráfico, eventos web y gestión de proyectos y tareas colaborativas", links: [["Analytics", "https://analytics.google.com/"], ["Bitrix24", "https://b24-ka7v0x.bitrix24.co/"]] },
-                    { name: "Similarweb", cat: "Inteligencia", desc: "Métricas de tráfico, canales y estimaciones de competidores", links: [["Web", "https://www.similarweb.com/es/"]] },
-                    { name: "Microsoft Clarity", cat: "Heatmaps", desc: "Grabación gratuita de sesiones y mapas de clics sin límites", links: [["Portal", "https://clarity.microsoft.com/"]] },
-                    { name: "AnswerThePublic", cat: "Contenido", desc: "Mapeo de intenciones de búsqueda y preguntas que hace la gente", links: [["Explorar", "https://answerthepublic.com/"]] },
-                    { name: "Meta Ads Library", cat: "Espionaje Ads", desc: "Transparencia de anuncios activos en Facebook e Instagram", links: [["Biblioteca", "https://www.facebook.com/ads/library/?country=CO"]] },
-                    { name: "AdCreative.ai", cat: "Ads IA", desc: "Generación de creativos de conversión mediante modelos entrenados", links: [["Web", "https://www.adcreative.ai/"]] },
-                    { name: "Rows Spreadsheet", cat: "Data IA", desc: "Hojas de cálculo con integraciones automáticas de IA y APIs", links: [["Rows", "https://rows.com/"]] }
+                    { name: "Google Analytics & Bitrix24", prio: "essential", prioLabel: "Esencial", role: "Métricas & Gestión Operativa", desc: "Seguimiento analítico de eventos web y panel colaborativo de tareas.", impact: "Aporte: Medición de conversión y control de entregables en equipo.", links: [["Analytics", "https://analytics.google.com/"], ["Bitrix24", "https://b24-ka7v0x.bitrix24.co/"]] },
+                    { name: "Microsoft Clarity", prio: "essential", prioLabel: "Esencial", role: "Mapas de Calor & Grabación", desc: "Grabación gratuita de sesiones y mapas de clics sin límites de tráfico.", impact: "Aporte: Identifica puntos de fricción y caídas en la experiencia de usuario.", links: [["Portal", "https://clarity.microsoft.com/"]] },
+                    { name: "Similarweb", prio: "high", prioLabel: "Alta", role: "Inteligencia Competitiva", desc: "Métricas de tráfico, fuentes de adquisición y análisis de competidores.", impact: "Aporte: Benchmarking de mercado para validar canales de tracción.", links: [["Web", "https://www.similarweb.com/es/"]] },
+                    { name: "Meta Ads Library", prio: "high", prioLabel: "Alta", role: "Espionaje Publicitario de Conversión", desc: "Biblioteca pública de anuncios activos en Facebook e Instagram.", impact: "Aporte: Análisis de los ángulos de venta y creativos de la competencia.", links: [["Biblioteca", "https://www.facebook.com/ads/library/?country=CO"]] },
+                    { name: "AnswerThePublic", prio: "high", prioLabel: "Alta", role: "Intención de Búsqueda de Usuarios", desc: "Mapeo visual de preguntas y dudas reales que las personas buscan.", impact: "Aporte: Ideas basadas en datos para artículos, FAQs y copy de ventas.", links: [["Explorar", "https://answerthepublic.com/"]] },
+                    { name: "AdCreative.ai & Rows", prio: "spec", prioLabel: "Especializado", role: "Creativos IA & Hojas de Cálculo", desc: "Generación automatizada de piezas de conversión y análisis con IA en Rows.", impact: "Aporte: Acelera campañas publicitarias y conecta APIs de datos en tablas.", links: [["AdCreative", "https://www.adcreative.ai/"], ["Rows", "https://rows.com/"]] }
                 ]
             },
             {
@@ -337,12 +431,12 @@
                 desc: "Estándares web, referencias técnicas y utilidades de lectura",
                 color: "--p5",
                 items: [
-                    { name: "MDN Web Docs", cat: "Estándar Web", desc: "Referencia oficial de HTML, CSS, JavaScript y currículum frontend", links: [["Aprender", "https://developer.mozilla.org/en-US/docs/Learn_web_development"], ["Curriculum", "https://developer.mozilla.org/en-US/curriculum/"]] },
-                    { name: "Web.dev (Google)", cat: "Rendimiento", desc: "Mejores prácticas para Core Web Vitals y Codelabs prácticos", links: [["Guías", "https://web.dev/learn/?hl=es-419"], ["Codelabs", "https://codelabs.developers.google.com/?hl=es-419&category=web"]] },
-                    { name: "Brad Woods CSS Grid", cat: "Diagramación", desc: "Generador interactivo de CSS Layouts y estructuras modulares", links: [["Layout", "https://layout.bradwoods.io/"]] },
-                    { name: "iLovePDF & SmallPDF", cat: "Gestor PDF", desc: "Unión, compresión, firmas y traducción de documentos PDF", links: [["iLovePDF", "https://www.ilovepdf.com/es"], ["SmallPDF", "https://smallpdf.com/es/traducir-pdf"]] },
-                    { name: "ChatPDF & DeepL", cat: "Traducción & IA", desc: "Lectura inteligente de documentos con IA y traductor neuronal", links: [["ChatPDF", "https://www.chatpdf.com/"], ["DeepL", "https://www.deepl.com/es/translator"]] },
-                    { name: "Google Skills & Cursos", cat: "Certificación", desc: "Catálogos formativos en Cloud, Machine Learning y Data Science", links: [["Google Skills", "https://www.skills.google/catalog"], ["SCRUMstudy", "https://www.scrumstudy.com/certification/scrum-fundamentals-certified"]] }
+                    { name: "MDN Web Docs", prio: "essential", prioLabel: "Esencial", role: "Estándar Oficial Web (W3C)", desc: "Referencia autorizada para HTML semántico, especificaciones CSS y JS nativo.", impact: "Aporte: Consulta técnica definitiva con soporte cruzado entre navegadores.", links: [["Aprender", "https://developer.mozilla.org/en-US/docs/Learn_web_development"], ["Curriculum", "https://developer.mozilla.org/en-US/curriculum/"]] },
+                    { name: "Web.dev (Google)", prio: "essential", prioLabel: "Esencial", role: "Rendimiento Web & Core Vitals", desc: "Guías oficiales del equipo de Chrome sobre métricas LCP, INP, CLS y a11y.", impact: "Aporte: Asegura que los sitios alcancen la máxima velocidad y ranking SEO.", links: [["Guías", "https://web.dev/learn/?hl=es-419"], ["Codelabs", "https://codelabs.developers.google.com/?hl=es-419&category=web"]] },
+                    { name: "iLovePDF & SmallPDF", prio: "high", prioLabel: "Alta", role: "Gestión & Traducción Documental", desc: "Compresión masiva, firma digital, división y traducción de PDFs complejos.", impact: "Aporte: Manejo rápido de contratos, especificaciones y libros técnicos.", links: [["iLovePDF", "https://www.ilovepdf.com/es"], ["SmallPDF", "https://smallpdf.com/es/traducir-pdf"]] },
+                    { name: "ChatPDF & DeepL", prio: "high", prioLabel: "Alta", role: "Traducción Neuronal & RAG PDF", desc: "Extracción conversacional con IA de documentos y traductor neuronal preciso.", impact: "Aporte: Lectura y síntesis veloz de papers científicos e informes en inglés.", links: [["ChatPDF", "https://www.chatpdf.com/"], ["DeepL", "https://www.deepl.com/es/translator"]] },
+                    { name: "Brad Woods CSS Grid", prio: "spec", prioLabel: "Especializado", role: "Generador Visual de Layouts", desc: "Constructor gráfico interactivo de estructuras Flexbox y CSS Grid moderno.", impact: "Aporte: Resuelve arquitecturas de cuadrícula complejas sin prueba y error.", links: [["Layout", "https://layout.bradwoods.io/"]] },
+                    { name: "Google Skills & SCRUMstudy", prio: "spec", prioLabel: "Especializado", role: "Certificaciones Técnicas", desc: "Catálogos formativos oficiales en Cloud, Machine Learning y metodología Scrum.", impact: "Aporte: Adquisición de certificaciones reconocidas para perfil profesional.", links: [["Google Skills", "https://www.skills.google/catalog"], ["SCRUMstudy", "https://www.scrumstudy.com/certification/scrum-fundamentals-certified"]] }
                 ]
             }
         ];
@@ -350,71 +444,111 @@
         const grid = document.getElementById("grid");
         const legend = document.getElementById("legend");
 
-        CLUSTERS.forEach(cluster => {
-            const col = document.createElement("div");
-            col.className = "cluster";
-            col.style.setProperty("--c", "var(" + cluster.color + ")");
+        function renderClusters(filterPrio = "all") {
+            grid.innerHTML = "";
+            legend.innerHTML = "";
 
-            const header = document.createElement("div");
-            header.className = "cluster-header";
-            const h2 = document.createElement("h2");
-            h2.textContent = cluster.title;
-            const p = document.createElement("p");
-            p.textContent = cluster.desc;
-            header.appendChild(h2);
-            header.appendChild(p);
-            col.appendChild(header);
+            CLUSTERS.forEach(cluster => {
+                const col = document.createElement("div");
+                col.className = "cluster";
+                col.style.setProperty("--c", "var(" + cluster.color + ")");
 
-            const list = document.createElement("div");
-            list.className = "cards-list";
+                const header = document.createElement("div");
+                header.className = "cluster-header";
+                const h2 = document.createElement("h2");
+                h2.textContent = cluster.title;
+                const p = document.createElement("p");
+                p.textContent = cluster.desc;
+                header.appendChild(h2);
+                header.appendChild(p);
+                col.appendChild(header);
 
-            cluster.items.forEach(item => {
-                const card = document.createElement("div");
-                card.className = "card";
-                card.style.setProperty("--c", "var(" + cluster.color + ")");
+                const list = document.createElement("div");
+                list.className = "cards-list";
 
-                const top = document.createElement("div");
-                top.className = "card-top";
-                const h3 = document.createElement("h3");
-                h3.textContent = item.name;
-                const badge = document.createElement("span");
-                badge.className = "badge";
-                badge.textContent = item.cat;
-                top.appendChild(h3);
-                top.appendChild(badge);
-                card.appendChild(top);
+                const filteredItems = cluster.items.filter(item => filterPrio === "all" || item.prio === filterPrio);
 
-                const desc = document.createElement("p");
-                desc.textContent = item.desc;
-                card.appendChild(desc);
+                if (filteredItems.length === 0) {
+                    const empty = document.createElement("div");
+                    empty.className = "card";
+                    empty.style.opacity = "0.6";
+                    const pEmpty = document.createElement("p");
+                    pEmpty.textContent = "Sin herramientas en este nivel de prioridad.";
+                    empty.appendChild(pEmpty);
+                    list.appendChild(empty);
+                } else {
+                    filteredItems.forEach(item => {
+                        const card = document.createElement("div");
+                        card.className = "card";
+                        card.style.setProperty("--c", "var(" + cluster.color + ")");
 
-                const links = document.createElement("div");
-                links.className = "links-group";
-                item.links.forEach(([label, url]) => {
-                    const a = document.createElement("a");
-                    a.href = url;
-                    a.target = "_blank";
-                    a.rel = "noopener noreferrer";
-                    a.textContent = "↗ " + label;
-                    links.appendChild(a);
-                });
-                card.appendChild(links);
+                        const top = document.createElement("div");
+                        top.className = "card-top";
+                        const h3 = document.createElement("h3");
+                        h3.textContent = item.name;
+                        const badge = document.createElement("span");
+                        badge.className = "prio-badge " + item.prio;
+                        badge.textContent = item.prioLabel;
+                        top.appendChild(h3);
+                        top.appendChild(badge);
+                        card.appendChild(top);
 
-                list.appendChild(card);
+                        const role = document.createElement("div");
+                        role.className = "role";
+                        role.textContent = item.role;
+                        card.appendChild(role);
+
+                        const desc = document.createElement("p");
+                        desc.textContent = item.desc;
+                        card.appendChild(desc);
+
+                        const impact = document.createElement("div");
+                        impact.className = "impact";
+                        impact.textContent = item.impact;
+                        card.appendChild(impact);
+
+                        const links = document.createElement("div");
+                        links.className = "links-group";
+                        item.links.forEach(([label, url]) => {
+                            const a = document.createElement("a");
+                            a.href = url;
+                            a.target = "_blank";
+                            a.rel = "noopener noreferrer";
+                            a.textContent = "↗ " + label;
+                            links.appendChild(a);
+                        });
+                        card.appendChild(links);
+
+                        list.appendChild(card);
+                    });
+                }
+
+                col.appendChild(list);
+                grid.appendChild(col);
+
+                const legItem = document.createElement("span");
+                const dot = document.createElement("i");
+                dot.className = "dot";
+                dot.style.background = "var(" + cluster.color + ")";
+                legItem.appendChild(dot);
+                legItem.appendChild(document.createTextNode(cluster.title.split(". ")[1] || cluster.title));
+                legend.appendChild(legItem);
             });
+        }
 
-            col.appendChild(list);
-            grid.appendChild(col);
+        // Render inicial
+        renderClusters("all");
 
-            const legItem = document.createElement("span");
-            const dot = document.createElement("i");
-            dot.className = "dot";
-            dot.style.background = "var(" + cluster.color + ")";
-            legItem.appendChild(dot);
-            legItem.appendChild(document.createTextNode(cluster.title.split(". ")[1] || cluster.title));
-            legend.appendChild(legItem);
+        // Filtro por prioridad
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                renderClusters(btn.dataset.prio);
+            });
         });
 
+        // Alternador de tema
         document.getElementById("theme").addEventListener("click", () => {
             const root = document.documentElement;
             const isDark = matchMedia("(prefers-color-scheme: dark)").matches;
