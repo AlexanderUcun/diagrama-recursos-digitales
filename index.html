@@ -1556,6 +1556,21 @@
             });
         }
 
+        // Orden de flujo causal de izquierda a derecha (de menor a mayor nivel de abstracción)
+        const TYPE_USAGE_ORDER = {
+            "paper": 1,      // 1. Fundamentos matemáticos, papers y algoritmos
+            "framework": 2,  // 2. Motores y plataformas base
+            "lib": 3,        // 3. Librerías, WASM, módulos auxiliares
+            "ext": 4,        // 4. Extensiones, herramientas y validadores
+            "app": 5         // 5. Aplicaciones, plataformas SaaS y productos finales
+        };
+
+        const TIER_ORDER = {
+            "tier-1": 1,
+            "tier-2": 2,
+            "tier-3": 3
+        };
+
         function renderDiagrams() {
             diagramsContainer.innerHTML = "";
 
@@ -1570,7 +1585,7 @@
                 : MULTIMEDIA_ECOSYSTEM.filter(c => c.id === targetClusterId);
 
             listToRender.forEach(cluster => {
-                const matchedTools = cluster.tools.filter(tool => {
+                let matchedTools = cluster.tools.filter(tool => {
                     const matchTier = activeTier === "all" || tool.tier === activeTier;
                     const matchType = activeType === "all" || tool.type === activeType;
                     const q = searchQuery.toLowerCase().trim();
@@ -1582,6 +1597,17 @@
                         tool.impact.toLowerCase().includes(q) ||
                         tool.lic.toLowerCase().includes(q);
                     return matchTier && matchType && matchSearch;
+                });
+
+                // Ordenar de izquierda a derecha por jerarquía causal de uso (Paper -> Motor -> Librería -> Tool -> App)
+                matchedTools.sort((a, b) => {
+                    const orderA = TYPE_USAGE_ORDER[a.type] || 99;
+                    const orderB = TYPE_USAGE_ORDER[b.type] || 99;
+                    if (orderA !== orderB) return orderA - orderB;
+
+                    const tierA = TIER_ORDER[a.tier] || 99;
+                    const tierB = TIER_ORDER[b.tier] || 99;
+                    return tierA - tierB;
                 });
 
                 if (matchedTools.length === 0 && (searchQuery || activeTier !== "all" || activeType !== "all")) return;
