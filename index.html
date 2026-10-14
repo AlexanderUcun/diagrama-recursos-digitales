@@ -1071,51 +1071,81 @@
                         name: "Gamma App",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
-                        role: "Generación de Presentaciones & Documentos con IA",
-                        what: "Plataforma de inteligencia artificial que genera presentaciones completas, páginas interactivas y tarjetas explicativas a partir de un prompt o documento, con diseño adaptativo y componentes interactivos.",
-                        impact: "Aporte: Permite construir pitch decks, presentaciones técnicas y reportes visuales en minutos sin lidiar con maquetación manual.",
-                        lic: "Freemium",
+                        role: "Generación de Presentaciones con IA [Exporta a PPTX Editable]",
+                        what: "Plataforma de inteligencia artificial que genera presentaciones completas a partir de un prompt o documento. Permite exportar directamente a formato Microsoft PowerPoint (.pptx) manteniendo cajas de texto, títulos e imágenes editables.",
+                        impact: "Aporte: Crea un borrador completo con diseño profesional en 60 segundos y descárgalo en .pptx para hacer los ajustes finales en PowerPoint.",
+                        lic: "Freemium (Exporta PPTX)",
                         official: [["Portal Oficial", "https://gamma.app/"]]
                     },
                     {
-                        name: "Slidev",
+                        name: "Marp (Markdown Presentation Ecosystem)",
                         tier: "tier-1",
                         tierLabel: "Top 1 Oro",
+                        role: "Conversor de Markdown a PPTX Nativo & PDF",
+                        what: "Ecosistema open-source que transforma archivos Markdown en presentaciones de PowerPoint (.pptx) editables, PDF y diapositivas HTML interactivas directamente desde Visual Studio Code o línea de comandos (Marp CLI con flag --pptx).",
+                        impact: "Aporte: Escribe la estructura y contenido en Markdown en segundos y expórtalo como presentación .pptx para compartir con clientes o equipos corporativos.",
+                        lic: "Open Source (MIT - Genera PPTX)",
+                        official: [["Web Oficial", "https://marp.app/"], ["VS Code Extension", "https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode"], ["GitHub", "https://github.com/marp-team/marp"]]
+                    },
+                    {
+                        name: "python-pptx",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Automatización & Generación Programática de PPTX Nativo (Python)",
+                        what: "Librería de Python open-source líder en el mundo para crear, leer y modificar archivos de Microsoft PowerPoint (.pptx) de manera programática. Permite insertar diapositivas, textos, tablas, gráficos dinámicos e imágenes de forma 100% automatizada.",
+                        impact: "Aporte: Ideal para desarrolladores y pipelines de IA/LLMs que necesitan generar presentaciones PowerPoint editables a partir de bases de datos o reportes analíticos.",
+                        lic: "Open Source (MIT - Crea/Modifica PPTX)",
+                        official: [["Documentación Oficial", "https://python-pptx.readthedocs.io/"], ["GitHub", "https://github.com/scanny/python-pptx"]]
+                    },
+                    {
+                        name: "PptxGenJS",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Generador de Presentaciones PowerPoint en JavaScript / TypeScript",
+                        what: "Librería open-source para generar archivos .pptx modernos directamente desde el navegador web o en entornos Node.js. Soporta maquetación fluida, formas vectoriales, gráficos interactivos, tablas con estilos y animaciones compatibles con PowerPoint.",
+                        impact: "Aporte: Permite crear botones de 'Descargar como PowerPoint (.pptx)' en cualquier aplicación web sin requerir servidores Microsoft ni software de escritorio.",
+                        lic: "Open Source (MIT - Genera PPTX)",
+                        official: [["Web Oficial & Demos", "https://gitbrent.github.io/PptxGenJS/"], ["GitHub", "https://github.com/gitbrent/PptxGenJS"]]
+                    },
+                    {
+                        name: "OnlyOffice Docs & Desktop",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Suite Ofimática Open-Source con Compatibilidad Nativa PPTX",
+                        what: "Suite de oficina de código abierto con motor de renderizado basado en los estándares OOXML de Microsoft. Ofrece edición avanzada, colaborativa y libre de archivos PowerPoint (.pptx) tanto en escritorio como autoalojada en la web sin distorsionar el diseño.",
+                        impact: "Aporte: Permite modificar, ajustar y presentar archivos .pptx sin depender de licencias propietarias de Microsoft Office 365 ni perder el formato original.",
+                        lic: "Open Source (AGPL v3 - Edita PPTX)",
+                        official: [["Web Oficial", "https://www.onlyoffice.com/es/presentation-editor.aspx"], ["GitHub", "https://github.com/ONLYOFFICE"]]
+                    },
+                    {
+                        name: "Canva",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Diseño Visual de Diapositivas [Exportación a PPTX]",
+                        what: "Plataforma de diseño visual colaborativo con miles de plantillas corporativas. Ofrece una opción directa de exportación a archivo Microsoft PowerPoint (.pptx) para seguir editando o presentando en cualquier equipo con Office.",
+                        impact: "Aporte: Diseña de forma visual con gráficos e infografías modernas y exporta a .pptx para entregables formales de oficina.",
+                        lic: "Freemium (Exporta PPTX)",
+                        official: [["Portal Oficial", "https://www.canva.com/"]]
+                    },
+                    {
+                        name: "Slidev",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
                         role: "Presentaciones para Desarrolladores basadas en Markdown & Vue",
-                        what: "Herramienta open-source diseñada específicamente para desarrolladores. Permite escribir diapositivas en Markdown puro con soporte nativo de componentes Vue interactivos, resaltado de sintaxis Shiki, diagramas Mermaid, fórmulas LaTeX y control por teclado.",
-                        impact: "Aporte: Presentaciones técnicas interactivas donde puedes ejecutar código en vivo, incrustar gráficos y versionar tus diapositivas en Git.",
-                        lic: "Open Source (MIT)",
+                        what: "Herramienta open-source para escribir diapositivas técnicas en Markdown con componentes Vue interactivos, resaltado Shiki y diagramas Mermaid. Su salida nativa es web interactiva (HTML) y exportación a PDF o imágenes PNG.",
+                        impact: "Aporte: Presentaciones interactivas en vivo para conferencias tech y clases de programación alojables en GitHub Pages.",
+                        lic: "Open Source (MIT - Salida Web / PDF)",
                         official: [["Web Oficial", "https://sli.dev/"], ["GitHub", "https://github.com/slidevjs/slidev"]]
                     },
                     {
                         name: "Reveal.js",
                         tier: "tier-2",
                         tierLabel: "Alta",
-                        role: "Framework de Diapositivas HTML & Transiciones 3D",
-                        what: "El framework open-source de diapositivas web más maduro y popular del mundo. Permite construir presentaciones en HTML/CSS, con animaciones 3D, modo orador con notas, exportación limpia a PDF y compatibilidad móvil total.",
-                        impact: "Aporte: Máxima libertad para programar transiciones personalizadas y alojar presentaciones como páginas web estáticas gratuitas en GitHub Pages.",
-                        lic: "Open Source (MIT)",
+                        role: "Framework de Diapositivas Web HTML5 & Transiciones 3D",
+                        what: "Framework de diapositivas web de código abierto. Permite crear presentaciones en HTML/CSS con transiciones 3D y vista de orador. Salida orientada a web estática y exportación a PDF mediante navegador.",
+                        impact: "Aporte: Máxima personalización mediante código web libre y reproducible en cualquier navegador.",
+                        lic: "Open Source (MIT - Salida Web / PDF)",
                         official: [["Web Oficial", "https://revealjs.com/"], ["GitHub", "https://github.com/hakimel/reveal.js"]]
-                    },
-                    {
-                        name: "Marp (Markdown Presentation Ecosystem)",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Conversor Ultra Rápido de Markdown a Diapositivas",
-                        what: "Ecosistema que convierte archivos Markdown simples en diapositivas profesionales en PDF, PPTX y HTML directamente desde Visual Studio Code o CLI mediante CSS personalizado.",
-                        impact: "Aporte: Escribes tus notas en tu editor de código habitual y tienes una presentación terminada sin tocar programas pesados de diseño.",
-                        lic: "Open Source (MIT)",
-                        official: [["Web Oficial", "https://marp.app/"], ["VS Code Extension", "https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode"]]
-                    },
-                    {
-                        name: "Canva",
-                        tier: "tier-2",
-                        tierLabel: "Alta",
-                        role: "Suite de Diseño Visual & Presentaciones Colaborativas",
-                        what: "Plataforma de diseño intuitivo con miles de plantillas corporativas prediseñadas, animaciones de diapositivas, gráficos de datos interactivos y colaboración en tiempo real.",
-                        impact: "Aporte: Ideal para presentaciones ejecutivas, infografías de negocio y piezas visuales no técnicas.",
-                        lic: "Freemium",
-                        official: [["Portal Oficial", "https://www.canva.com/"]]
                     }
                 ]
             }
