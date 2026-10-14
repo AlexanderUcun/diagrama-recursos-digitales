@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecosistema Interactivo de Recursos, Diseño & Marketing</title>
+    <title>Ecosistema Multimedia & Recursos Digitales</title>
     <style>
         :root {
             --bg: #f8fafc;
@@ -16,21 +16,26 @@
             --line: #e2e8f0;
             --active-tab-bg: #475569;
             --active-tab-text: #ffffff;
-            --p1: #0284c7;
-            --p2: #db2777;
-            --p3: #8b5cf6;
-            --p4: #d97706;
-            --p5: #059669;
+            
+            /* Paleta temática suave y armónica */
+            --c-3d: #0284c7;       /* 3D, WebGL & Canvas */
+            --c-anim: #db2777;     /* Animación & Interactividad */
+            --c-av: #8b5cf6;       /* Audio, Voz & Video Generativo */
+            --c-assets: #0d9488;   /* Bancos de Activos & Texturas */
+            --c-mkt: #d97706;      /* Analítica & Branding */
+            
             --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
-            --prio-essential-bg: #eff6ff;
-            --prio-essential-border: #93c5fd;
-            --prio-essential-text: #2563eb;
-            --prio-high-bg: #ecfdf5;
-            --prio-high-border: #a7f3d0;
-            --prio-high-text: #059669;
-            --prio-spec-bg: #f8fafc;
-            --prio-spec-border: #cbd5e1;
-            --prio-spec-text: #64748b;
+            
+            /* Prioridades */
+            --prio-tier1-bg: #eff6ff;
+            --prio-tier1-border: #93c5fd;
+            --prio-tier1-text: #2563eb;
+            --prio-tier2-bg: #ecfdf5;
+            --prio-tier2-border: #a7f3d0;
+            --prio-tier2-text: #059669;
+            --prio-tier3-bg: #f8fafc;
+            --prio-tier3-border: #cbd5e1;
+            --prio-tier3-text: #64748b;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -44,21 +49,23 @@
                 --line: #2d3748;
                 --active-tab-bg: #334155;
                 --active-tab-text: #f8fafc;
-                --p1: #38bdf8;
-                --p2: #f472b6;
-                --p3: #a78bfa;
-                --p4: #fbbf24;
-                --p5: #34d399;
+                
+                --c-3d: #38bdf8;
+                --c-anim: #f472b6;
+                --c-av: #a78bfa;
+                --c-assets: #2dd4bf;
+                --c-mkt: #fbbf24;
+                
                 --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-                --prio-essential-bg: rgba(59, 130, 246, 0.12);
-                --prio-essential-border: rgba(96, 165, 250, 0.4);
-                --prio-essential-text: #93c5fd;
-                --prio-high-bg: rgba(16, 185, 129, 0.12);
-                --prio-high-border: rgba(52, 211, 153, 0.4);
-                --prio-high-text: #6ee7b7;
-                --prio-spec-bg: rgba(148, 163, 184, 0.08);
-                --prio-spec-border: rgba(148, 163, 184, 0.25);
-                --prio-spec-text: #94a3b8;
+                --prio-tier1-bg: rgba(59, 130, 246, 0.12);
+                --prio-tier1-border: rgba(96, 165, 250, 0.4);
+                --prio-tier1-text: #93c5fd;
+                --prio-tier2-bg: rgba(16, 185, 129, 0.12);
+                --prio-tier2-border: rgba(52, 211, 153, 0.4);
+                --prio-tier2-text: #6ee7b7;
+                --prio-tier3-bg: rgba(148, 163, 184, 0.08);
+                --prio-tier3-border: rgba(148, 163, 184, 0.25);
+                --prio-tier3-text: #94a3b8;
             }
         }
 
@@ -72,21 +79,23 @@
             --line: #2d3748;
             --active-tab-bg: #334155;
             --active-tab-text: #f8fafc;
-            --p1: #38bdf8;
-            --p2: #f472b6;
-            --p3: #a78bfa;
-            --p4: #fbbf24;
-            --p5: #34d399;
+            
+            --c-3d: #38bdf8;
+            --c-anim: #f472b6;
+            --c-av: #a78bfa;
+            --c-assets: #2dd4bf;
+            --c-mkt: #fbbf24;
+            
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            --prio-essential-bg: rgba(59, 130, 246, 0.12);
-            --prio-essential-border: rgba(96, 165, 250, 0.4);
-            --prio-essential-text: #93c5fd;
-            --prio-high-bg: rgba(16, 185, 129, 0.12);
-            --prio-high-border: rgba(52, 211, 153, 0.4);
-            --prio-high-text: #6ee7b7;
-            --prio-spec-bg: rgba(148, 163, 184, 0.08);
-            --prio-spec-border: rgba(148, 163, 184, 0.25);
-            --prio-spec-text: #94a3b8;
+            --prio-tier1-bg: rgba(59, 130, 246, 0.12);
+            --prio-tier1-border: rgba(96, 165, 250, 0.4);
+            --prio-tier1-text: #93c5fd;
+            --prio-tier2-bg: rgba(16, 185, 129, 0.12);
+            --prio-tier2-border: rgba(52, 211, 153, 0.4);
+            --prio-tier2-text: #6ee7b7;
+            --prio-tier3-bg: rgba(148, 163, 184, 0.08);
+            --prio-tier3-border: rgba(148, 163, 184, 0.25);
+            --prio-tier3-text: #94a3b8;
         }
 
         * {
@@ -102,14 +111,14 @@
         }
 
         header {
-            padding: 26px 24px 10px;
+            padding: 28px 24px 12px;
             max-width: 1440px;
             margin: 0 auto;
         }
 
         h1 {
             margin: 0 0 6px;
-            font-size: 1.65rem;
+            font-size: 1.7rem;
             letter-spacing: -0.02em;
             color: var(--title);
         }
@@ -117,7 +126,7 @@
         header p {
             margin: 0;
             color: var(--muted);
-            max-width: 80ch;
+            max-width: 82ch;
         }
 
         .toolbar {
@@ -141,8 +150,8 @@
         }
 
         .btn-ctrl:hover {
-            border-color: var(--p1);
-            color: var(--p1);
+            border-color: var(--c-3d);
+            color: var(--c-3d);
         }
 
         .search-box {
@@ -165,8 +174,8 @@
         }
 
         .search-input:focus {
-            border-color: var(--p1);
-            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+            border-color: var(--c-3d);
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.18);
         }
 
         .search-icon {
@@ -204,7 +213,7 @@
             font-weight: 600;
         }
 
-        /* NAVEGADOR DE CLUSTERS HORIZONTALES */
+        /* NAVEGADOR DE ECOSISTEMAS MULTIMEDIA */
         .stage-nav-wrapper {
             max-width: 1440px;
             margin: 16px auto 0;
@@ -256,7 +265,7 @@
             display: inline-block;
         }
 
-        /* VISTAS DE DIAGRAMAS HORIZONTALES */
+        /* LAYOUT HÍBRIDO ADAPTABLE: HORIZONTAL + GRID DINÁMICO */
         .view-container {
             max-width: 1440px;
             margin: 0 auto;
@@ -264,11 +273,16 @@
         }
 
         .section-header {
-            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .section-header h2 {
-            margin: 0 0 4px;
+            margin: 0 0 3px;
             font-size: 1.25rem;
             color: var(--title);
             display: flex;
@@ -282,22 +296,55 @@
             font-size: 0.82rem;
         }
 
-        .h-diagram-scroll {
+        .view-switch {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-view {
+            padding: 3px 8px;
+            font-size: 0.74rem;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .btn-view.active {
+            background: var(--ink);
+            color: var(--bg);
+            border-color: var(--ink);
+        }
+
+        /* Pista horizontal con flujo continuo */
+        .track-wrapper {
             overflow-x: auto;
-            padding: 10px 4px 20px;
+            padding: 8px 4px 18px;
             margin-bottom: 30px;
         }
 
-        .h-diagram-track {
+        .track-wrapper.grid-mode {
+            overflow-x: visible;
+        }
+
+        .track-flow {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             align-items: stretch;
             min-width: min-content;
         }
 
-        /* TARJETA DE RECURSO */
-        .resource-card {
-            width: 320px;
+        .track-wrapper.grid-mode .track-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 18px;
+            min-width: unset;
+        }
+
+        /* TARJETA MULTIMEDIA ENRIQUECIDA */
+        .media-card {
+            width: 330px;
             flex-shrink: 0;
             background: var(--panel-card);
             border: 1px solid var(--line);
@@ -310,9 +357,14 @@
             justify-content: space-between;
             cursor: pointer;
             transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
         }
 
-        .resource-card:hover {
+        .track-wrapper.grid-mode .media-card {
+            width: 100%;
+        }
+
+        .media-card:hover {
             transform: translateY(-3px);
             border-color: var(--c);
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
@@ -326,15 +378,15 @@
             margin-bottom: 4px;
         }
 
-        .resource-card h3 {
+        .media-card h3 {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.96rem;
             font-weight: 600;
             color: var(--title);
         }
 
-        .prio-badge {
-            font-size: 0.65rem;
+        .rank-badge {
+            font-size: 0.64rem;
             font-weight: 700;
             padding: 2px 6px;
             border-radius: 4px;
@@ -343,25 +395,25 @@
             white-space: nowrap;
         }
 
-        .prio-badge.essential {
-            background: var(--prio-essential-bg);
-            color: var(--prio-essential-text);
-            border: 1px solid var(--prio-essential-border);
+        .rank-badge.tier-1 {
+            background: var(--prio-tier1-bg);
+            color: var(--prio-tier1-text);
+            border: 1px solid var(--prio-tier1-border);
         }
 
-        .prio-badge.high {
-            background: var(--prio-high-bg);
-            color: var(--prio-high-text);
-            border: 1px solid var(--prio-high-border);
+        .rank-badge.tier-2 {
+            background: var(--prio-tier2-bg);
+            color: var(--prio-tier2-text);
+            border: 1px solid var(--prio-tier2-border);
         }
 
-        .prio-badge.spec {
-            background: var(--prio-spec-bg);
-            color: var(--prio-spec-text);
-            border: 1px solid var(--prio-spec-border);
+        .rank-badge.tier-3 {
+            background: var(--prio-tier3-bg);
+            color: var(--prio-tier3-text);
+            border: 1px solid var(--prio-tier3-border);
         }
 
-        .resource-card .role {
+        .media-card .role {
             font-size: 0.72rem;
             font-weight: 600;
             color: var(--c);
@@ -370,7 +422,7 @@
             letter-spacing: 0.03em;
         }
 
-        .resource-card .desc {
+        .media-card .what {
             margin: 0 0 10px;
             color: var(--muted);
             font-size: 0.78rem;
@@ -378,7 +430,7 @@
             flex-grow: 1;
         }
 
-        .resource-card .impact {
+        .media-card .impact {
             background: rgba(0, 0, 0, 0.025);
             border-left: 2px solid var(--c);
             padding: 6px 8px;
@@ -388,16 +440,26 @@
             color: var(--ink);
         }
 
-        :root[data-theme="dark"] .resource-card .impact {
+        :root[data-theme="dark"] .media-card .impact {
             background: rgba(255, 255, 255, 0.04);
         }
 
         .card-bottom {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             padding-top: 10px;
             border-top: 1px solid var(--line);
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag-lic {
+            font-size: 0.68rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 1px 8px;
+            color: var(--muted);
         }
 
         .links-group {
@@ -421,23 +483,36 @@
             gap: 3px;
         }
 
-        .links-group a:hover {
+        .links-group a.official {
             background: var(--c);
             color: #ffffff;
         }
 
-        .step-connector {
+        .links-group a.official:hover {
+            filter: brightness(1.15);
+        }
+
+        .links-group a:not(.official):hover {
+            background: var(--c);
+            color: #ffffff;
+        }
+
+        .step-arrow {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
+            width: 20px;
             color: var(--muted);
             font-weight: bold;
             font-size: 1.1rem;
             flex-shrink: 0;
         }
 
-        /* MODAL DE DETALLE INTERACTIVO */
+        .track-wrapper.grid-mode .step-arrow {
+            display: none;
+        }
+
+        /* MODAL INTERACTIVO DE INSPECCIÓN */
         .modal-backdrop {
             position: fixed;
             inset: 0;
@@ -457,7 +532,7 @@
         .modal-box {
             background: var(--panel);
             border: 1px solid var(--line);
-            border-top: 5px solid var(--c, var(--p1));
+            border-top: 5px solid var(--c, var(--c-3d));
             border-radius: 14px;
             max-width: 580px;
             width: 100%;
@@ -493,7 +568,7 @@
         .modal-box .m-role {
             font-size: 0.78rem;
             font-weight: 600;
-            color: var(--c, var(--p1));
+            color: var(--c, var(--c-3d));
             text-transform: uppercase;
             margin-bottom: 12px;
         }
@@ -507,7 +582,7 @@
 
         .modal-box .m-impact {
             background: rgba(0, 0, 0, 0.03);
-            border-left: 3px solid var(--c, var(--p1));
+            border-left: 3px solid var(--c, var(--c-3d));
             padding: 10px 12px;
             border-radius: 0 6px 6px 0;
             margin-bottom: 18px;
@@ -538,7 +613,7 @@
             align-items: center;
             gap: 6px;
             transition: all 0.15s ease;
-            background: var(--c, var(--p1));
+            background: var(--c, var(--c-3d));
             color: #ffffff;
         }
 
@@ -559,33 +634,33 @@
 
 <body>
     <header>
-        <h1>Ecosistema Interactivo de Recursos, Diseño & Marketing</h1>
-        <p>Catálogo visual con <strong>sub-diagramas horizontales interactivos</strong>. Haz clic en cualquier tarjeta para abrir su modal de inspección y accesos directos.</p>
+        <h1>Ecosistema Multimedia &amp; Recursos Digitales</h1>
+        <p>Catálogo interactivo con las mejores herramientas de código abierto, gratuitas y de alto rendimiento para <strong>3D, WebGPU, animación, video generativo, audio y activos visuales</strong>, clasificadas por prioridad y rol técnico.</p>
         <div class="toolbar">
             <button class="btn-ctrl" id="theme" type="button" aria-label="Cambiar tema">Cambiar tema</button>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar recurso, activo o formato...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar herramienta, WebGL, TTS, audio, 3D...">
             </div>
             <div class="filter-bar">
-                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Nivel:</span>
-                <button class="filter-btn active" data-prio="all">Todos</button>
-                <button class="filter-btn" data-prio="essential">⭐ Esencial</button>
-                <button class="filter-btn" data-prio="high">🔥 Alta Relevancia</button>
-                <button class="filter-btn" data-prio="spec">🎯 Especializado</button>
+                <span style="font-size:0.8rem; color:var(--muted); font-weight:600;">Jerarquía:</span>
+                <button class="filter-btn active" data-prio="all">Todas</button>
+                <button class="filter-btn" data-prio="tier-1">👑 Top 1 / Estándar Oro</button>
+                <button class="filter-btn" data-prio="tier-2">🔥 Alta Relevancia</button>
+                <button class="filter-btn" data-prio="tier-3">🎯 Especializado</button>
             </div>
         </div>
     </header>
 
-    <!-- NAVEGADOR DE SUB-DIAGRAMAS HORIZONTALES -->
+    <!-- BARRA NAVEGADORA DE ECOSISTEMAS -->
     <div class="stage-nav-wrapper">
         <div class="stage-nav" id="stageNav"></div>
     </div>
 
-    <!-- CONTENEDOR DE DIAGRAMAS HORIZONTALES -->
+    <!-- CONTENEDOR DE DIAGRAMAS / CLUSTERS -->
     <div class="view-container" id="diagramsContainer"></div>
 
-    <!-- MODAL INTERACTIVO -->
+    <!-- MODAL DE INSPECCIÓN -->
     <div class="modal-backdrop" id="modalBackdrop">
         <div class="modal-box" id="modalBox">
             <button class="modal-close" id="modalClose">&times;</button>
@@ -593,89 +668,313 @@
             <div class="m-role" id="mRole">Rol</div>
             <div class="m-desc" id="mDesc">Descripción</div>
             <div class="m-impact" id="mImpact">Aporte</div>
+            <div class="tag-lic" id="mLic">Licencia</div>
             <div class="modal-actions" id="mActions"></div>
         </div>
     </div>
 
     <footer>
-        Ecosistema interactivo de recursos digitales y marketing. Catálogo modular desplegado en GitHub Pages.
+        Ecosistema interactivo de desarrollo multimedia y recursos de diseño. Código abierto y herramientas de producción web.
     </footer>
 
     <script>
-        const CLUSTERS = [
+        const MULTIMEDIA_ECOSYSTEM = [
             {
-                id: "assets",
-                title: "1. Activos Visuales & Multimedia",
-                desc: "Flujo horizontal de aprovisionamiento de fotos HQ, texturas PBR y componentes vectoriales",
-                color: "--p1",
-                items: [
-                    { name: "Unsplash", prio: "essential", prioLabel: "Esencial", role: "Fotografía Editorial Libre", desc: "Banco de imágenes de alta resolución curadas y libres de regalías.", impact: "Aporte: Maquetación visual realista para landing pages y banners.", links: [["Web", "https://unsplash.com/"]] },
-                    { name: "Pexels", prio: "high", prioLabel: "Alta", role: "Video de Stock & Gráficos", desc: "Colección curada de videos en 4K e imágenes gratuitas de alta calidad.", impact: "Aporte: Fondos de video dinámicos e inserts para contenido web.", links: [["Web", "https://www.pexels.com/"]] },
-                    { name: "Poly Haven", prio: "high", prioLabel: "Alta", role: "Librería 3D & Texturas PBR", desc: "Texturas PBR, fondos HDRI fotorealistas y modelos con licencia CC0.", impact: "Aporte: Iluminación y materiales físicos para entornos Three.js y 3D.", links: [["Texturas", "https://polyhaven.com/textures"]] },
-                    { name: "Unicorn Icons", prio: "spec", prioLabel: "Especializado", role: "Iconografía Microanimada", desc: "Iconos vectoriales interactivos con animaciones CSS ligeras.", impact: "Aporte: Microinteracciones en botones y navegación sin código pesado.", links: [["Catálogo", "https://unicornicons.com/icons"]] },
-                    { name: "Pixabay & Picjumbo", prio: "spec", prioLabel: "Especializado", role: "Ilustración & Fondos Alternativos", desc: "Clips, vectores y fotografía alternativa sin derechos de autor.", impact: "Aporte: Variedad de recursos para presentaciones y piezas de apoyo.", links: [["Pixabay", "https://pixabay.com/es/"], ["Picjumbo", "https://picjumbo.com/"]] }
+                id: "3d_webgpu",
+                title: "1. 3D, WebGL & Motores de Canvas",
+                desc: "Renderizado computacional 3D, mundos interactivos en el navegador y gráficos a 60+ FPS",
+                color: "--c-3d",
+                tools: [
+                    {
+                        name: "Three.js",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Motor 3D Estándar de la Web",
+                        what: "Librería líder mundial para renderizar gráficos 3D en navegadores mediante WebGL y WebGPU. Soporta shaders, físicas y modelos glTF/GLB.",
+                        impact: "Aporte: El 90% de la web interactiva 3D moderna corre sobre Three.js. Cero costes de licencias con rendimiento nativo de tarjeta gráfica.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://threejs.org/"], ["GitHub", "https://github.com/mrdoob/three.js/"]]
+                    },
+                    {
+                        name: "PixiJS",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Motor 2D WebGL de Ultra Velocidad",
+                        what: "Motor de renderizado 2D que aprovecha aceleración por hardware WebGL. Capaz de mover decenas de miles de sprites y efectos sin caídas de frames.",
+                        impact: "Aporte: Ideal para visualizaciones interactivas complejas, microjuegos y efectos visuales imposibles con el canvas DOM estándar.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://pixijs.com/"], ["GitHub", "https://github.com/pixijs/pixijs"]]
+                    },
+                    {
+                        name: "Blender 3D",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Suite de Creación & Optimización 3D",
+                        what: "Software open source de modelado, rigging y texturizado profesional. Estándar para exportar modelos ligeros en formato glTF/GLB para la web.",
+                        impact: "Aporte: Reemplaza suites costosas como Maya o 3ds Max. Crea modelos 3D optimizados para cargar en milisegundos en la web.",
+                        lic: "Open Source (GPL)",
+                        official: [["Web", "https://www.blender.org/"], ["Descargas", "https://www.blender.org/download/"]]
+                    },
+                    {
+                        name: "PlayCanvas",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Motor WebGPU Colaborativo",
+                        what: "Motor 3D ligero de alta fidelidad basado en WebGL/WebGPU con runtime 100% de código abierto.",
+                        impact: "Aporte: Perfecto para configuradores de producto en 3D interactivo en e-commerce y visualización arquitectónica en tiempo real.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://playcanvas.com/"], ["GitHub", "https://github.com/playcanvas/engine"]]
+                    },
+                    {
+                        name: "p5.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Creative Coding & Arte Generativo",
+                        what: "Librería de codificación creativa que simplifica el dibujo procedural, shaders matemáticos y gráficos reactivos a la interacción humana.",
+                        impact: "Aporte: Excelente para prototipar simulaciones físicas, data art interactivo y fondos cinemáticos interactivos.",
+                        lic: "Open Source (LGPL)",
+                        official: [["Web", "https://p5js.org/"], ["Editor", "https://editor.p5js.org/"]]
+                    }
                 ]
             },
             {
-                id: "mockups",
-                title: "2. Laboratorio Gráfico & Mockups",
-                desc: "Flujo de diseño de piezas, aislamiento de fondos y optimización de peso",
-                color: "--p2",
-                items: [
-                    { name: "Canva & Gamma", prio: "essential", prioLabel: "Esencial", role: "Diseño Rápido & Diapositivas IA", desc: "Creación ágil de piezas de marca y generación automática de presentaciones.", impact: "Aporte: Pitch decks, creativos publicitarios y documentación visual veloz.", links: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]] },
-                    { name: "Remove.bg", prio: "essential", prioLabel: "Esencial", role: "Aislamiento de Fondos Instantáneo", desc: "Eliminación automática de fondos en retratos y objetos con un solo clic.", impact: "Aporte: Recortes limpios de fotos de producto para e-commerce.", links: [["Web", "https://www.remove.bg/es/upload"]] },
-                    { name: "Mockey.ai & SedShop", prio: "high", prioLabel: "Alta", role: "Generadores de Mockups con IA", desc: "Maquetas realistas en prendas, dispositivos digitales y pósters de branding.", impact: "Aporte: Exhibición fotorrealista de diseños sin modelar en 3D.", links: [["Mockey", "https://mockey.ai/"], ["SedShop", "https://www.sedshop.co/"]] },
-                    { name: "iLoveIMG", prio: "high", prioLabel: "Alta", role: "Compresión & Conversión Masiva", desc: "Optimización por lotes de tamaño, conversión de formatos y recorte.", impact: "Aporte: Reduce peso de imágenes para elevar el puntaje en Core Web Vitals.", links: [["Editor", "https://www.iloveimg.com/es"]] },
-                    { name: "SeaArt AI", prio: "spec", prioLabel: "Especializado", role: "Suite Generativa Visual", desc: "Herramientas de edición fina asistida por difusión e inteligencia artificial.", impact: "Aporte: Generación de texturas y fondos conceptuales para proyectos.", links: [["Herramientas", "https://www.seaart.ai/ai-tools/remove-background"]] },
-                    { name: "Base64 Encoder", prio: "spec", prioLabel: "Especializado", role: "Optimización de Estilos Embebidos", desc: "Conversión de imágenes a URIs de datos en base64 para hojas CSS.", impact: "Aporte: Elimina peticiones HTTP adicionales en iconos críticos.", links: [["Conversor", "https://www.base64-image.de/"]] }
+                id: "anim_interactivity",
+                title: "2. Animación, Timelines & Movimiento",
+                desc: "Coreografías de fotogramas clave, animaciones de scroll y deformación vectorial fluida",
+                color: "--c-anim",
+                tools: [
+                    {
+                        name: "GSAP (GreenSock)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Plataforma Definitiva de Animación",
+                        what: "Motor de animación JavaScript de alto rendimiento con ScrollTrigger, timelines secuenciales y deformación SVG sin tirones.",
+                        impact: "Aporte: La librería de animación más robusta del mundo para interfaces interactivas y experiencias visuales de alta gama.",
+                        lic: "Gratis en Web (GreenSock)",
+                        official: [["Web", "https://gsap.com/"], ["Docs", "https://gsap.com/docs/v3/"]]
+                    },
+                    {
+                        name: "Motion (Framer Motion)",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Animación React & Vanilla Declarativa",
+                        what: "Librería de animación declarativa basada en resortes físicos (springs), layout transitions y detección táctil precisa.",
+                        impact: "Aporte: Reduce drásticamente las líneas de código para transiciones suaves de interfaz y modales orgánicos.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://motion.dev/"], ["GitHub", "https://github.com/motiondivision/motion"]]
+                    },
+                    {
+                        name: "Theatre.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Editor Visual de Timelines en Navegador",
+                        what: "Librería de animación JavaScript que inyecta una interfaz gráfica de edición de fotogramas clave directamente en tu aplicación web.",
+                        impact: "Aporte: Coreografía escenas de Three.js y elementos web sin adivinar tiempos numéricos a ciegas en código.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["Web", "https://www.theatrejs.com/"], ["GitHub", "https://github.com/theatre-js/theatre"]]
+                    },
+                    {
+                        name: "Anime.js",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Animación Ligera de Propiedades & SVG",
+                        what: "Motor ligero sin dependencias para animar propiedades CSS, atributos SVG, transformaciones y objetos JavaScript puros.",
+                        impact: "Aporte: Pesa menos de 15KB y permite crear microinteracciones atractivas sin sobrecargar el bundle del proyecto.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://animejs.com/"], ["GitHub", "https://github.com/juliangarnier/anime"]]
+                    }
                 ]
             },
             {
-                id: "inspiration",
-                title: "3. Inspiración UI/UX & Tipografía",
-                desc: "Flujo de patrones de interacción de apps reales y tipografía variable",
-                color: "--p3",
-                items: [
-                    { name: "Mobbin", prio: "essential", prioLabel: "Esencial", role: "Patrones de UX/UI en Producción", desc: "La mayor biblioteca de flujos reales de aplicaciones web y móviles líderes.", impact: "Aporte: Referencia exacta de onboarding, checkouts y paneles SaaS.", links: [["Explorar", "https://mobbin.com/browse/web/apps"]] },
-                    { name: "Layers.to & Rebrand", prio: "high", prioLabel: "Alta", role: "Diseño Contemporáneo & Marcas", desc: "Comunidad de diseñadores de interfaz y directorio de rediseños globales.", impact: "Aporte: Tendencias de paletas de color, glassmorphism y microestilos.", links: [["Layers.to", "https://layers.to/"], ["Rebrand", "https://www.rebrand.gallery/"]] },
-                    { name: "VarType", prio: "high", prioLabel: "Alta", role: "Tipografías Variables Dinámicas", desc: "Catálogo interactivo para experimentar con fuentes variables y pesos fluidos.", impact: "Aporte: Tipografía adaptable a tamaños de pantalla sin cargar múltiples archivos.", links: [["Catálogo", "https://www.vartype.com/"]] },
-                    { name: "LogoLounge & Logobook", prio: "spec", prioLabel: "Especializado", role: "Archivo Histórico de Identidad", desc: "Reportes anuales de tendencias de logos y biblioteca histórica de marcas.", impact: "Aporte: Inspiración conceptual para diseño de logotipos e isotipos.", links: [["LogoLounge", "https://www.logolounge.com/trend/2024-logo-trend-report"], ["Logobook", "http://logobook.com/business/publishing/"]] },
-                    { name: "No Design Foundry", prio: "spec", prioLabel: "Especializado", role: "Rasterizador Tipográfico", desc: "Herramienta experimental para rasterizado e intervención de glifos.", impact: "Aporte: Efectos visuales de texto para identidades no convencionales.", links: [["Herramienta", "https://nodesignfoundry.com/rasterizer"]] }
+                id: "audio_video_ai",
+                title: "3. Video, Audio & Generación con IA",
+                desc: "Síntesis de voz neural, modelos de video abiertos y procesamiento WebAssembly sin backend",
+                color: "--c-av",
+                tools: [
+                    {
+                        name: "FFmpeg.wasm",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Transcodificación de Video en el Cliente",
+                        what: "Port de FFmpeg compilado a WebAssembly para cortar, comprimir, convertir formatos y extraer audio directo en el navegador.",
+                        impact: "Aporte: Cero costes de procesamiento en servidor. Los usuarios procesan videos de forma instantánea y privada en su propia CPU.",
+                        lic: "Open Source (LGPL/GPL)",
+                        official: [["Web", "https://ffmpegwasm.netlify.app/"], ["GitHub", "https://github.com/ffmpegwasm/ffmpeg.wasm"]]
+                    },
+                    {
+                        name: "Kokoro TTS",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Síntesis de Voz Neuronal Ultra Ligera",
+                        what: "Modelo open-source de Text-to-Speech de 82M de parámetros con entonación hiperrealista y latencia casi nula.",
+                        impact: "Aporte: Alternativa gratuita y autoalojable a ElevenLabs. Permite narración de voz ilimitada sin pagar cuotas por caracter.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["HuggingFace", "https://huggingface.co/hexgrad/Kokoro-82M"], ["GitHub", "https://github.com/hexgrad/kokoro"]]
+                    },
+                    {
+                        name: "Tone.js",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Framework de Audio Interactivo & Sintetizadores",
+                        what: "Capa de abstracción sobre la Web Audio API que incluye sintetizadores, efectos (reverb, chorus), secuenciador y reloj musical.",
+                        impact: "Aporte: Genera audio reactivo a clics, efectos de sonido procedurales y música interactiva sin cargar pesados archivos MP3.",
+                        lic: "Open Source (MIT)",
+                        official: [["Web", "https://tonejs.github.io/"], ["GitHub", "https://github.com/Tonejs/Tone.js"]]
+                    },
+                    {
+                        name: "Wan 2.2 / HunyuanVideo",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Modelos Open Weights de Video Generativo",
+                        what: "Los modelos de generación de video de pesos abiertos más potentes de la industria (720p/1080p con física cinemática).",
+                        impact: "Aporte: Permite desplegar pipelines propios de Text-to-Video en GPUs locales o en nube sin depender de APIs privativas de pago.",
+                        lic: "Open Weights (Apache 2.0)",
+                        official: [["Wan 2.2 GitHub", "https://github.com/Wan-Video/Wan2.1"], ["HuggingFace", "https://huggingface.co/Wan-AI"]]
+                    },
+                    {
+                        name: "ComfyUI & n8n",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Orquestadores de Pipelines Multimedia",
+                        what: "ComfyUI para encadenar modelos de difusión de imagen/video mediante WebSocket, y n8n para flujos de automatización de medios.",
+                        impact: "Aporte: Conecta entrada de usuario con sintetizadores de audio y generadores visuales de forma 100% automatizada.",
+                        lic: "Open Source (GPL / Fair-code)",
+                        official: [["ComfyUI", "https://github.com/comfyanonymous/ComfyUI"], ["n8n", "https://n8n.io/"]]
+                    },
+                    {
+                        name: "Video.js",
+                        tier: "tier-3",
+                        tierLabel: "Especializado",
+                        role: "Reproductor Universal HTML5 / HLS",
+                        what: "Reproductor open-source de video y streaming adaptativo (HLS, DASH) con soporte integral de plugins y accesibilidad.",
+                        impact: "Aporte: Interfaz homogénea y personalizable en todos los dispositivos con buffering ultra optimizado.",
+                        lic: "Open Source (Apache 2.0)",
+                        official: [["Web", "https://videojs.com/"], ["GitHub", "https://github.com/videojs/video.js"]]
+                    }
                 ]
             },
             {
-                id: "marketing",
-                title: "4. Analítica, Tráfico & Ads",
-                desc: "Flujo de inteligencia competitiva, medición conductual y campañas",
-                color: "--p4",
-                items: [
-                    { name: "Google Analytics & Bitrix24", prio: "essential", prioLabel: "Esencial", role: "Métricas & Gestión Operativa", desc: "Seguimiento analítico de eventos web y panel colaborativo de tareas.", impact: "Aporte: Medición de conversión y control de entregables en equipo.", links: [["Analytics", "https://analytics.google.com/"], ["Bitrix24", "https://b24-ka7v0x.bitrix24.co/"]] },
-                    { name: "Microsoft Clarity", prio: "essential", prioLabel: "Esencial", role: "Mapas de Calor & Grabación", desc: "Grabación gratuita de sesiones y mapas de clics sin límites de tráfico.", impact: "Aporte: Identifica puntos de fricción y caídas en la experiencia de usuario.", links: [["Portal", "https://clarity.microsoft.com/"]] },
-                    { name: "Similarweb", prio: "high", prioLabel: "Alta", role: "Inteligencia Competitiva", desc: "Métricas de tráfico, fuentes de adquisición y análisis de competidores.", impact: "Aporte: Benchmarking de mercado para validar canales de tracción.", links: [["Web", "https://www.similarweb.com/es/"]] },
-                    { name: "Meta Ads Library", prio: "high", prioLabel: "Alta", role: "Espionaje Publicitario de Conversión", desc: "Biblioteca pública de anuncios activos en Facebook e Instagram.", impact: "Aporte: Análisis de los ángulos de venta y creativos de la competencia.", links: [["Biblioteca", "https://www.facebook.com/ads/library/?country=CO"]] },
-                    { name: "AnswerThePublic", prio: "high", prioLabel: "Alta", role: "Intención de Búsqueda de Usuarios", desc: "Mapeo visual de preguntas y dudas reales que las personas buscan.", impact: "Aporte: Ideas basadas en datos para artículos, FAQs y copy de ventas.", links: [["Explorar", "https://answerthepublic.com/"]] },
-                    { name: "AdCreative.ai & Rows", prio: "spec", prioLabel: "Especializado", role: "Creativos IA & Hojas de Cálculo", desc: "Generación automatizada de piezas de conversión y análisis con IA en Rows.", impact: "Aporte: Acelera campañas publicitarias y conecta APIs de datos en tablas.", links: [["AdCreative", "https://www.adcreative.ai/"], ["Rows", "https://rows.com/"]] }
+                id: "assets_libraries",
+                title: "4. Bancos de Activos, Texturas CC0 & Mockups",
+                desc: "Archivos fotorrealistas de alta resolución, texturas PBR y generadores visuales",
+                color: "--c-assets",
+                tools: [
+                    {
+                        name: "Poly Haven",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Librería Pública CC0 de Texturas & HDRIs",
+                        what: "El mayor repositorio gratuito de texturas PBR de hasta 8K, fondos de iluminación HDRI y modelos 3D con licencia de dominio público.",
+                        impact: "Aporte: Activos de calidad cinematográfica directa para Three.js y Blender sin atribución obligatoria.",
+                        lic: "Dominio Público (CC0)",
+                        official: [["Web", "https://polyhaven.com/textures"], ["HDRIs", "https://polyhaven.com/hdris"]]
+                    },
+                    {
+                        name: "Unsplash & Pexels",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Bancos de Fotografía & Video 4K Libres",
+                        what: "Millones de fotografías de alta resolución y metrajes de video en 4K curados por fotógrafos globales.",
+                        impact: "Aporte: Fondos de video dinámicos y composiciones visuales sin pagar suscripciones a bancos comerciales.",
+                        lic: "Gratis / Libre",
+                        official: [["Unsplash", "https://unsplash.com/"], ["Pexels", "https://www.pexels.com/"]]
+                    },
+                    {
+                        name: "Remove.bg & iLoveIMG",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Recorte IA & Compresión de Medios",
+                        what: "Aislamiento inmediato de fondos con IA y compresión masiva por lotes para optimizar tiempos de carga web.",
+                        impact: "Aporte: Reducción drástica del peso de assets visuales para lograr 100/100 en Google Lighthouse.",
+                        lic: "Freemium",
+                        official: [["Remove.bg", "https://www.remove.bg/es/upload"], ["iLoveIMG", "https://www.iloveimg.com/es"]]
+                    },
+                    {
+                        name: "Mockey.ai & SedShop",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Generadores de Mockups con IA",
+                        what: "Creación automática de maquetas fotorrealistas sobre ropa, dispositivos tecnológicos y afiches editoriales.",
+                        impact: "Aporte: Visualización comercial instantánea de prototipos gráficos sin sesiones fotográficas.",
+                        lic: "Freemium",
+                        official: [["Mockey.ai", "https://mockey.ai/"], ["SedShop", "https://www.sedshop.co/"]]
+                    },
+                    {
+                        name: "Unicorn Icons",
+                        tier: "tier-3",
+                        tierLabel: "Especializado",
+                        role: "Iconos Vectoriales Microanimados",
+                        what: "Catálogo de iconos interactivos con animaciones CSS ligeras embebidas en el propio código SVG.",
+                        impact: "Aporte: Microinteracciones que cobran vida al pasar el cursor sin añadir librerías JS externas.",
+                        lic: "Freemium / Open Assets",
+                        official: [["Catálogo", "https://unicornicons.com/icons"]]
+                    }
                 ]
             },
             {
-                id: "docs_learning",
-                title: "5. Documentación, PDFs & Estándares",
-                desc: "Flujo de referencia técnica, especificaciones web y análisis documental",
-                color: "--p5",
-                items: [
-                    { name: "MDN Web Docs", prio: "essential", prioLabel: "Esencial", role: "Estándar Oficial Web (W3C)", desc: "Referencia autorizada para HTML semántico, especificaciones CSS y JS nativo.", impact: "Aporte: Consulta técnica definitiva con soporte cruzado entre navegadores.", links: [["Aprender", "https://developer.mozilla.org/en-US/docs/Learn_web_development"], ["Curriculum", "https://developer.mozilla.org/en-US/curriculum/"]] },
-                    { name: "Web.dev (Google)", prio: "essential", prioLabel: "Esencial", role: "Rendimiento Web & Core Vitals", desc: "Guías oficiales del equipo de Chrome sobre métricas LCP, INP, CLS y a11y.", impact: "Aporte: Asegura que los sitios alcancen la máxima velocidad y ranking SEO.", links: [["Guías", "https://web.dev/learn/?hl=es-419"], ["Codelabs", "https://codelabs.developers.google.com/?hl=es-419&category=web"]] },
-                    { name: "iLovePDF & SmallPDF", prio: "high", prioLabel: "Alta", role: "Gestión & Traducción Documental", desc: "Compresión masiva, firma digital, división y traducción de PDFs complejos.", impact: "Aporte: Manejo rápido de contratos, especificaciones y libros técnicos.", links: [["iLovePDF", "https://www.ilovepdf.com/es"], ["SmallPDF", "https://smallpdf.com/es/traducir-pdf"]] },
-                    { name: "ChatPDF & DeepL", prio: "high", prioLabel: "Alta", role: "Traducción Neuronal & RAG PDF", desc: "Extracción conversacional con IA de documentos y traductor neuronal preciso.", impact: "Aporte: Lectura y síntesis veloz de papers científicos e informes en inglés.", links: [["ChatPDF", "https://www.chatpdf.com/"], ["DeepL", "https://www.deepl.com/es/translator"]] },
-                    { name: "Brad Woods CSS Grid", prio: "spec", prioLabel: "Especializado", role: "Generador Visual de Layouts", desc: "Constructor gráfico interactivo de estructuras Flexbox y CSS Grid moderno.", impact: "Aporte: Resuelve arquitecturas de cuadrícula complejas sin prueba y error.", links: [["Layout", "https://layout.bradwoods.io/"]] },
-                    { name: "Google Skills & SCRUMstudy", prio: "spec", prioLabel: "Especializado", role: "Certificaciones Técnicas", desc: "Catálogos formativos oficiales en Cloud, Machine Learning y metodología Scrum.", impact: "Aporte: Adquisición de certificaciones reconocidas para perfil profesional.", links: [["Google Skills", "https://www.skills.google/catalog"], ["SCRUMstudy", "https://www.scrumstudy.com/certification/scrum-fundamentals-certified"]] }
+                id: "inspiration_analytics",
+                title: "5. Inspiración UI/UX, Analítica & Docs",
+                desc: "Patrones de producto de referencia, mapas de calor y documentación oficial",
+                color: "--c-mkt",
+                tools: [
+                    {
+                        name: "Mobbin",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Biblioteca de Patrones UI/UX de Élite",
+                        what: "Catálogo con más de 300,000 pantallas reales de flujos de onboarding, checkouts y dashboards de las mejores apps del mundo.",
+                        impact: "Aporte: Resuelve dudas de arquitectura de información estudiando cómo lo solucionan empresas unicornio.",
+                        lic: "Freemium",
+                        official: [["Explorar", "https://mobbin.com/browse/web/apps"]]
+                    },
+                    {
+                        name: "Microsoft Clarity",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Mapas de Calor & Grabación de Sesiones",
+                        what: "Herramienta gratuita de analítica conductual sin límites de tráfico que graba cómo navegan tus usuarios.",
+                        impact: "Aporte: Revela exactamente dónde se pierden los usuarios o qué elementos visuales reciben más atención.",
+                        lic: "100% Gratuito (Microsoft)",
+                        official: [["Portal", "https://clarity.microsoft.com/"]]
+                    },
+                    {
+                        name: "MDN Web Docs & Web.dev",
+                        tier: "tier-1",
+                        tierLabel: "Top 1 Oro",
+                        role: "Estándares Oficiales & Core Web Vitals",
+                        what: "La documentación oficial de tecnologías web (W3C) y las guías de Google para optimización de métricas de rendimiento.",
+                        impact: "Aporte: Certeza absoluta de soporte entre navegadores y mejores prácticas de accesibilidad nativa.",
+                        lic: "Open Documentation",
+                        official: [["MDN", "https://developer.mozilla.org/en-US/"], ["Web.dev", "https://web.dev/"]]
+                    },
+                    {
+                        name: "Similarweb & Meta Ads Library",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Inteligencia Competitiva & Creativos",
+                        what: "Estimación de tráfico de competidores y repositorio público de anuncios activos en Facebook e Instagram.",
+                        impact: "Aporte: Identifica qué campañas de medios tienen éxito para validar ofertas y creativos de conversión.",
+                        lic: "Freemium / Público",
+                        official: [["Similarweb", "https://www.similarweb.com/es/"], ["Meta Ads Library", "https://www.facebook.com/ads/library/?country=CO"]]
+                    },
+                    {
+                        name: "Canva & Gamma",
+                        tier: "tier-2",
+                        tierLabel: "Alta",
+                        role: "Composición Gráfica & Pitch Decks IA",
+                        what: "Diseño visual ágil de marcas, infografías y diapositivas completas estructuradas mediante inteligencia artificial.",
+                        impact: "Aporte: Permite maquetar entregables y material corporativo en una fracción del tiempo habitual.",
+                        lic: "Freemium",
+                        official: [["Canva", "https://www.canva.com/"], ["Gamma", "https://gamma.app/"]]
+                    }
                 ]
             }
         ];
 
-        let activePrio = "all";
+        let activeTier = "all";
         let searchQuery = "";
         let activeClusterId = "all";
+        let isGridMode = false;
 
         const stageNav = document.getElementById("stageNav");
         const diagramsContainer = document.getElementById("diagramsContainer");
@@ -686,7 +985,7 @@
             const allBtn = document.createElement("button");
             allBtn.className = "stage-pill" + (activeClusterId === "all" ? " active" : "");
             allBtn.style.setProperty("--c", "var(--ink)");
-            allBtn.textContent = "🌐 Ver Todos los Ecosistemas";
+            allBtn.textContent = "🌐 Ver Todo el Ecosistema";
             allBtn.addEventListener("click", () => {
                 activeClusterId = "all";
                 updateStageNav();
@@ -694,7 +993,7 @@
             });
             stageNav.appendChild(allBtn);
 
-            CLUSTERS.forEach(c => {
+            MULTIMEDIA_ECOSYSTEM.forEach(c => {
                 const btn = document.createElement("button");
                 btn.className = "stage-pill" + (activeClusterId === c.id ? " active" : "");
                 btn.style.setProperty("--c", "var(" + c.color + ")");
@@ -721,7 +1020,7 @@
                 if (idx === 0) {
                     btn.classList.toggle("active", activeClusterId === "all");
                 } else {
-                    const c = CLUSTERS[idx - 1];
+                    const c = MULTIMEDIA_ECOSYSTEM[idx - 1];
                     btn.classList.toggle("active", activeClusterId === c.id);
                 }
             });
@@ -731,30 +1030,33 @@
             diagramsContainer.innerHTML = "";
 
             const listToRender = activeClusterId === "all" 
-                ? CLUSTERS 
-                : CLUSTERS.filter(c => c.id === activeClusterId);
+                ? MULTIMEDIA_ECOSYSTEM 
+                : MULTIMEDIA_ECOSYSTEM.filter(c => c.id === activeClusterId);
 
             listToRender.forEach(cluster => {
-                const matchedItems = cluster.items.filter(item => {
-                    const matchPrio = activePrio === "all" || item.prio === activePrio;
+                const matchedTools = cluster.tools.filter(tool => {
+                    const matchTier = activeTier === "all" || tool.tier === activeTier;
                     const q = searchQuery.toLowerCase().trim();
                     const matchSearch = !q || 
-                        item.name.toLowerCase().includes(q) || 
-                        item.role.toLowerCase().includes(q) || 
-                        item.desc.toLowerCase().includes(q) ||
-                        item.impact.toLowerCase().includes(q);
-                    return matchPrio && matchSearch;
+                        tool.name.toLowerCase().includes(q) || 
+                        tool.role.toLowerCase().includes(q) || 
+                        tool.what.toLowerCase().includes(q) ||
+                        tool.impact.toLowerCase().includes(q) ||
+                        tool.lic.toLowerCase().includes(q);
+                    return matchTier && matchSearch;
                 });
 
-                if (matchedItems.length === 0 && searchQuery) return;
+                if (matchedTools.length === 0 && searchQuery) return;
 
                 const sec = document.createElement("section");
                 sec.id = "sec-" + cluster.id;
                 sec.style.setProperty("--c", "var(" + cluster.color + ")");
-                sec.style.marginBottom = "30px";
+                sec.style.marginBottom = "34px";
 
                 const header = document.createElement("div");
                 header.className = "section-header";
+                
+                const titleCol = document.createElement("div");
                 const h2 = document.createElement("h2");
                 const dot = document.createElement("span");
                 dot.className = "stage-dot";
@@ -765,63 +1067,95 @@
                 h2.appendChild(document.createTextNode(cluster.title));
 
                 const p = document.createElement("p");
-                p.textContent = cluster.desc + " (" + matchedItems.length + " herramientas disponibles)";
-                header.appendChild(h2);
-                header.appendChild(p);
+                p.textContent = cluster.desc + " (" + matchedTools.length + " herramientas clasificadas)";
+                titleCol.appendChild(h2);
+                titleCol.appendChild(p);
+                header.appendChild(titleCol);
+
+                // Alternador de vista local (Horizontal Track vs Grid Expandida)
+                const viewSwitch = document.createElement("div");
+                viewSwitch.className = "view-switch";
+                const btnH = document.createElement("button");
+                btnH.className = "btn-view" + (!isGridMode ? " active" : "");
+                btnH.textContent = "⇄ Flujo";
+                const btnG = document.createElement("button");
+                btnG.className = "btn-view" + (isGridMode ? " active" : "");
+                btnG.textContent = "☷ Cuadrícula";
+
+                btnH.addEventListener("click", () => {
+                    isGridMode = false;
+                    renderDiagrams();
+                });
+                btnG.addEventListener("click", () => {
+                    isGridMode = true;
+                    renderDiagrams();
+                });
+
+                viewSwitch.appendChild(btnH);
+                viewSwitch.appendChild(btnG);
+                header.appendChild(viewSwitch);
+
                 sec.appendChild(header);
 
+                // Pista / Contenedor
                 const scrollWrapper = document.createElement("div");
-                scrollWrapper.className = "h-diagram-scroll";
+                scrollWrapper.className = "track-wrapper" + (isGridMode ? " grid-mode" : "");
 
-                const track = document.createElement("div");
-                track.className = "h-diagram-track";
+                const flow = document.createElement("div");
+                flow.className = "track-flow";
 
-                if (matchedItems.length === 0) {
+                if (matchedTools.length === 0) {
                     const emptyCard = document.createElement("div");
-                    emptyCard.className = "resource-card";
+                    emptyCard.className = "media-card";
                     emptyCard.style.opacity = "0.6";
-                    emptyCard.innerHTML = "<p class='desc'>Sin recursos que coincidan con los filtros actuales.</p>";
-                    track.appendChild(emptyCard);
+                    emptyCard.innerHTML = "<p class='what'>Sin herramientas que coincidan con la búsqueda o filtro de jerarquía.</p>";
+                    flow.appendChild(emptyCard);
                 } else {
-                    matchedItems.forEach((item, index) => {
+                    matchedTools.forEach((tool, index) => {
                         const card = document.createElement("div");
-                        card.className = "resource-card";
+                        card.className = "media-card";
                         card.style.setProperty("--c", "var(" + cluster.color + ")");
 
                         const top = document.createElement("div");
                         top.className = "card-top";
                         const h3 = document.createElement("h3");
-                        h3.textContent = item.name;
+                        h3.textContent = tool.name;
                         const badge = document.createElement("span");
-                        badge.className = "prio-badge " + item.prio;
-                        badge.textContent = item.prioLabel;
+                        badge.className = "rank-badge " + tool.tier;
+                        badge.textContent = tool.tierLabel;
                         top.appendChild(h3);
                         top.appendChild(badge);
                         card.appendChild(top);
 
                         const role = document.createElement("div");
                         role.className = "role";
-                        role.textContent = item.role;
+                        role.textContent = tool.role;
                         card.appendChild(role);
 
-                        const desc = document.createElement("p");
-                        desc.className = "desc";
-                        desc.textContent = item.desc;
-                        card.appendChild(desc);
+                        const what = document.createElement("p");
+                        what.className = "what";
+                        what.textContent = tool.what;
+                        card.appendChild(what);
 
                         const impact = document.createElement("div");
                         impact.className = "impact";
-                        impact.textContent = item.impact;
+                        impact.textContent = tool.impact;
                         card.appendChild(impact);
 
                         const bottom = document.createElement("div");
                         bottom.className = "card-bottom";
 
+                        const tag = document.createElement("span");
+                        tag.className = "tag-lic";
+                        tag.textContent = tool.lic;
+                        bottom.appendChild(tag);
+
                         const links = document.createElement("div");
                         links.className = "links-group";
-                        if (item.links && item.links.length) {
-                            item.links.forEach(([label, url]) => {
+                        if (tool.official && tool.official.length) {
+                            tool.official.forEach(([label, url]) => {
                                 const a = document.createElement("a");
+                                a.className = "official";
                                 a.href = url;
                                 a.target = "_blank";
                                 a.rel = "noopener noreferrer";
@@ -834,20 +1168,20 @@
                         card.appendChild(bottom);
 
                         // Click interactivo para abrir Modal
-                        card.addEventListener("click", () => openModal(item, cluster.color));
+                        card.addEventListener("click", () => openModal(tool, cluster.color));
 
-                        track.appendChild(card);
+                        flow.appendChild(card);
 
-                        if (index < matchedItems.length - 1) {
-                            const connector = document.createElement("div");
-                            connector.className = "step-connector";
-                            connector.textContent = "➔";
-                            track.appendChild(connector);
+                        if (!isGridMode && index < matchedTools.length - 1) {
+                            const arrow = document.createElement("div");
+                            arrow.className = "step-arrow";
+                            arrow.textContent = "➔";
+                            flow.appendChild(arrow);
                         }
                     });
                 }
 
-                scrollWrapper.appendChild(track);
+                scrollWrapper.appendChild(flow);
                 sec.appendChild(scrollWrapper);
                 diagramsContainer.appendChild(sec);
             });
@@ -861,18 +1195,20 @@
         const mRole = document.getElementById("mRole");
         const mDesc = document.getElementById("mDesc");
         const mImpact = document.getElementById("mImpact");
+        const mLic = document.getElementById("mLic");
         const mActions = document.getElementById("mActions");
 
-        function openModal(item, colorVar) {
+        function openModal(tool, colorVar) {
             modalBox.style.setProperty("--c", "var(" + colorVar + ")");
-            mTitle.textContent = item.name;
-            mRole.textContent = item.role + " — Prioridad: " + item.prioLabel;
-            mDesc.textContent = item.desc;
-            mImpact.textContent = item.impact;
+            mTitle.textContent = tool.name;
+            mRole.textContent = tool.role + " — Jerarquía: " + tool.tierLabel;
+            mDesc.textContent = tool.what;
+            mImpact.textContent = tool.impact;
+            mLic.textContent = "Licencia / Modelo: " + tool.lic;
 
             mActions.innerHTML = "";
-            if (item.links && item.links.length) {
-                item.links.forEach(([label, url]) => {
+            if (tool.official && tool.official.length) {
+                tool.official.forEach(([label, url]) => {
                     const a = document.createElement("a");
                     a.href = url;
                     a.target = "_blank";
@@ -893,18 +1229,18 @@
             if (e.key === "Escape") backdrop.classList.remove("open");
         });
 
-        // Búsqueda
+        // Barra de búsqueda interactiva
         document.getElementById("searchInput").addEventListener("input", (e) => {
             searchQuery = e.target.value;
             renderDiagrams();
         });
 
-        // Filtro por prioridad
+        // Filtro por jerarquía
         document.querySelectorAll(".filter-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
                 btn.classList.add("active");
-                activePrio = btn.dataset.prio;
+                activeTier = btn.dataset.prio;
                 renderDiagrams();
             });
         });
